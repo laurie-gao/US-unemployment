@@ -6,11 +6,11 @@ execute:
   echo: true
 
 book:
-  title: "YOUR PROJECT TITLE"
+  title: "US Unemployment"
   author:
-    - AUTHOR1 (UNI1)
+    - Ming Gao (mg4618)
     - AUTHOR2 (UNI2)
-  repo-url: https://github.com/YOUR_GITHUB_ACCOUNT/REPO_NAME
+  repo-url: https://github.com/laurie-gao/US-unemployment
   date: today
   page-footer:
     right: |
