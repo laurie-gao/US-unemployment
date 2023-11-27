@@ -1,1 +1,10 @@
 # Introduction
+
+The topic we chose to study is unemployment rate in the US. In particular, we are going to examine the trend of unemployment rate over the years and characteristics of the unemployed (sex, race, age, marital status, etc.). We chose this topic because it is relevant to many of us who are currently working, applying to jobs, or soon entering the job market. Moreover, with inflation slowing down and recent rapid advancements in AI, we are interested in seeing how the job market is responding. Through our studies, we hope to answer the following questions:
+
+1. How has US unemployment rate trended historically and what are the latest trends?
+2. Were there any significant fluctuations in unemployment rate over the years and what are possible explanations for those fluctuations?
+3. Are there any noticeable correlations between sex, race, age group, etc. with unemployment rate?
+4. How has the unemployment rate of different sex, race, age groups, etc. trended over the years?
+
+For those unfamiliar with the topic, a country's unemployment rate is the percentage of the country's total labor force that is unemployed and actively seeking employment. The unemployment rate, along with many other indicators, can provide insight into how an economy is performing. In this study, we will also be examining the unemployment rate of particular groups.
