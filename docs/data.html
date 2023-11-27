@@ -143,7 +143,8 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#description" id="toc-description" class="nav-link active" data-scroll-target="#description"><span class="header-section-number">2.1</span> Description</a></li>
-  <li><a href="#missing-value-analysis" id="toc-missing-value-analysis" class="nav-link" data-scroll-target="#missing-value-analysis"><span class="header-section-number">2.2</span> Missing value analysis</a></li>
+  <li><a href="#research-plan" id="toc-research-plan" class="nav-link" data-scroll-target="#research-plan"><span class="header-section-number">2.2</span> Research Plan</a></li>
+  <li><a href="#missing-value-analysis" id="toc-missing-value-analysis" class="nav-link" data-scroll-target="#missing-value-analysis"><span class="header-section-number">2.3</span> Missing value analysis</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/laurie-gao/US-unemployment/edit/main/data.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/laurie-gao/US-unemployment/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
@@ -169,9 +170,61 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="description" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="description"><span class="header-section-number">2.1</span> Description</h2>
+<p><strong>Data Source</strong><br>
+All of the unemployment rate data will be from the US Bureau of Labor Statistics <a href="https://www.bls.gov/cps/tables.htm">website</a>. The data is collected through the Current Population Survey (CPS), which is a monthly survey of households conducted by the Bureau of Census for the Bureau of Labor Statistics. There are many CPS tables on the linked website - the specific tables we will be using for our study are listed below.</p>
+<ul>
+<li><a href="https://www.bls.gov/web/empsit/cpseea10.htm">A-10. Unemployment rates by age, sex, and marital status, seasonally adjusted</a> (monthly, seasonally adjusted)
+<ul>
+<li>Time range: Oct 2022 - Oct 2023</li>
+<li>Frequency of update: monthly - the most recent update was for Oct 2023</li>
+<li>Dimensions: month, age group, sex, marital status</li>
+</ul></li>
+<li><a href="https://www.bls.gov/web/empsit/cpseea29.htm">A-29. Unemployed persons by marital status, race, Hispanic or Latino ethnicity, age, and sex</a> (Month over month, not seasonally adjusted)
+<ul>
+<li>Time range: Oct 2022 and Oct 2023</li>
+<li>Frequency of update: monthly - the most recent update was for Oct 2023</li>
+<li>Dimensions: month, sex, marital status, race, Hispanic or Latino ethnicity, age group</li>
+</ul></li>
+<li><a href="https://www.bls.gov/web/empsit/cpsee_e07.htm">E-7. Unemployed persons by age, sex, and marital status, seasonally adjusted</a> (quarterly, seasonally adjusted)
+<ul>
+<li>Time range: 2020 3rd quarter - 2023 3rd quarter</li>
+<li>Frequency of update: quarterly - the most recent update was for 2023 3rd quarter</li>
+<li>Dimensions: quarter, age group, sex, marital status</li>
+</ul></li>
+<li><a href="https://www.bls.gov/cps/cpsaat24.htm">24. Unemployed persons by marital status, race, Hispanic or Latino ethnicity, age, and sex</a> (annual)
+<ul>
+<li>Time range: 2021 - 2022</li>
+<li>Frequency of update: yearly - the most recent update was for 2022</li>
+<li>Dimensions: year, sex, marital status, race, Hispanic or Latino ethnicity, age group</li>
+</ul></li>
+</ul>
+<p><strong>Data Import</strong><br>
+The data will be downloaded directly from the US Bureau of Labor Statistics website and imported to RStudio as a csv</p>
 </section>
-<section id="missing-value-analysis" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="missing-value-analysis"><span class="header-section-number">2.2</span> Missing value analysis</h2>
+<section id="research-plan" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="research-plan"><span class="header-section-number">2.2</span> Research Plan</h2>
+<p>Each of the tables above contains different time ranges, frequency of update, and dimensions, so we will be combining the information drawn from them to answer our research questions.</p>
+<ol type="1">
+<li><p>What is the general US unemployment rate trend over recent years?<br>
+We can answer this by calculating the average unemployment rate of all the groups in table E-7 for each quarter to see the quarterly trend over time from 2020 to 2023. We can also perform similar calculations for the other tables and plot the average unemployment rate against time to see if there are any monthly or yearly trends.</p></li>
+<li><p>Were there any significant fluctuations in unemployment rate and what are possible explanations for those fluctuations?<br>
+To answer this question, we can use the same plots from question 1 and study by inspection to see if there are any noticeable dips or hikes in unemployment rate from month to month or quarter to quarter.</p></li>
+<li><p>Are there any noticeable correlations between sex, race, age group, etc. with unemployment rate?</p></li>
+</ol>
+<ul>
+<li>mosaic plots</li>
+<li>facets</li>
+<li>parallel coordinate plots</li>
+</ul>
+<ol start="4" type="1">
+<li>What is trend of the unemployment rate for different sex, race, age groups, etc. over recent years?</li>
+</ol>
+<ul>
+<li>separate plot for each group</li>
+</ul>
+</section>
+<section id="missing-value-analysis" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="missing-value-analysis"><span class="header-section-number">2.3</span> Missing value analysis</h2>
 
 
 </section>

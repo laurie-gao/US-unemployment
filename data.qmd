@@ -2,4 +2,47 @@
 
 ## Description
 
+**Data Source** \
+All of the unemployment rate data will be from the US Bureau of Labor Statistics [website](https://www.bls.gov/cps/tables.htm). The data is collected through the Current Population Survey (CPS), which is a monthly survey of households conducted by the Bureau of Census for the Bureau of Labor Statistics. There are many CPS tables on the linked website - the specific tables we will be using for our study are listed below.
+
+* [A-10. Unemployment rates by age, sex, and marital status, seasonally adjusted](https://www.bls.gov/web/empsit/cpseea10.htm) (monthly, seasonally adjusted)
+  + Time range: Oct 2022 - Oct 2023
+  + Frequency of update: monthly - the most recent update was for Oct 2023
+  + Dimensions: month, age group, sex, marital status
+  
+* [A-29. Unemployed persons by marital status, race, Hispanic or Latino ethnicity, age, and sex](https://www.bls.gov/web/empsit/cpseea29.htm) (Month over month, not seasonally adjusted)
+  + Time range: Oct 2022 and Oct 2023
+  + Frequency of update: monthly - the most recent update was for Oct 2023
+  + Dimensions: month, sex, marital status, race, Hispanic or Latino ethnicity, age group
+  
+* [E-7. Unemployed persons by age, sex, and marital status, seasonally adjusted](https://www.bls.gov/web/empsit/cpsee_e07.htm) (quarterly, seasonally adjusted)
+  + Time range: 2020 3rd quarter - 2023 3rd quarter
+  + Frequency of update: quarterly - the most recent update was for 2023 3rd quarter
+  + Dimensions: quarter, age group, sex, marital status
+  
+* [24. Unemployed persons by marital status, race, Hispanic or Latino ethnicity, age, and sex](https://www.bls.gov/cps/cpsaat24.htm) (annual)
+  + Time range: 2021 - 2022
+  + Frequency of update: yearly - the most recent update was for 2022
+  + Dimensions: year, sex, marital status, race, Hispanic or Latino ethnicity, age group
+
+**Data Import** \
+The data will be downloaded directly from the US Bureau of Labor Statistics website and imported to RStudio as a csv
+
+## Research Plan
+Each of the tables above contains different time ranges, frequency of update, and dimensions, so we will be combining the information drawn from them to answer our research questions. 
+
+1. What is the general US unemployment rate trend over recent years? \
+We can answer this by calculating the average unemployment rate of all the groups in table E-7 for each quarter to see the quarterly trend over time from 2020 to 2023. We can also perform similar calculations for the other tables and plot the average unemployment rate against time to see if there are any monthly or yearly trends. 
+
+2. Were there any significant fluctuations in unemployment rate and what are possible explanations for those fluctuations? \
+To answer this question, we can use the same plots from question 1 and study by inspection to see if there are any noticeable dips or hikes in unemployment rate from month to month or quarter to quarter. 
+
+3. Are there any noticeable correlations between sex, race, age group, etc. with unemployment rate?
+- mosaic plots
+- facets
+- parallel coordinate plots
+
+4. What is trend of the unemployment rate for different sex, race, age groups, etc. over recent years?
+- separate plot for each group
+
 ## Missing value analysis
