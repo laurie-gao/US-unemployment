@@ -3,7 +3,7 @@
 ## Description
 
 **Data Source** \
-All of the unemployment rate data will be from the US Bureau of Labor Statistics [website](https://www.bls.gov/cps/tables.htm). The data is collected through the Current Population Survey (CPS), which is a monthly survey of households conducted by the Bureau of Census for the Bureau of Labor Statistics. There are many CPS tables on the linked website - the specific tables we will be using for our study are listed below.
+All of the unemployment rate data will be from the US Bureau of Labor Statistics [website](https://www.bls.gov/cps/tables.htm). The data is collected through the Current Population Survey (CPS), which is a monthly survey of households conducted by the Bureau of Census for the Bureau of Labor Statistics. There are many CPS tables on the linked website - we want our data to be similar to the following table.
 
 * [A-10. Unemployment rates by age, sex, and marital status, seasonally adjusted](https://www.bls.gov/web/empsit/cpseea10.htm) (monthly, seasonally adjusted)
   + Time range: Oct 2022 - Oct 2023
@@ -14,19 +14,9 @@ All of the unemployment rate data will be from the US Bureau of Labor Statistics
   + Time range: Oct 2022 and Oct 2023
   + Frequency of update: monthly - the most recent update was for Oct 2023
   + Dimensions: month, sex, marital status, race, Hispanic or Latino ethnicity, age group
-  
-* [E-7. Unemployed persons by age, sex, and marital status, seasonally adjusted](https://www.bls.gov/web/empsit/cpsee_e07.htm) (quarterly, seasonally adjusted)
-  + Time range: 2020 3rd quarter - 2023 3rd quarter
-  + Frequency of update: quarterly - the most recent update was for 2023 3rd quarter
-  + Dimensions: quarter, age group, sex, marital status
-  
-* [24. Unemployed persons by marital status, race, Hispanic or Latino ethnicity, age, and sex](https://www.bls.gov/cps/cpsaat24.htm) (annual)
-  + Time range: 2021 - 2022
-  + Frequency of update: yearly - the most recent update was for 2022
-  + Dimensions: year, sex, marital status, race, Hispanic or Latino ethnicity, age group
 
 **Data Import** \
-The data will be downloaded directly from the US Bureau of Labor Statistics website and imported to RStudio as a csv
+We can not directly download the table listed above (BLS doesn't provide CSV files of them. And they are also not API accessible). We need to reconstruct a data frame that has information similar to theirs. Therefore, we use BLS Api to extract unemployment rates of different demographic groups and merge all the data we get. (ie. we extract some of the data listed in https://beta.bls.gov/dataQuery/find?st=0&r=20&q=unemployment&more=0.%2C+hispanic+orange.%2C+Hispanic&fq=survey:[ln] by API) Moreover, we extract data from 2018 to 2023 (longer than the time ranges of the above listed tables), so that if we want to do some analysis regarding COVID-19, we have data to do so.
 
 ## Research Plan
 Each of the tables above contains different time ranges, frequency of update, and dimensions, so we will be combining the information drawn from them to answer our research questions. 
@@ -46,3 +36,286 @@ To answer this question, we can use the same plots from question 1 and study by 
 - separate plot for each group
 
 ## Missing value analysis
+```{r}
+library(readr)
+library(dplyr)
+library(stringr)
+
+all_df = read.table("data/ln.series.txt", header = TRUE, sep = "\t", stringsAsFactors = FALSE)
+all_df = all_df %>%
+  filter(str_detect(series_title, "Unemployment"))%>%
+  filter(!str_detect(series_title, "Level"))%>%
+  filter(
+    absn_code == 0,
+    activity_code == 0,
+    cert_code == 0,
+    class_code == 0,
+    duration_code == 0,
+    education_code == 0,
+    entr_code == 0,
+    expr_code == 0,
+    hheader_code == 0,
+    hour_code == 0,
+    indy_code == 0,
+    jdes_code == 0,
+    look_code == 0,
+    mjhs_code == 0,
+    occupation_code == 0,
+    pcts_code == 0,
+    rjnw_code == 0,
+    rnlf_code == 0,
+    rwns_code == 0,
+    seek_code == 0,
+    vets_code == 0,
+    wkst_code == 0,
+    born_code == 0,
+    chld_code == 0,
+    disa_code == 0,
+    orig_code %in%c(0,1)
+  ) %>%
+  filter(str_detect(series_id, "LNS130|LNS140|LNU040")) %>%
+  mutate(race_code = if_else(orig_code == 1, 2, race_code)) %>%
+  filter(race_code %in% c(0,1,2,3,4)) %>%
+  filter(periodicity_code=="M") 
+all_df$series_id <- trimws(all_df$series_id)
+```
+
+```{r}
+n <- nrow(all_df) 
+size <- ceiling(n / 12) 
+
+groups <- rep(1:12, each = size)
+groups <- groups[1:n] 
+
+split_dfs <- split(all_df, groups)
+list1 <- split_dfs[1:4]
+list2 <- split_dfs[5:12]
+```
+
+
+```{r}
+#install.packages("devtools") 
+#devtools::install_github("mikeasilva/blsAPI") 
+library(rjson)
+library(blsAPI)
+library(ggplot2)
+
+data <- data.frame(
+  year = character(),
+  period = character(),
+  periodName = character(),
+  value = character(),
+  rate = logical(),
+  sex = character(),
+  race = character(),
+  age = character(),
+  marital = character(),
+  stringsAsFactors = FALSE
+)
+```
+
+```{r}
+## Process results
+apiDF <- function(data,rate,series_title,sexs_code,race_code,ages_code,mari_code) {
+  sexs_value <- if (sexs_code == 1) {
+    "Men"
+  } else if (sexs_code == 2) {
+    "Women"
+  } else {
+    "Both"
+  }
+  
+  race_value <- if (race_code == 1) {
+    "White"
+  } else if (race_code == 2) {
+    "Latino"
+  } else if (race_code == 3) {
+    "Black"
+  } else if (race_code == 4) {
+    "Asian"
+  } else {
+    "All"
+  }
+   
+  ages_value <- if (ages_code == 7) {
+    "16-17"
+  } else if (ages_code == 8) {
+    "16-19"
+  } else if (ages_code == 10) {
+    "16-24"
+  } else if (ages_code == 13) {
+    "18-19"
+  } else if (ages_code == 15) {
+    "18-"
+  } else if (ages_code == 17) {
+    "20-"
+  } else if (ages_code == 20) {
+    "20-24"
+  } else if (ages_code == 22) {
+    "20-64"
+  } else if (ages_code == 28) {
+    "25-"
+  } else if (ages_code == 30) {
+    "25-29"
+  } else if (ages_code == 31) {
+    "25-34"
+  } else if (ages_code == 33) {
+    "25-54"
+  } else if (ages_code == 36) {
+    "30-34"
+  } else if (ages_code == 37) {
+    "35-39"
+  } else if (ages_code == 38) {
+    "35-44"
+  } else if (ages_code == 39) {
+    "40-44"
+  } else if (ages_code == 40) {
+    "45-"
+  } else if (ages_code == 41) {
+    "45-49"
+  } else if (ages_code == 42) {
+    "45-54"
+  } else if (ages_code == 44) {
+    "50-54"
+  } else if (ages_code == 45) {
+    "55-"
+  } else if (ages_code == 48) {
+    "55-59"
+  } else if (ages_code == 49) {
+    "55-64"
+  } else if (ages_code == 56) {
+    "60-61"
+  } else if (ages_code == 57) {
+    "60-64" 
+  } else if (ages_code == 61) {
+    "62-64"
+  } else if (ages_code == 65) {
+    "65-"
+  } else if (ages_code == 66) {
+    "65-69"
+  } else if (ages_code == 72) {
+    "70-"
+  } else if (ages_code == 73) {
+    "70-74"
+  } else if (ages_code == 78) {
+    "75-"
+  } else {
+    "All"
+  }
+  
+  mari_value <- if (mari_code == 1) {
+    "Never Married"
+  } else if (mari_code == 2) {
+    "Married, spouse present"
+  } else if (mari_code == 9) {
+    "Widdowed, divorced, or seperated"
+  } else {
+    "All"
+  }
+  
+  df  <- data %>%
+          select(-footnotes,-latest) %>%
+          mutate(rate, title=series_title, sex=sexs_value, race=race_value, age=ages_value, mari=mari_value)
+  return(df)
+}
+```
+
+```{r}
+current_df <- list1[[1]]
+  ## Pull the data via the API
+  payload <- list(
+    'seriesid'  = current_df$series_id,
+    'startyear' = 2018,
+    'endyear'   = 2023,
+    'registrationKey'='9e0f46de2cb9444b808f4b26131459ce') #38573dc63f3d4016a425126b9e52903e
+  response <- blsAPI(payload, 2)
+  json     <- fromJSON(response)
+```
+
+```{r}
+library(jsonlite)
+for (i in 1:4) {
+  current_df <- list1[[i]]
+  ## Pull the data via the API
+  payload <- list(
+    'seriesid'  = current_df$series_id,
+    'startyear' = 2018,
+    'endyear'   = 2023,
+    'registrationKey'='9e0f46de2cb9444b808f4b26131459ce') #38573dc63f3d4016a425126b9e52903e
+  response <- blsAPI(payload, 2)
+  json     <- jsonlite::fromJSON(response)
+  for (j in 1:nrow(current_df)) {
+  single_data  <- apiDF(json$Results$series$data[[j]], series_title=current_df[j,]$series_title, rate=TRUE, sexs_code=current_df[j,]$sexs_code, race_code=current_df[j,]$race_code, ages_code=current_df[j,]$ages_code, mari_code =current_df[j,]$mari_code)
+  data<- rbind(data, single_data)
+  }
+}
+```
+
+```{r}
+for (i in 1:8) {
+  current_df <- list2[[i]]
+  ## Pull the data via the API
+  payload <- list(
+    'seriesid'  = current_df$series_id,
+    'startyear' = 2018,
+    'endyear'   = 2023,
+    'registrationKey'='38573dc63f3d4016a425126b9e52903e') 
+  response <- blsAPI(payload, 2)
+  json     <- jsonlite::fromJSON(response)
+  
+  for (j in 1:nrow(current_df)) {
+  single_data  <- apiDF(json$Results$series$data[[j]], series_title=current_df[j,]$series_title, rate=TRUE, sexs_code=current_df[j,]$sexs_code, race_code=current_df[j,]$race_code, ages_code=current_df[j,]$ages_code, mari_code =current_df[j,]$mari_code)
+  data<- rbind(data, single_data)
+  }
+}
+```
+
+
+
+```{r}
+library(readr)
+write_csv(data, "data/data.csv")
+```
+
+```{r}
+head(data)
+```
+
+```{r}
+library(tidyr)
+data1 = data %>%
+  mutate(time = str_c(year, " ",period)) %>%
+  select(time, title, value)
+```
+
+```{r}
+library(forcats)
+data2 = data1 %>%
+  mutate(value = as.numeric(value)) %>%
+  mutate(missing=ifelse(is.na(value), "yes", "no")) %>%
+  mutate(case = as.numeric(factor(title)))
+ggplot(data2, aes(x=title, y=fct_rev(time), fill=missing))+
+  geom_tile(color="white")+
+  scale_fill_viridis_d()+
+  theme_bw()+
+  theme(axis.text.y = element_text(size = rel(0.5)),
+        axis.text.x = element_text(angle = 90, vjust = 0.5, size = rel(0.1)))
+```
+```{r}
+data3 = data2 %>%
+  mutate(missingval=ifelse(missing=="no",0,1)) %>%
+  group_by(title)%>%
+  mutate(summissval=sum(missingval)) %>%
+  ungroup()
+
+data3 = data3 %>%
+  filter(summissval>0)
+ggplot(data3, aes(x=title, y=fct_rev(time), fill=missing))+
+  geom_tile(color="white")+
+  scale_fill_viridis_d()+
+  theme_bw()+
+  theme(axis.text.y = element_text(size = rel(0.5)),
+        axis.text.x = element_text(angle = 90, vjust = 0.5, size = rel(0.5)))
+```
+
+We find no NAs in most cases. But in some cases, data is not recorded every month. For example, (Unadj) Unemployment Rate - 16-17 yrs., Asian is recorded approximately four times a year, but the months it is recorded seem randomly selected. Overall, we find no evidence that missing months of different unemployment rates are associated with each other.   
