@@ -16,7 +16,7 @@ All of the unemployment rate data will be from the US Bureau of Labor Statistics
   + Dimensions: month, sex, marital status, race, Hispanic or Latino ethnicity, age group
 
 **Data Import** \
-We can not directly download the table listed above (BLS doesn't provide CSV files of them. And they are also not API accessible). We need to reconstruct a data frame that has information similar to theirs. Therefore, we use BLS Api to extract unemployment rates of different demographic groups and merge all the data we get. When extracting data, we refer to LN series id list – Labor force statistics including the national unemployment rate (https://www.bls.gov/cps/data.htm) and put the series_id of the information we need into the api query.
+We can not directly download the table listed above (BLS doesn't provide CSV files of them. And they are also not API accessible). We need to reconstruct a data frame that has information similar to theirs. Therefore, we use BLS Api to extract unemployment rates of different demographic groups and merge all the data we get. When extracting data, we refer to LN series id list – Labor force statistics including the national unemployment rate (https://www.bls.gov/cps/data.htm) and put the series_id of the information we need into the api query. (ie. we extract some of the data listed in https://beta.bls.gov/dataQuery/find?st=0&r=20&q=unemployment&more=0.%2C+hispanic+orange.%2C+Hispanic&fq=survey:[ln] by API)
 
 ## Research Plan
 Each of the tables above contains different time ranges, frequency of update, and dimensions, so we will be combining the information drawn from them to answer our research questions. 
