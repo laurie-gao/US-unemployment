@@ -16,27 +16,9 @@ All of the unemployment rate data will be from the US Bureau of Labor Statistics
   + Dimensions: month, sex, marital status, race, Hispanic or Latino ethnicity, age group
 
 **Data Import** \
-We can not directly download the table listed above (BLS doesn't provide CSV files of them. And they are also not API accessible). We need to reconstruct a data frame that has information similar to theirs. Therefore, we use BLS Api to extract unemployment rates of different demographic groups and merge all the data we get. (ie. we extract some of the data listed in https://beta.bls.gov/dataQuery/find?st=0&r=20&q=unemployment&more=0.%2C+hispanic+orange.%2C+Hispanic&fq=survey:[ln] by API) Moreover, we extract data from 2018 to 2023 (longer than the time ranges of the above listed tables), so that if we want to do some analysis regarding COVID-19, we have data to do so.
+We can not directly download the table listed above (BLS doesn't provide CSV files of them. And they are also not API accessible). We need to reconstruct a data frame that has information similar to theirs. Therefore, we use BLS Api to extract unemployment rates of different demographic groups and merge all the data we get. (ie. we extract some of the data listed in [BLS Data](https://beta.bls.gov/dataQuery/find?st=0&r=20&q=unemployment&more=0.%2C+hispanic+orange.%2C+Hispanic&fq=survey) by API) Moreover, we extract data from 2018 to 2023 (longer than the time ranges of the above listed tables), so that if we want to do some analysis regarding COVID-19, we have data to do so.
 
-## Research Plan
-Each of the tables above contains different time ranges, frequency of update, and dimensions, so we will be combining the information drawn from them to answer our research questions. 
-
-1. What is the general US unemployment rate trend over recent years? \
-We can answer this by calculating the average unemployment rate of all the groups in table E-7 for each quarter to see the quarterly trend over time from 2020 to 2023. We can also perform similar calculations for the other tables and plot the average unemployment rate against time to see if there are any monthly or yearly trends. 
-
-2. Were there any significant fluctuations in unemployment rate and what are possible explanations for those fluctuations? \
-To answer this question, we can use the same plots from question 1 and study by inspection to see if there are any noticeable dips or hikes in unemployment rate from month to month or quarter to quarter. 
-
-3. Are there any noticeable correlations between sex, race, age group, etc. with unemployment rate?
-- mosaic plots
-- facets
-- parallel coordinate plots
-
-4. What is trend of the unemployment rate for different sex, race, age groups, etc. over recent years?
-- separate plot for each group
-
-## Missing value analysis
-```{r}
+```{r, message=FALSE, warning=FALSE}
 library(readr)
 library(dplyr)
 library(stringr)
@@ -80,7 +62,7 @@ all_df = all_df %>%
 all_df$series_id <- trimws(all_df$series_id)
 ```
 
-```{r}
+```{r, message=FALSE, warning=FALSE}
 n <- nrow(all_df) 
 size <- ceiling(n / 12) 
 
@@ -93,7 +75,7 @@ list2 <- split_dfs[5:12]
 ```
 
 
-```{r}
+```{r, message=FALSE, warning=FALSE}
 #install.packages("devtools") 
 #devtools::install_github("mikeasilva/blsAPI") 
 library(rjson)
@@ -114,7 +96,7 @@ data <- data.frame(
 )
 ```
 
-```{r}
+```{r, message=FALSE, warning=FALSE}
 ## Process results
 apiDF <- function(data,rate,series_title,sexs_code,race_code,ages_code,mari_code) {
   sexs_value <- if (sexs_code == 1) {
@@ -220,7 +202,7 @@ apiDF <- function(data,rate,series_title,sexs_code,race_code,ages_code,mari_code
 }
 ```
 
-```{r}
+```{r, message=FALSE, warning=FALSE}
 current_df <- list1[[1]]
   ## Pull the data via the API
   payload <- list(
@@ -232,7 +214,7 @@ current_df <- list1[[1]]
   json     <- fromJSON(response)
 ```
 
-```{r}
+```{r, message=FALSE, warning=FALSE}
 library(jsonlite)
 for (i in 1:4) {
   current_df <- list1[[i]]
@@ -251,7 +233,7 @@ for (i in 1:4) {
 }
 ```
 
-```{r}
+```{r, message=FALSE, warning=FALSE}
 for (i in 1:8) {
   current_df <- list2[[i]]
   ## Pull the data via the API
@@ -272,23 +254,40 @@ for (i in 1:8) {
 
 
 
-```{r}
+```{r, message=FALSE, warning=FALSE}
 library(readr)
 write_csv(data, "data/data.csv")
 ```
 
-```{r}
+```{r, message=FALSE, warning=FALSE}
 head(data)
 ```
 
-```{r}
+## Research Plan
+The dataset we constructed from the previous part contains monthly unemployment rates from 2018 to 2023 broken down by sex, race, age, and marital status. This will enable us to answer our research questions from the introduction.
+
+1. What is the general US unemployment rate trend over recent years? \
+We can answer this by calculating the average unemployment rate of all the groups for each quarter and creating a line graph to see the quarterly trend over time. We can also calculate the average unemployment rate per month and per year to see if there are any monthly or yearly trends. We can use a smoother to observe the overall long-term trend. 
+
+2. Were there any significant fluctuations in unemployment rate and what are possible explanations for those fluctuations? \
+To answer this question, we can use the same plots from question 1 and see if there are any noticeable dips or hikes in unemployment rate from month to month, quarter to quarter, and year to year.
+
+3. Are there any noticeable correlations between sex, race, age group, etc. with unemployment rate?
+To answer this question, we can calculate the average unemployment rate for each category of the categorical variables and see if there is a significant difference. For example, we can calculate the average unemployment rate for male and female and see if there is a significant difference between the two groups. To see whether there is a combined effect of two or more groups on unemployment rate (ex. is unemployment rate higher for white males than black females), we can use various visualization techniques for categorical variables from class such as mosaic plots. 
+
+4. What is trend of the unemployment rate for different sex, race, age groups, etc. over recent years?
+We can answer this by creating separate time series plots for each group from 2018 to 2023 and observe if there are any monthly, quarterly, and yearly trends. 
+
+## Missing value analysis
+
+```{r, message=FALSE, warning=FALSE}
 library(tidyr)
 data1 = data %>%
   mutate(time = str_c(year, " ",period)) %>%
   select(time, title, value)
 ```
 
-```{r}
+```{r, message=FALSE, warning=FALSE}
 library(forcats)
 data2 = data1 %>%
   mutate(value = as.numeric(value)) %>%
@@ -301,7 +300,7 @@ ggplot(data2, aes(x=title, y=fct_rev(time), fill=missing))+
   theme(axis.text.y = element_text(size = rel(0.5)),
         axis.text.x = element_text(angle = 90, vjust = 0.5, size = rel(0.1)))
 ```
-```{r}
+```{r, message=FALSE, warning=FALSE}
 data3 = data2 %>%
   mutate(missingval=ifelse(missing=="no",0,1)) %>%
   group_by(title)%>%
