@@ -295,8 +295,8 @@ ggplot(data2, aes(x=case, y=fct_rev(time), fill=missing))+
   scale_fill_viridis_d()+
   scale_x_continuous(breaks = seq(min(data2$case), max(data2$case), by = 10))+
   theme_bw()+
-  theme(axis.text.y = element_text(size = rel(1.0)),
-        axis.text.x = element_text(angle = 90, vjust = 0.5, size = rel(1.0))) +
+  theme(axis.text.y = element_text(size = rel(1.5)),
+        axis.text.x = element_text(angle = 90, vjust = 0.5, size = rel(1.5))) +
   labs(x = "Group", y = "Time")
 ```
 
@@ -313,8 +313,8 @@ ggplot(data3, aes(x=substr(title, 8, nchar(title)), y=fct_rev(time), fill=missin
   geom_tile(color="white")+
   scale_fill_viridis_d()+
   theme_bw()+
-  theme(axis.text.y = element_text(size = rel(1.0)),
-        axis.text.x = element_text(angle = 90, vjust = 0.5, size = rel(1.0))) +
+  theme(axis.text.y = element_text(size = rel(1.5)),
+        axis.text.x = element_text(angle = 90, vjust = 0.5, size = rel(1.5))) +
    labs(x = "Group Title", y = "Time")
 ```
 
