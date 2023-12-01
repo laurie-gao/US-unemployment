@@ -1,3 +1,9 @@
+---
+title: "edav_finalPro_check"
+output: html_document
+date: "2023-11-29"
+---
+
 # Data
 
 ## Description
@@ -16,9 +22,14 @@ All of the unemployment rate data will be from the US Bureau of Labor Statistics
   + Dimensions: month, sex, marital status, race, Hispanic or Latino ethnicity, age group
 
 **Data Import** \
-We can not directly download the table listed above (BLS doesn't provide CSV files of them. And they are also not API accessible). We need to reconstruct a data frame that has information similar to theirs. Therefore, we use BLS Api to extract unemployment rates of different demographic groups and merge all the data we get. (ie. we extract some of the data listed in [BLS Data](https://beta.bls.gov/dataQuery/find?st=0&r=20&q=unemployment&more=0.%2C+hispanic+orange.%2C+Hispanic&fq=survey) by API) Moreover, we extract data from 2018 to 2023 (longer than the time ranges of the above listed tables), so that if we want to do some analysis regarding COVID-19, we have data to do so.
+We can not directly download the table listed above (BLS doesn't provide CSV files of them. And they are also not API accessible). We need to reconstruct a data frame that has information similar to theirs. Therefore, we use BLS Api to extract unemployment rates of different demographic groups and merge all the data we get. When extracting data, we refer to [LN series id list – Labor force statistics including the national unemployment rate](https://www.bls.gov/cps/data.htm) and put the series_id of the information we need into the api query. (ie. we extract some of the data listed [here](https://beta.bls.gov/dataQuery/find?st=0&r=20&q=unemployment&more=0.%2C+hispanic+orange.%2C+Hispanic&fq=survey:[ln]) by API) Moreover, we extract data from 2018 to 2023 (longer than the time ranges of the above listed tables), so that if we want to do some analysis regarding COVID-19, we have data to do so.
 
-```{r, message=FALSE, warning=FALSE}
+```{r setup}
+knitr::opts_chunk$set(warning = FALSE)
+```
+
+```{r}
+knitr::opts_chunk$set(fig.width=14, fig.height=16)
 library(readr)
 library(dplyr)
 library(stringr)
@@ -62,7 +73,7 @@ all_df = all_df %>%
 all_df$series_id <- trimws(all_df$series_id)
 ```
 
-```{r, message=FALSE, warning=FALSE}
+```{r}
 n <- nrow(all_df) 
 size <- ceiling(n / 12) 
 
@@ -75,7 +86,7 @@ list2 <- split_dfs[5:12]
 ```
 
 
-```{r, message=FALSE, warning=FALSE}
+```{r}
 #install.packages("devtools") 
 #devtools::install_github("mikeasilva/blsAPI") 
 library(rjson)
@@ -96,7 +107,7 @@ data <- data.frame(
 )
 ```
 
-```{r, message=FALSE, warning=FALSE}
+```{r}
 ## Process results
 apiDF <- function(data,rate,series_title,sexs_code,race_code,ages_code,mari_code) {
   sexs_value <- if (sexs_code == 1) {
@@ -202,19 +213,8 @@ apiDF <- function(data,rate,series_title,sexs_code,race_code,ages_code,mari_code
 }
 ```
 
-```{r, message=FALSE, warning=FALSE}
-current_df <- list1[[1]]
-  ## Pull the data via the API
-  payload <- list(
-    'seriesid'  = current_df$series_id,
-    'startyear' = 2018,
-    'endyear'   = 2023,
-    'registrationKey'='9e0f46de2cb9444b808f4b26131459ce') #38573dc63f3d4016a425126b9e52903e
-  response <- blsAPI(payload, 2)
-  json     <- fromJSON(response)
-```
 
-```{r, message=FALSE, warning=FALSE}
+```{r}
 library(jsonlite)
 for (i in 1:4) {
   current_df <- list1[[i]]
@@ -233,7 +233,7 @@ for (i in 1:4) {
 }
 ```
 
-```{r, message=FALSE, warning=FALSE}
+```{r}
 for (i in 1:8) {
   current_df <- list2[[i]]
   ## Pull the data via the API
@@ -252,14 +252,12 @@ for (i in 1:8) {
 }
 ```
 
-
-
-```{r, message=FALSE, warning=FALSE}
+```{r}
 library(readr)
 write_csv(data, "data/data.csv")
 ```
 
-```{r, message=FALSE, warning=FALSE}
+```{r}
 head(data)
 ```
 
@@ -279,28 +277,30 @@ To answer this question, we can calculate the average unemployment rate for each
 We can answer this by creating separate time series plots for each group from 2018 to 2023 and observe if there are any monthly, quarterly, and yearly trends. 
 
 ## Missing value analysis
-
-```{r, message=FALSE, warning=FALSE}
+```{r}
 library(tidyr)
 data1 = data %>%
   mutate(time = str_c(year, " ",period)) %>%
   select(time, title, value)
 ```
 
-```{r, message=FALSE, warning=FALSE}
+```{r}
 library(forcats)
 data2 = data1 %>%
   mutate(value = as.numeric(value)) %>%
   mutate(missing=ifelse(is.na(value), "yes", "no")) %>%
   mutate(case = as.numeric(factor(title)))
-ggplot(data2, aes(x=title, y=fct_rev(time), fill=missing))+
+ggplot(data2, aes(x=case, y=fct_rev(time), fill=missing))+
   geom_tile(color="white")+
   scale_fill_viridis_d()+
+  scale_x_continuous(breaks = seq(min(data2$case), max(data2$case), by = 10))+
   theme_bw()+
-  theme(axis.text.y = element_text(size = rel(0.5)),
-        axis.text.x = element_text(angle = 90, vjust = 0.5, size = rel(0.1)))
+  theme(axis.text.y = element_text(size = rel(1.5)),
+        axis.text.x = element_text(angle = 90, vjust = 0.5, size = rel(1.5))) +
+  labs(x = "Group", y = "Time")
 ```
-```{r, message=FALSE, warning=FALSE}
+
+```{r}
 data3 = data2 %>%
   mutate(missingval=ifelse(missing=="no",0,1)) %>%
   group_by(title)%>%
@@ -309,12 +309,13 @@ data3 = data2 %>%
 
 data3 = data3 %>%
   filter(summissval>0)
-ggplot(data3, aes(x=title, y=fct_rev(time), fill=missing))+
+ggplot(data3, aes(x=substr(title, 8, nchar(title)), y=fct_rev(time), fill=missing))+
   geom_tile(color="white")+
   scale_fill_viridis_d()+
   theme_bw()+
-  theme(axis.text.y = element_text(size = rel(0.5)),
-        axis.text.x = element_text(angle = 90, vjust = 0.5, size = rel(0.5)))
+  theme(axis.text.y = element_text(size = rel(1.5)),
+        axis.text.x = element_text(angle = 90, vjust = 0.5, size = rel(1.5))) +
+   labs(x = "Group Title", y = "Time")
 ```
 
-We find no NAs in most cases. But in some cases, data is not recorded every month. For example, (Unadj) Unemployment Rate - 16-17 yrs., Asian is recorded approximately four times a year, but the months it is recorded seem randomly selected. Overall, we find no evidence that missing months of different unemployment rates are associated with each other.   
+We find no NAs in most cases. But in some cases, data is not recorded every month. For example, (Unadj) Unemployment Rate - 16-17 yrs., Asian is recorded approximately four times a year, but the months it is recorded seem randomly selected. Overall, we find no evidence that missing months of different unemployment rates are associated with each other. 
