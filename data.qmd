@@ -24,24 +24,6 @@ All of the unemployment rate data will be from the US Bureau of Labor Statistics
 **Data Import** \
 We can not directly download the table listed above (BLS doesn't provide CSV files of them. And they are also not API accessible). We need to reconstruct a data frame that has information similar to theirs. Therefore, we use BLS Api to extract unemployment rates of different demographic groups and merge all the data we get. When extracting data, we refer to LN series id list – Labor force statistics including the national unemployment rate (https://www.bls.gov/cps/data.htm) and put the series_id of the information we need into the api query. (ie. we extract some of the data listed in https://beta.bls.gov/dataQuery/find?st=0&r=20&q=unemployment&more=0.%2C+hispanic+orange.%2C+Hispanic&fq=survey:[ln] by API) Moreover, we extract data from 2018 to 2023 (longer than the time ranges of the above listed tables), so that if we want to do some analysis regarding COVID-19, we have data to do so.
 
-## Research Plan
-Each of the tables above contains different time ranges, frequency of update, and dimensions, so we will be combining the information drawn from them to answer our research questions. 
-
-1. What is the general US unemployment rate trend over recent years? \
-We can answer this by calculating the average unemployment rate of all the groups in table E-7 for each quarter to see the quarterly trend over time from 2020 to 2023. We can also perform similar calculations for the other tables and plot the average unemployment rate against time to see if there are any monthly or yearly trends. 
-
-2. Were there any significant fluctuations in unemployment rate and what are possible explanations for those fluctuations? \
-To answer this question, we can use the same plots from question 1 and study by inspection to see if there are any noticeable dips or hikes in unemployment rate from month to month or quarter to quarter. 
-
-3. Are there any noticeable correlations between sex, race, age group, etc. with unemployment rate?
-- mosaic plots
-- facets
-- parallel coordinate plots
-
-4. What is trend of the unemployment rate for different sex, race, age groups, etc. over recent years?
-- separate plot for each group
-
-## Missing value analysis
 ```{r}
 knitr::opts_chunk$set(fig.width=10, fig.height=12)
 library(readr)
@@ -266,8 +248,6 @@ for (i in 1:8) {
 }
 ```
 
-
-
 ```{r}
 library(readr)
 write_csv(data, "data/data.csv")
@@ -277,6 +257,24 @@ write_csv(data, "data/data.csv")
 head(data)
 ```
 
+## Research Plan
+Each of the tables above contains different time ranges, frequency of update, and dimensions, so we will be combining the information drawn from them to answer our research questions. 
+
+1. What is the general US unemployment rate trend over recent years? \
+We can answer this by calculating the average unemployment rate of all the groups in table E-7 for each quarter to see the quarterly trend over time from 2020 to 2023. We can also perform similar calculations for the other tables and plot the average unemployment rate against time to see if there are any monthly or yearly trends. 
+
+2. Were there any significant fluctuations in unemployment rate and what are possible explanations for those fluctuations? \
+To answer this question, we can use the same plots from question 1 and study by inspection to see if there are any noticeable dips or hikes in unemployment rate from month to month or quarter to quarter. 
+
+3. Are there any noticeable correlations between sex, race, age group, etc. with unemployment rate?
+- mosaic plots
+- facets
+- parallel coordinate plots
+
+4. What is trend of the unemployment rate for different sex, race, age groups, etc. over recent years?
+- separate plot for each group
+
+## Missing value analysis
 ```{r}
 library(tidyr)
 data1 = data %>%
