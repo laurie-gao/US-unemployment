@@ -281,7 +281,7 @@ data1 = data %>%
 
 ```{r}
 library(forcats)
-# for a better visualization result, we give each group's tiltle a code to avoid printing out all 530 group titles on the x-axis
+# for a better visualization result, we give each group's title a code to avoid printing out all 530 group titles on the x-axis
 data2 = data1 %>%
   mutate(value = as.numeric(value)) %>%
   mutate(missing=ifelse(is.na(value), "yes", "no")) %>%
