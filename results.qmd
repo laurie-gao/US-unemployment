@@ -10,7 +10,7 @@ Our project focuses on unemployment rates during COVID-19 pandemic. According to
 
 ```{r setup}
 knitr::opts_chunk$set(warning = FALSE)
-knitr::opts_chunk$set(fig.width=14, fig.height=16)
+knitr::opts_chunk$set(fig.width=30, fig.height=30)
 ```
 
 ```{r}
@@ -227,7 +227,7 @@ URtrend = UR %>%
   rename(UR = value)
 ```
 
-```{r}
+```{r, fig.width=30, fig.height=30}
 theme_heat <- theme_classic() +
   theme(axis.line = element_blank(),
         axis.ticks = element_blank())
@@ -240,11 +240,14 @@ ggplot(URtrend3, aes(x = age, y = race)) +
   scale_fill_gradient2(low = "black", mid = "white",
                         high = "red", midpoint = .2) +
   facet_wrap(~sex) + theme_heat+
-  theme_grey(25) +
-  theme(strip.text = element_text(size = 12)) +
+  theme_grey(50) +
+  theme(strip.text = element_text(size = 50)) +
   labs(title = "Figure 5 unemployment severity given age and sex (April 2020)") +
-  theme(plot.title = element_text(size = 22)) +
-  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+  theme(plot.title = element_text(size = 50)) +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))+
+  theme(legend.text = element_text(size = 25))+
+  theme(legend.title = element_text(size = 35))+
+  theme(legend.key.size = unit(3, "cm"))
 ```
 
 From Figure 5, it can be observed that among 20-24-year-old males, Asians face the most severe unemployment issues, among 25-34-year-old males, Blacks face the most severe unemployment issues, among 35-44-year-old males, Latinos face the most severe unemployment issues, among 45-54-year-old males, Blacks face the most severe unemployment issues, among 55-64-year-old males, Asians and Latinos face the most severe unemployment issues, and among males aged 65 and older, Asians face the most severe unemployment issues. Among 20-24-year-old females, Latinos face the most severe unemployment issues, among 25-34-year-old females, Blacks face the most severe unemployment issues, among 35-44-year-old females, Latinos face the most severe unemployment issues, among 45-54-year-old females, Latinos face the most severe unemployment issues, among 55-64-year-old females, Asians face the most severe unemployment issues, and among females aged 65 and older, Latinos face the most severe unemployment issues.
@@ -263,9 +266,13 @@ state_UR = read_csv("data/state_UR.csv", show_col_types = FALSE) %>%
   rename(region=state)
 ```
 
-```{r}
+```{r, fig.width=18, fig.height=15}
 state_choropleth(state_UR,
-                 title = "Figure 6 unemployment severity by state (April 2020)",legend = "Unemployment Rate (%)")
+                 title = "Figure 6 unemployment severity by state (April 2020)",legend = "Unemployment Rate (%)")+
+theme(plot.title = element_text(size = 30))+
+theme(legend.text = element_text(size = 20))+
+theme(legend.title = element_text(size = 17))
+
 ```
 
 From Figure 6, we can observe that in April 2020, the states of Nevada, Illinois, Michigan, Indiana, Hawaii, and Rhode Island had the most severe unemployment issues. Overall, the unemployment situation on the East and West coasts appeared to be more severe compared to the central inland regions.
@@ -298,9 +305,12 @@ state_DR = state_COVID %>%
   select(region, value)
 ```
 
-```{r}
+```{r, fig.width=18, fig.height=15}
 state_choropleth(state_DR,
-                 title = "Figure 7 COVID deaths severity by state (January 2021)",legend = "COVID Death Rate (per 100,000 population)")
+                 title = "Figure 7 COVID deaths severity by state (January 2021)",legend = "COVID Death Rate\n (per 100,000 population)")+
+theme(plot.title = element_text(size = 30))+
+theme(legend.text = element_text(size = 20))+
+theme(legend.title = element_text(size = 17))
 ```
 
 From Figure 7, we can observe that in January 2021, the states of Arizona, California, Oklahoma, Alabama, Mississippi, and West Virginia had the most severe COVID-19 situation in terms of deaths. Overall, the COVID-19 death situation in the southern states appeared to be more severe compared to the northern regions.
