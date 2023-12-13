@@ -16,7 +16,7 @@ All of the national unemployment rate data will be from [US Bureau of Labor Stat
 
 *Data Import*
 
-As BLS doesn't provide CSV files of such organized data like the [A-10 table](https://www.bls.gov/web/empsit/cpseea10.htm), we access the raw data by [The BLS Public Data Application Programming Interface (API)](https://www.bls.gov/bls/api_features.htm). Specifically, we use API to extract national unemployment rates of different demographic groups. When extracting data, we refer to [LN series id list -- Labor force statistics including the national unemployment rate](https://download.bls.gov/pub/time.series/ln/ln.series) (we save it as ln.series.txt in the data folder for further use) under [CPS Databases](https://www.bls.gov/cps/data.htm) and put the series_id of the information we need into the api query (ie. we extract some of the data listed [here](https://beta.bls.gov/dataQuery/find?st=0&r=20&q=unemployment&more=0.%2C+hispanic+orange.%2C+Hispanic&fq=survey:%5Bln%5D) by API). We then convert all the data from Json to CSV files, preprocess the data, and combine them into single data set.
+As BLS doesn't provide CSV files of such organized data like the [A-10 table](https://www.bls.gov/web/empsit/cpseea10.htm), we access the raw data by [The BLS Public Data Application Programming Interface (API)](https://www.bls.gov/bls/api_features.htm). Specifically, we use API to extract national unemployment rates of different demographic groups. When extracting data, we refer to [LN series id list -- Labor force statistics including the national unemployment rate](https://download.bls.gov/pub/time.series/ln/ln.series) (we save it as ln.series.txt in the data folder for further use) under [CPS Databases](https://www.bls.gov/cps/data.htm) and put the series_id of the information we need into the API query (ie. we extract some of the data listed [here](https://beta.bls.gov/dataQuery/find?st=0&r=20&q=unemployment&more=0.%2C+hispanic+orange.%2C+Hispanic&fq=survey:%5Bln%5D) by API). We then convert all the data from Json to CSV files, preprocess the data, and combine them into single data set.
 
 The data set is in the following format:
 
@@ -45,7 +45,7 @@ The data set is in the following format:
     -   Note that BLS does not collect unemployment rate for all combinations of all demographic features! (For example, unadjusted unemployment rate data for 20-to-24-year-old asian men, whose marital status is "Widdowed, divorced, or seperated" doesn't exist.)
 
 ```{r setup}
-knitr::opts_chunk$set(warning = FALSE)
+knitr::opts_chunk$set(warning = FALSE, message = FALSE)
 knitr::opts_chunk$set(fig.width=14, fig.height=16)
 ```
 

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>US Unemployment - 2&nbsp; Data</title>
+<title>US Unemployment - 2&nbsp; data</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -108,7 +108,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./data.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Data</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./data.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">data</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -145,13 +145,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./data.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Data</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">data</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./results.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Results</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">results</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -176,9 +176,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#description" id="toc-description" class="nav-link active" data-scroll-target="#description"><span class="header-section-number">2.1</span> Description</a></li>
-  <li><a href="#research-plan" id="toc-research-plan" class="nav-link" data-scroll-target="#research-plan"><span class="header-section-number">2.2</span> Research Plan</a></li>
-  <li><a href="#missing-value-analysis" id="toc-missing-value-analysis" class="nav-link" data-scroll-target="#missing-value-analysis"><span class="header-section-number">2.3</span> Missing value analysis</a></li>
+  <li><a href="#data" id="toc-data" class="nav-link active" data-scroll-target="#data"><span class="header-section-number">3</span> Data</a>
+  <ul class="collapse">
+  <li><a href="#technical-description" id="toc-technical-description" class="nav-link" data-scroll-target="#technical-description"><span class="header-section-number">3.1</span> Technical description</a></li>
+  <li><a href="#research-plan" id="toc-research-plan" class="nav-link" data-scroll-target="#research-plan"><span class="header-section-number">3.2</span> Research Plan</a></li>
+  <li><a href="#missing-value-analysis" id="toc-missing-value-analysis" class="nav-link" data-scroll-target="#missing-value-analysis"><span class="header-section-number">3.3</span> Missing value analysis</a></li>
+  </ul></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/laurie-gao/US-unemployment/edit/main/data.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/laurie-gao/US-unemployment/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
@@ -187,7 +190,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Data</span></h1>
+<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">data</span></h1>
 </div>
 
 
@@ -202,78 +205,83 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<section id="description" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="description"><span class="header-section-number">2.1</span> Description</h2>
-<p><strong>Data Source</strong><br>
-All of the unemployment rate data will be from the US Bureau of Labor Statistics <a href="https://www.bls.gov/cps/tables.htm">website</a>. The data is collected through the Current Population Survey (CPS), which is a monthly survey of households conducted by the Bureau of Census for the Bureau of Labor Statistics. There are many CPS tables on the linked website - we want our data to be similar to the following table.</p>
+<section id="data" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Data</h1>
+<section id="technical-description" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="technical-description"><span class="header-section-number">3.1</span> Technical description</h2>
+<p><strong>1. Monthly US National Unemployment Rate Data</strong></p>
+<p><em>Data Source</em></p>
+<p>All of the national unemployment rate data will be from <a href="https://www.bls.gov/">US Bureau of Labor Statistics</a>. The data is collected through the <a href="https://www.bls.gov/cps/">Current Population Survey (CPS)</a>, which is a monthly survey of households conducted by the Bureau of Census for the Bureau of Labor Statistics. There are many CPS tables on the <a href="https://www.bls.gov/cps/tables.htm">website</a> - we want our data to be similar to <a href="https://www.bls.gov/web/empsit/cpseea10.htm">A-10. Unemployment rates by age, sex, and marital status, seasonally adjusted</a>, which allows us to investigate potential influences of ethnicity, age, sex, and even marital status on unemployment rate.</p>
+<p><em>Data Import</em></p>
+<p>As BLS doesn’t provide CSV files of such organized data like the <a href="https://www.bls.gov/web/empsit/cpseea10.htm">A-10 table</a>, we access the raw data by <a href="https://www.bls.gov/bls/api_features.htm">The BLS Public Data Application Programming Interface (API)</a>. Specifically, we use API to extract national unemployment rates of different demographic groups. When extracting data, we refer to <a href="https://download.bls.gov/pub/time.series/ln/ln.series">LN series id list – Labor force statistics including the national unemployment rate</a> (we save it as ln.series.txt in the data folder for further use) under <a href="https://www.bls.gov/cps/data.htm">CPS Databases</a> and put the series_id of the information we need into the API query (ie. we extract some of the data listed <a href="https://beta.bls.gov/dataQuery/find?st=0&amp;r=20&amp;q=unemployment&amp;more=0.%2C+hispanic+orange.%2C+Hispanic&amp;fq=survey:%5Bln%5D">here</a> by API). We then convert all the data from Json to CSV files, preprocess the data, and combine them into single data set.</p>
+<p>The data set is in the following format:</p>
 <ul>
-<li><a href="https://www.bls.gov/web/empsit/cpseea10.htm">A-10. Unemployment rates by age, sex, and marital status, seasonally adjusted</a> (monthly, seasonally adjusted)
+<li><p>Time range: Jan 2020 - Nov 2023</p></li>
+<li><p>Frequency of update: monthly - latest update is for Nov 2023</p></li>
+<li><p>Dimensions: year, month, value, adjusted, sex, race, age, mari</p>
 <ul>
-<li>Time range: Oct 2022 - Oct 2023</li>
-<li>Frequency of update: monthly - the most recent update was for Oct 2023</li>
-<li>Dimensions: month, age group, sex, marital status</li>
-</ul></li>
-<li><a href="https://www.bls.gov/web/empsit/cpseea29.htm">A-29. Unemployed persons by marital status, race, Hispanic or Latino ethnicity, age, and sex</a> (Month over month, not seasonally adjusted)
-<ul>
-<li>Time range: Oct 2022 and Oct 2023</li>
-<li>Frequency of update: monthly - the most recent update was for Oct 2023</li>
-<li>Dimensions: month, sex, marital status, race, Hispanic or Latino ethnicity, age group</li>
+<li><p>year: the year of the unemployment rate survey</p></li>
+<li><p>month: the month of the unemployment rate survey</p></li>
+<li><p>value: unemployment rate</p></li>
+<li><p>adjusted: whether the unemployment rate is seasonally adjusted</p></li>
+<li><p>sex: the sex surveyed for the unemployment rate (can take value “Both”, “Men”, or “Women”)</p></li>
+<li><p>race: the race surveyed for the unemployment rate (can take value “All”, “Asian”, “Black”, “Latino”, or “White”)</p></li>
+<li><p>age: the age surveyed for the unemployment rate (can take value “All”, “16-19”, “20-24”, “25-34”, “35-44”, “45-54”, “55-64”, or “65-” for unadjusted data; “16-17”, “16-19”, “16-24”, “18-19”, “20-”, “20-24”, “25-”, “25-34”, “25-54”, “35-44”, “45-54”, or “55-” for seasonally adjusted data)</p></li>
+<li><p>mari: the marital status surveyed for the unemployment rate (can take value “All”, “Never Married”, “Married, spouse present”, or “Widdowed, divorced, or seperated” for unadjusted data; “All” or “Married, spouse present” for seasonally adjusted data)</p></li>
+<li><p>Note that BLS does not collect unemployment rate for all combinations of all demographic features! (For example, unadjusted unemployment rate data for 20-to-24-year-old asian men, whose marital status is “Widdowed, divorced, or seperated” doesn’t exist.)</p></li>
 </ul></li>
 </ul>
-<p><strong>Data Import</strong><br>
-We can not directly download the table listed above (BLS doesn’t provide CSV files of them. And they are also not API accessible). We need to reconstruct a data frame that has information similar to theirs. Therefore, we use BLS Api to extract unemployment rates of different demographic groups and merge all the data we get. When extracting data, we refer to <a href="https://www.bls.gov/cps/data.htm">LN series id list – Labor force statistics including the national unemployment rate</a> and put the series_id of the information we need into the api query. (ie. we extract some of the data listed <a href="https://beta.bls.gov/dataQuery/find?st=0&amp;r=20&amp;q=unemployment&amp;more=0.%2C+hispanic+orange.%2C+Hispanic&amp;fq=survey:%5Bln%5D">here</a> by API) Moreover, we extract data from 2018 to 2023 (longer than the time ranges of the above listed tables), so that if we want to do some analysis regarding COVID-19, we have data to do so.</p>
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span>opts_chunk<span class="sc">$</span><span class="fu">set</span>(<span class="at">warning =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span>opts_chunk<span class="sc">$</span><span class="fu">set</span>(<span class="at">message =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span>opts_chunk<span class="sc">$</span><span class="fu">set</span>(<span class="at">warning =</span> <span class="cn">FALSE</span>, <span class="at">message =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span>opts_chunk<span class="sc">$</span><span class="fu">set</span>(<span class="at">fig.width=</span><span class="dv">14</span>, <span class="at">fig.height=</span><span class="dv">16</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span>opts_chunk<span class="sc">$</span><span class="fu">set</span>(<span class="at">fig.width=</span><span class="dv">14</span>, <span class="at">fig.height=</span><span class="dv">16</span>)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>all_df <span class="ot">=</span> <span class="fu">read.table</span>(<span class="st">"data/ln.series.txt"</span>, <span class="at">header =</span> <span class="cn">TRUE</span>, <span class="at">sep =</span> <span class="st">"</span><span class="sc">\t</span><span class="st">"</span>, <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>all_df <span class="ot">=</span> all_df <span class="sc">%&gt;%</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">str_detect</span>(series_title, <span class="st">"Unemployment"</span>))<span class="sc">%&gt;%</span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">str_detect</span>(series_title, <span class="st">"Level"</span>))<span class="sc">%&gt;%</span></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    absn_code <span class="sc">==</span> <span class="dv">0</span>,</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    activity_code <span class="sc">==</span> <span class="dv">0</span>,</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    cert_code <span class="sc">==</span> <span class="dv">0</span>,</span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    class_code <span class="sc">==</span> <span class="dv">0</span>,</span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    duration_code <span class="sc">==</span> <span class="dv">0</span>,</span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    education_code <span class="sc">==</span> <span class="dv">0</span>,</span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    entr_code <span class="sc">==</span> <span class="dv">0</span>,</span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    expr_code <span class="sc">==</span> <span class="dv">0</span>,</span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>    hheader_code <span class="sc">==</span> <span class="dv">0</span>,</span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>    hour_code <span class="sc">==</span> <span class="dv">0</span>,</span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>    indy_code <span class="sc">==</span> <span class="dv">0</span>,</span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>    jdes_code <span class="sc">==</span> <span class="dv">0</span>,</span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>    look_code <span class="sc">==</span> <span class="dv">0</span>,</span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>    mjhs_code <span class="sc">==</span> <span class="dv">0</span>,</span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>    occupation_code <span class="sc">==</span> <span class="dv">0</span>,</span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>    pcts_code <span class="sc">==</span> <span class="dv">0</span>,</span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>    rjnw_code <span class="sc">==</span> <span class="dv">0</span>,</span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>    rnlf_code <span class="sc">==</span> <span class="dv">0</span>,</span>
-<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>    rwns_code <span class="sc">==</span> <span class="dv">0</span>,</span>
-<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>    seek_code <span class="sc">==</span> <span class="dv">0</span>,</span>
-<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>    vets_code <span class="sc">==</span> <span class="dv">0</span>,</span>
-<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>    wkst_code <span class="sc">==</span> <span class="dv">0</span>,</span>
-<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>    born_code <span class="sc">==</span> <span class="dv">0</span>,</span>
-<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>    chld_code <span class="sc">==</span> <span class="dv">0</span>,</span>
-<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>    disa_code <span class="sc">==</span> <span class="dv">0</span>,</span>
-<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>    orig_code <span class="sc">%in%</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>)</span>
-<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
-<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">str_detect</span>(series_id, <span class="st">"LNS130|LNS140|LNU040"</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">race_code =</span> <span class="fu">if_else</span>(orig_code <span class="sc">==</span> <span class="dv">1</span>, <span class="dv">2</span>, race_code)) <span class="sc">%&gt;%</span></span>
-<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(race_code <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(periodicity_code<span class="sc">==</span><span class="st">"M"</span>) </span>
-<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>all_df<span class="sc">$</span>series_id <span class="ot">&lt;-</span> <span class="fu">trimws</span>(all_df<span class="sc">$</span>series_id)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>all_df <span class="ot">=</span> <span class="fu">read.table</span>(<span class="st">"data/ln.series.txt"</span>, <span class="at">header =</span> <span class="cn">TRUE</span>, <span class="at">sep =</span> <span class="st">"</span><span class="sc">\t</span><span class="st">"</span>, <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>all_df <span class="ot">=</span> all_df <span class="sc">%&gt;%</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">str_detect</span>(series_title, <span class="st">"Unemployment"</span>))<span class="sc">%&gt;%</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">str_detect</span>(series_title, <span class="st">"Level"</span>))<span class="sc">%&gt;%</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    absn_code <span class="sc">==</span> <span class="dv">0</span>,</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    activity_code <span class="sc">==</span> <span class="dv">0</span>,</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    cert_code <span class="sc">==</span> <span class="dv">0</span>,</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    class_code <span class="sc">==</span> <span class="dv">0</span>,</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    duration_code <span class="sc">==</span> <span class="dv">0</span>,</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    education_code <span class="sc">==</span> <span class="dv">0</span>,</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    entr_code <span class="sc">==</span> <span class="dv">0</span>,</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    expr_code <span class="sc">==</span> <span class="dv">0</span>,</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    hheader_code <span class="sc">==</span> <span class="dv">0</span>,</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>    hour_code <span class="sc">==</span> <span class="dv">0</span>,</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>    indy_code <span class="sc">==</span> <span class="dv">0</span>,</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>    jdes_code <span class="sc">==</span> <span class="dv">0</span>,</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>    look_code <span class="sc">==</span> <span class="dv">0</span>,</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>    mjhs_code <span class="sc">==</span> <span class="dv">0</span>,</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>    occupation_code <span class="sc">==</span> <span class="dv">0</span>,</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>    pcts_code <span class="sc">==</span> <span class="dv">0</span>,</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>    rjnw_code <span class="sc">==</span> <span class="dv">0</span>,</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>    rnlf_code <span class="sc">==</span> <span class="dv">0</span>,</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>    rwns_code <span class="sc">==</span> <span class="dv">0</span>,</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>    seek_code <span class="sc">==</span> <span class="dv">0</span>,</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>    vets_code <span class="sc">==</span> <span class="dv">0</span>,</span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>    wkst_code <span class="sc">==</span> <span class="dv">0</span>,</span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>    born_code <span class="sc">==</span> <span class="dv">0</span>,</span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>    chld_code <span class="sc">==</span> <span class="dv">0</span>,</span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>    disa_code <span class="sc">==</span> <span class="dv">0</span>,</span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>    orig_code <span class="sc">%in%</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>)</span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">str_detect</span>(series_id, <span class="st">"LNU040"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">race_code =</span> <span class="fu">if_else</span>(orig_code <span class="sc">==</span> <span class="dv">1</span>, <span class="dv">2</span>, race_code)) <span class="sc">%&gt;%</span></span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(race_code <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(periodicity_code<span class="sc">==</span><span class="st">"M"</span>) </span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>all_df<span class="sc">$</span>series_id <span class="ot">&lt;-</span> <span class="fu">trimws</span>(all_df<span class="sc">$</span>series_id)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <div class="cell">
@@ -304,7 +312,7 @@ We can not directly download the table listed above (BLS doesn’t provide CSV f
 <span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">period =</span> <span class="fu">character</span>(),</span>
 <span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">periodName =</span> <span class="fu">character</span>(),</span>
 <span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">value =</span> <span class="fu">character</span>(),</span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">rate =</span> <span class="fu">logical</span>(),</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">adjusted =</span> <span class="fu">logical</span>(),</span>
 <span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">sex =</span> <span class="fu">character</span>(),</span>
 <span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">race =</span> <span class="fu">character</span>(),</span>
 <span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">age =</span> <span class="fu">character</span>(),</span>
@@ -317,7 +325,7 @@ We can not directly download the table listed above (BLS doesn’t provide CSV f
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Process results</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>apiDF <span class="ot">&lt;-</span> <span class="cf">function</span>(data,rate,series_title,sexs_code,race_code,ages_code,mari_code) {</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>apiDF <span class="ot">&lt;-</span> <span class="cf">function</span>(data,series_title,sexs_code,race_code,ages_code,mari_code) {</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  sexs_value <span class="ot">&lt;-</span> <span class="cf">if</span> (sexs_code <span class="sc">==</span> <span class="dv">1</span>) {</span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Men"</span></span>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (sexs_code <span class="sc">==</span> <span class="dv">2</span>) {</span>
@@ -414,11 +422,17 @@ We can not directly download the table listed above (BLS doesn’t provide CSV f
 <span id="cb5-96"><a href="#cb5-96" aria-hidden="true" tabindex="-1"></a>    <span class="st">"All"</span></span>
 <span id="cb5-97"><a href="#cb5-97" aria-hidden="true" tabindex="-1"></a>  }</span>
 <span id="cb5-98"><a href="#cb5-98" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb5-99"><a href="#cb5-99" aria-hidden="true" tabindex="-1"></a>  df  <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
-<span id="cb5-100"><a href="#cb5-100" aria-hidden="true" tabindex="-1"></a>          <span class="fu">select</span>(<span class="sc">-</span>footnotes,<span class="sc">-</span>latest) <span class="sc">%&gt;%</span></span>
-<span id="cb5-101"><a href="#cb5-101" aria-hidden="true" tabindex="-1"></a>          <span class="fu">mutate</span>(rate, <span class="at">title=</span>series_title, <span class="at">sex=</span>sexs_value, <span class="at">race=</span>race_value, <span class="at">age=</span>ages_value, <span class="at">mari=</span>mari_value)</span>
-<span id="cb5-102"><a href="#cb5-102" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(df)</span>
-<span id="cb5-103"><a href="#cb5-103" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-99"><a href="#cb5-99" aria-hidden="true" tabindex="-1"></a>  adjusted <span class="ot">&lt;-</span> <span class="cf">if</span> (<span class="fu">str_detect</span>(series_title, <span class="st">'(Unadj)'</span>)) {</span>
+<span id="cb5-100"><a href="#cb5-100" aria-hidden="true" tabindex="-1"></a>    <span class="cn">FALSE</span></span>
+<span id="cb5-101"><a href="#cb5-101" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb5-102"><a href="#cb5-102" aria-hidden="true" tabindex="-1"></a>    <span class="cn">TRUE</span></span>
+<span id="cb5-103"><a href="#cb5-103" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb5-104"><a href="#cb5-104" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb5-105"><a href="#cb5-105" aria-hidden="true" tabindex="-1"></a>  df  <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
+<span id="cb5-106"><a href="#cb5-106" aria-hidden="true" tabindex="-1"></a>          <span class="fu">select</span>(<span class="sc">-</span>footnotes,<span class="sc">-</span>latest) <span class="sc">%&gt;%</span></span>
+<span id="cb5-107"><a href="#cb5-107" aria-hidden="true" tabindex="-1"></a>          <span class="fu">mutate</span>(<span class="at">adjusted=</span>adjusted, <span class="at">title=</span>series_title, <span class="at">sex=</span>sexs_value, <span class="at">race=</span>race_value, <span class="at">age=</span>ages_value, <span class="at">mari=</span>mari_value)</span>
+<span id="cb5-108"><a href="#cb5-108" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(df)</span>
+<span id="cb5-109"><a href="#cb5-109" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <div class="cell">
@@ -430,13 +444,13 @@ We can not directly download the table listed above (BLS doesn’t provide CSV f
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="do">## Pull the data via the API</span></span>
 <span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  payload <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
 <span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">'seriesid'</span>  <span class="ot">=</span> current_df<span class="sc">$</span>series_id,</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">'startyear'</span> <span class="ot">=</span> <span class="dv">2018</span>,</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">'startyear'</span> <span class="ot">=</span> <span class="dv">2020</span>,</span>
 <span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">'endyear'</span>   <span class="ot">=</span> <span class="dv">2023</span>,</span>
 <span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">'registrationKey'</span><span class="ot">=</span><span class="st">'9e0f46de2cb9444b808f4b26131459ce'</span>) <span class="co">#38573dc63f3d4016a425126b9e52903e</span></span>
 <span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>  response <span class="ot">&lt;-</span> <span class="fu">blsAPI</span>(payload, <span class="dv">2</span>)</span>
 <span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>  json     <span class="ot">&lt;-</span> jsonlite<span class="sc">::</span><span class="fu">fromJSON</span>(response)</span>
 <span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(current_df)) {</span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>  single_data  <span class="ot">&lt;-</span> <span class="fu">apiDF</span>(json<span class="sc">$</span>Results<span class="sc">$</span>series<span class="sc">$</span>data[[j]], <span class="at">series_title=</span>current_df[j,]<span class="sc">$</span>series_title, <span class="at">rate=</span><span class="cn">TRUE</span>, <span class="at">sexs_code=</span>current_df[j,]<span class="sc">$</span>sexs_code, <span class="at">race_code=</span>current_df[j,]<span class="sc">$</span>race_code, <span class="at">ages_code=</span>current_df[j,]<span class="sc">$</span>ages_code, <span class="at">mari_code =</span>current_df[j,]<span class="sc">$</span>mari_code)</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>  single_data  <span class="ot">&lt;-</span> <span class="fu">apiDF</span>(json<span class="sc">$</span>Results<span class="sc">$</span>series<span class="sc">$</span>data[[j]], <span class="at">series_title=</span>current_df[j,]<span class="sc">$</span>series_title, <span class="at">sexs_code=</span>current_df[j,]<span class="sc">$</span>sexs_code, <span class="at">race_code=</span>current_df[j,]<span class="sc">$</span>race_code, <span class="at">ages_code=</span>current_df[j,]<span class="sc">$</span>ages_code, <span class="at">mari_code =</span>current_df[j,]<span class="sc">$</span>mari_code)</span>
 <span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>  data<span class="ot">&lt;-</span> <span class="fu">rbind</span>(data, single_data)</span>
 <span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>  }</span>
 <span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -450,14 +464,14 @@ We can not directly download the table listed above (BLS doesn’t provide CSV f
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="do">## Pull the data via the API</span></span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  payload <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
 <span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">'seriesid'</span>  <span class="ot">=</span> current_df<span class="sc">$</span>series_id,</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">'startyear'</span> <span class="ot">=</span> <span class="dv">2018</span>,</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">'startyear'</span> <span class="ot">=</span> <span class="dv">2020</span>,</span>
 <span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">'endyear'</span>   <span class="ot">=</span> <span class="dv">2023</span>,</span>
 <span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">'registrationKey'</span><span class="ot">=</span><span class="st">'38573dc63f3d4016a425126b9e52903e'</span>) </span>
 <span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  response <span class="ot">&lt;-</span> <span class="fu">blsAPI</span>(payload, <span class="dv">2</span>)</span>
 <span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>  json     <span class="ot">&lt;-</span> jsonlite<span class="sc">::</span><span class="fu">fromJSON</span>(response)</span>
 <span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>  </span>
 <span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(current_df)) {</span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>  single_data  <span class="ot">&lt;-</span> <span class="fu">apiDF</span>(json<span class="sc">$</span>Results<span class="sc">$</span>series<span class="sc">$</span>data[[j]], <span class="at">series_title=</span>current_df[j,]<span class="sc">$</span>series_title, <span class="at">rate=</span><span class="cn">TRUE</span>, <span class="at">sexs_code=</span>current_df[j,]<span class="sc">$</span>sexs_code, <span class="at">race_code=</span>current_df[j,]<span class="sc">$</span>race_code, <span class="at">ages_code=</span>current_df[j,]<span class="sc">$</span>ages_code, <span class="at">mari_code =</span>current_df[j,]<span class="sc">$</span>mari_code)</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>  single_data  <span class="ot">&lt;-</span> <span class="fu">apiDF</span>(json<span class="sc">$</span>Results<span class="sc">$</span>series<span class="sc">$</span>data[[j]], <span class="at">series_title=</span>current_df[j,]<span class="sc">$</span>series_title, <span class="at">sexs_code=</span>current_df[j,]<span class="sc">$</span>sexs_code, <span class="at">race_code=</span>current_df[j,]<span class="sc">$</span>race_code, <span class="at">ages_code=</span>current_df[j,]<span class="sc">$</span>ages_code, <span class="at">mari_code =</span>current_df[j,]<span class="sc">$</span>mari_code)</span>
 <span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>  data<span class="ot">&lt;-</span> <span class="fu">rbind</span>(data, single_data)</span>
 <span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>  }</span>
 <span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -467,96 +481,521 @@ We can not directly download the table listed above (BLS doesn’t provide CSV f
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(data, <span class="st">"data/data.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>unadj_UR <span class="ot">=</span> data <span class="sc">%&gt;%</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">month =</span> periodName) <span class="sc">%&gt;%</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(age<span class="sc">==</span><span class="st">"All"</span><span class="sc">|</span>age<span class="sc">==</span><span class="st">"16-19"</span><span class="sc">|</span>age<span class="sc">==</span><span class="st">"20-24"</span><span class="sc">|</span>age<span class="sc">==</span><span class="st">"25-34"</span><span class="sc">|</span>age<span class="sc">==</span><span class="st">"35-44"</span><span class="sc">|</span>age<span class="sc">==</span><span class="st">"45-54"</span><span class="sc">|</span>age<span class="sc">==</span><span class="st">"55-64"</span><span class="sc">|</span>age<span class="sc">==</span><span class="st">"65-"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(year, <span class="at">month =</span> periodName, value, adjusted, sex, race, age, mari)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>all_df <span class="ot">=</span> <span class="fu">read.table</span>(<span class="st">"data/ln.series.txt"</span>, <span class="at">header =</span> <span class="cn">TRUE</span>, <span class="at">sep =</span> <span class="st">"</span><span class="sc">\t</span><span class="st">"</span>, <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>all_df <span class="ot">=</span> all_df <span class="sc">%&gt;%</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">str_detect</span>(series_title, <span class="st">"Unemployment"</span>))<span class="sc">%&gt;%</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">str_detect</span>(series_title, <span class="st">"Level"</span>))<span class="sc">%&gt;%</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>    absn_code <span class="sc">==</span> <span class="dv">0</span>,</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>    activity_code <span class="sc">==</span> <span class="dv">0</span>,</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>    cert_code <span class="sc">==</span> <span class="dv">0</span>,</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>    class_code <span class="sc">==</span> <span class="dv">0</span>,</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>    duration_code <span class="sc">==</span> <span class="dv">0</span>,</span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>    education_code <span class="sc">==</span> <span class="dv">0</span>,</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>    entr_code <span class="sc">==</span> <span class="dv">0</span>,</span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>    expr_code <span class="sc">==</span> <span class="dv">0</span>,</span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>    hheader_code <span class="sc">==</span> <span class="dv">0</span>,</span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>    hour_code <span class="sc">==</span> <span class="dv">0</span>,</span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>    indy_code <span class="sc">==</span> <span class="dv">0</span>,</span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>    jdes_code <span class="sc">==</span> <span class="dv">0</span>,</span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>    look_code <span class="sc">==</span> <span class="dv">0</span>,</span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>    mjhs_code <span class="sc">==</span> <span class="dv">0</span>,</span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>    occupation_code <span class="sc">==</span> <span class="dv">0</span>,</span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>    pcts_code <span class="sc">==</span> <span class="dv">0</span>,</span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>    rjnw_code <span class="sc">==</span> <span class="dv">0</span>,</span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a>    rnlf_code <span class="sc">==</span> <span class="dv">0</span>,</span>
+<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a>    rwns_code <span class="sc">==</span> <span class="dv">0</span>,</span>
+<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a>    seek_code <span class="sc">==</span> <span class="dv">0</span>,</span>
+<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a>    vets_code <span class="sc">==</span> <span class="dv">0</span>,</span>
+<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a>    wkst_code <span class="sc">==</span> <span class="dv">0</span>,</span>
+<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a>    born_code <span class="sc">==</span> <span class="dv">0</span>,</span>
+<span id="cb9-33"><a href="#cb9-33" aria-hidden="true" tabindex="-1"></a>    chld_code <span class="sc">==</span> <span class="dv">0</span>,</span>
+<span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a>    disa_code <span class="sc">==</span> <span class="dv">0</span>,</span>
+<span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a>    orig_code <span class="sc">%in%</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>)</span>
+<span id="cb9-36"><a href="#cb9-36" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb9-37"><a href="#cb9-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">str_detect</span>(series_id, <span class="st">"LNS130|LNS140"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb9-38"><a href="#cb9-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">race_code =</span> <span class="fu">if_else</span>(orig_code <span class="sc">==</span> <span class="dv">1</span>, <span class="dv">2</span>, race_code)) <span class="sc">%&gt;%</span></span>
+<span id="cb9-39"><a href="#cb9-39" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(race_code <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb9-40"><a href="#cb9-40" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(periodicity_code<span class="sc">==</span><span class="st">"M"</span>) </span>
+<span id="cb9-41"><a href="#cb9-41" aria-hidden="true" tabindex="-1"></a>all_df<span class="sc">$</span>series_id <span class="ot">&lt;-</span> <span class="fu">trimws</span>(all_df<span class="sc">$</span>series_id)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="fu">nrow</span>(all_df) </span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>size <span class="ot">&lt;-</span> <span class="fu">ceiling</span>(n <span class="sc">/</span> <span class="dv">12</span>) </span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>groups <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>, <span class="at">each =</span> size)</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>groups <span class="ot">&lt;-</span> groups[<span class="dv">1</span><span class="sc">:</span>n] </span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>split_dfs <span class="ot">&lt;-</span> <span class="fu">split</span>(all_df, groups)</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>list1 <span class="ot">&lt;-</span> split_dfs[<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>]</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>list2 <span class="ot">&lt;-</span> split_dfs[<span class="dv">5</span><span class="sc">:</span><span class="dv">12</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages("devtools") </span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co">#devtools::install_github("mikeasilva/blsAPI") </span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rjson)</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(blsAPI)</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">year =</span> <span class="fu">character</span>(),</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">period =</span> <span class="fu">character</span>(),</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">periodName =</span> <span class="fu">character</span>(),</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">value =</span> <span class="fu">character</span>(),</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">adjusted =</span> <span class="fu">logical</span>(),</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">sex =</span> <span class="fu">character</span>(),</span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">race =</span> <span class="fu">character</span>(),</span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">age =</span> <span class="fu">character</span>(),</span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">marital =</span> <span class="fu">character</span>(),</span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>  <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span></span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(jsonlite)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>) {</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  current_df <span class="ot">&lt;-</span> list1[[i]]</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="do">## Pull the data via the API</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  payload <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">'seriesid'</span>  <span class="ot">=</span> current_df<span class="sc">$</span>series_id,</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">'startyear'</span> <span class="ot">=</span> <span class="dv">2020</span>,</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">'endyear'</span>   <span class="ot">=</span> <span class="dv">2023</span>,</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">'registrationKey'</span><span class="ot">=</span><span class="st">'9e0f46de2cb9444b808f4b26131459ce'</span>) <span class="co">#38573dc63f3d4016a425126b9e52903e</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>  response <span class="ot">&lt;-</span> <span class="fu">blsAPI</span>(payload, <span class="dv">2</span>)</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>  json     <span class="ot">&lt;-</span> jsonlite<span class="sc">::</span><span class="fu">fromJSON</span>(response)</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(current_df)) {</span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>  single_data  <span class="ot">&lt;-</span> <span class="fu">apiDF</span>(json<span class="sc">$</span>Results<span class="sc">$</span>series<span class="sc">$</span>data[[j]], <span class="at">series_title=</span>current_df[j,]<span class="sc">$</span>series_title,  <span class="at">sexs_code=</span>current_df[j,]<span class="sc">$</span>sexs_code, <span class="at">race_code=</span>current_df[j,]<span class="sc">$</span>race_code, <span class="at">ages_code=</span>current_df[j,]<span class="sc">$</span>ages_code, <span class="at">mari_code =</span>current_df[j,]<span class="sc">$</span>mari_code)</span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>  data<span class="ot">&lt;-</span> <span class="fu">rbind</span>(data, single_data)</span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">8</span>) {</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  current_df <span class="ot">&lt;-</span> list2[[i]]</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="do">## Pull the data via the API</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  payload <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">'seriesid'</span>  <span class="ot">=</span> current_df<span class="sc">$</span>series_id,</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">'startyear'</span> <span class="ot">=</span> <span class="dv">2020</span>,</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">'endyear'</span>   <span class="ot">=</span> <span class="dv">2023</span>,</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">'registrationKey'</span><span class="ot">=</span><span class="st">'38573dc63f3d4016a425126b9e52903e'</span>) </span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>  response <span class="ot">&lt;-</span> <span class="fu">blsAPI</span>(payload, <span class="dv">2</span>)</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>  json     <span class="ot">&lt;-</span> jsonlite<span class="sc">::</span><span class="fu">fromJSON</span>(response)</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(current_df)) {</span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>  single_data  <span class="ot">&lt;-</span> <span class="fu">apiDF</span>(json<span class="sc">$</span>Results<span class="sc">$</span>series<span class="sc">$</span>data[[j]], <span class="at">series_title=</span>current_df[j,]<span class="sc">$</span>series_title, <span class="at">sexs_code=</span>current_df[j,]<span class="sc">$</span>sexs_code, <span class="at">race_code=</span>current_df[j,]<span class="sc">$</span>race_code, <span class="at">ages_code=</span>current_df[j,]<span class="sc">$</span>ages_code, <span class="at">mari_code =</span>current_df[j,]<span class="sc">$</span>mari_code)</span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>  data<span class="ot">&lt;-</span> <span class="fu">rbind</span>(data, single_data)</span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>seas_UR <span class="ot">=</span> data <span class="sc">%&gt;%</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">month =</span> periodName) <span class="sc">%&gt;%</span> </span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(year, month, value, adjusted, sex, race, age, mari)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>UR <span class="ot">=</span> <span class="fu">bind_rows</span>(unadj_UR, seas_UR)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(UR, <span class="st">"data/UR.csv"</span>)</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(UR)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>  year period periodName value rate                    title  sex race age mari
-1 2023    M10    October   3.9 TRUE (Seas) Unemployment Rate Both  All All  All
-2 2023    M09  September   3.8 TRUE (Seas) Unemployment Rate Both  All All  All
-3 2023    M08     August   3.8 TRUE (Seas) Unemployment Rate Both  All All  All
-4 2023    M07       July   3.5 TRUE (Seas) Unemployment Rate Both  All All  All
-5 2023    M06       June   3.6 TRUE (Seas) Unemployment Rate Both  All All  All
-6 2023    M05        May   3.7 TRUE (Seas) Unemployment Rate Both  All All  All</code></pre>
+<pre><code>  year     month value adjusted  sex race age mari
+1 2023  November   3.5    FALSE Both  All All  All
+2 2023   October   3.6    FALSE Both  All All  All
+3 2023 September   3.6    FALSE Both  All All  All
+4 2023    August   3.9    FALSE Both  All All  All
+5 2023      July   3.8    FALSE Both  All All  All
+6 2023      June   3.8    FALSE Both  All All  All</code></pre>
+</div>
+</div>
+<p><strong>2. Monthly US State Unemployment Rate Data</strong></p>
+<p><em>Data Source</em></p>
+<p>All of the state unemployment rate data will be from <a href="https://www.bls.gov/">US Bureau of Labor Statistics</a>. The data is collected through the <a href="https://www.bls.gov/lau/">The Local Area Unemployment Statistics (LAUS) program</a>, which produces monthly unemployment data for states.</p>
+<p><em>Data Import</em></p>
+<p>As BLS doesn’t provide CSV files of such data, we access the raw data by <a href="https://www.bls.gov/bls/api_features.htm">The BLS Public Data Application Programming Interface (API)</a>. Specifically, we use API to extract unemployment rates of different states. By referring to series_id of the data listed <a href="https://beta.bls.gov/dataQuery/find?st=0&amp;r=20&amp;s=popularity%3AD&amp;fq=survey:%5Bla%5D&amp;fq=mg:%5BMeasure+Attributes%5D&amp;fq=mc:%5BSeasonality%5D&amp;fq=mcd:%5BNot+seasonally+adjusted%5D&amp;fq=mg:%5BMeasure+Category%5D&amp;fq=mc:%5BUnemployed%5D&amp;fq=mcd:%5BRate%5D&amp;fq=mg:%5BMeasure+Published+By%5D&amp;fq=cg:%5BGeography%5D&amp;fq=cc:%5BStates+and+Territories%5D&amp;more=0">here</a> and the <a href="https://download.bls.gov/pub/time.series/sm/sm.state">states code</a> (we save it as sm.state.txt in the data folder for further use) under <a href="https://www.bls.gov/help/hlpforma.htm">Series ID Formats</a>, we put the series_id of the information we need into the api query. We then convert all the data from Json to CSV files, preprocess the data, and combine them into single data set.</p>
+<p>The data set is in the following format:</p>
+<ul>
+<li><p>Time range: Jan 2020 - Oct 2023</p></li>
+<li><p>Frequency of update: monthly - latest update is for Oct 2023</p></li>
+<li><p>Dimensions: year, month, state, value</p>
+<ul>
+<li><p>year: the year of the unemployment rate survey</p></li>
+<li><p>month: the month of the unemployment rate survey</p></li>
+<li><p>state: the state surveyed for the unemployment rate (including 50 states, Puerto Rico, and District of Columbia)</p></li>
+<li><p>value: not seasonally adjusted unemployment rate</p></li>
+</ul></li>
+</ul>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>all_df <span class="ot">=</span> <span class="fu">read.table</span>(<span class="st">"data/sm.state.txt"</span>, <span class="at">header =</span> <span class="cn">TRUE</span>, <span class="at">sep =</span> <span class="st">"</span><span class="sc">\t</span><span class="st">"</span>, <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>all_df <span class="ot">=</span> all_df[<span class="sc">-</span><span class="dv">1</span>, ]</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>all_df <span class="ot">=</span> <span class="fu">head</span>(all_df, <span class="sc">-</span><span class="dv">2</span>)</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>all_df <span class="ot">=</span> all_df <span class="sc">%&gt;%</span></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">state_code =</span> <span class="fu">as.character</span>(state_code)) <span class="sc">%&gt;%</span></span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">state_code =</span> <span class="fu">str_pad</span>(state_code, <span class="at">width =</span> <span class="dv">2</span>, <span class="at">pad =</span> <span class="st">"0"</span>))<span class="sc">%&gt;%</span></span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">series_id =</span> <span class="fu">paste</span>(<span class="st">'LAUST'</span>, state_code,<span class="st">'0000000000003'</span>, <span class="at">sep=</span><span class="st">''</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="fu">nrow</span>(all_df) </span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>size <span class="ot">&lt;-</span> <span class="fu">ceiling</span>(n <span class="sc">/</span> <span class="dv">2</span>) </span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>groups <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="at">each =</span> size)</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>groups <span class="ot">&lt;-</span> groups[<span class="dv">1</span><span class="sc">:</span>n] </span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>split_dfs <span class="ot">&lt;-</span> <span class="fu">split</span>(all_df, groups)</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>list1 <span class="ot">&lt;-</span> split_dfs[<span class="dv">1</span>]</span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>list2 <span class="ot">&lt;-</span> split_dfs[<span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages("devtools") </span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="co">#devtools::install_github("mikeasilva/blsAPI") </span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rjson)</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(blsAPI)</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">year =</span> <span class="fu">character</span>(),</span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">period =</span> <span class="fu">character</span>(),</span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">periodName =</span> <span class="fu">character</span>(),</span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">state =</span> <span class="fu">character</span>(),</span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">value =</span> <span class="fu">character</span>(),</span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span></span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(jsonlite)</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>current_df <span class="ot">&lt;-</span> list1[[<span class="dv">1</span>]]</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="do">## Pull the data via the API</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>payload <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">'seriesid'</span>  <span class="ot">=</span> current_df<span class="sc">$</span>series_id,</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">'startyear'</span> <span class="ot">=</span> <span class="dv">2020</span>,</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">'endyear'</span>   <span class="ot">=</span> <span class="dv">2023</span>,</span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>  <span class="st">'registrationKey'</span><span class="ot">=</span><span class="st">'38573dc63f3d4016a425126b9e52903e'</span>) <span class="co">#9e0f46de2cb9444b808f4b26131459ce</span></span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>response <span class="ot">&lt;-</span> <span class="fu">blsAPI</span>(payload, <span class="dv">2</span>)</span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>json     <span class="ot">&lt;-</span> jsonlite<span class="sc">::</span><span class="fu">fromJSON</span>(response)</span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(current_df)) {</span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>  single_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">year =</span> json<span class="sc">$</span>Results<span class="sc">$</span>series<span class="sc">$</span>data[[j]]<span class="sc">$</span>year,</span>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">period =</span> json<span class="sc">$</span>Results<span class="sc">$</span>series<span class="sc">$</span>data[[j]]<span class="sc">$</span>period,</span>
+<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">periodName =</span> json<span class="sc">$</span>Results<span class="sc">$</span>series<span class="sc">$</span>data[[j]]<span class="sc">$</span>periodName,</span>
+<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">state =</span> current_df[j,]<span class="sc">$</span>state_name,</span>
+<span id="cb21-17"><a href="#cb21-17" aria-hidden="true" tabindex="-1"></a>  <span class="at">value =</span> json<span class="sc">$</span>Results<span class="sc">$</span>series<span class="sc">$</span>data[[j]]<span class="sc">$</span>value,</span>
+<span id="cb21-18"><a href="#cb21-18" aria-hidden="true" tabindex="-1"></a>  <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span></span>
+<span id="cb21-19"><a href="#cb21-19" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb21-20"><a href="#cb21-20" aria-hidden="true" tabindex="-1"></a>data<span class="ot">&lt;-</span> <span class="fu">rbind</span>(data, single_data)</span>
+<span id="cb21-21"><a href="#cb21-21" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>json<span class="sc">$</span>Results<span class="sc">$</span>series<span class="sc">$</span>data[[<span class="dv">1</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>   year period periodName latest value       footnotes
+1  2023    M10    October   true   2.4 P, Preliminary.
+2  2023    M09  September   &lt;NA&gt;   2.4            NULL
+3  2023    M08     August   &lt;NA&gt;   2.4            NULL
+4  2023    M07       July   &lt;NA&gt;   2.3            NULL
+5  2023    M06       June   &lt;NA&gt;   2.7            NULL
+6  2023    M05        May   &lt;NA&gt;   2.1            NULL
+7  2023    M04      April   &lt;NA&gt;   1.7            NULL
+8  2023    M03      March   &lt;NA&gt;   1.9            NULL
+9  2023    M02   February   &lt;NA&gt;   2.4            NULL
+10 2023    M01    January   &lt;NA&gt;   2.6            NULL
+11 2022    M12   December   &lt;NA&gt;   2.2            NULL
+12 2022    M11   November   &lt;NA&gt;   2.2            NULL
+13 2022    M10    October   &lt;NA&gt;   2.5            NULL
+14 2022    M09  September   &lt;NA&gt;   2.5            NULL
+15 2022    M08     August   &lt;NA&gt;   2.9            NULL
+16 2022    M07       July   &lt;NA&gt;   3.0            NULL
+17 2022    M06       June   &lt;NA&gt;   3.2            NULL
+18 2022    M05        May   &lt;NA&gt;   2.2            NULL
+19 2022    M04      April   &lt;NA&gt;   2.0            NULL
+20 2022    M03      March   &lt;NA&gt;   2.5            NULL
+21 2022    M02   February   &lt;NA&gt;   2.9            NULL
+22 2022    M01    January   &lt;NA&gt;   3.1            NULL
+23 2021    M12   December   &lt;NA&gt;   2.3            NULL
+24 2021    M11   November   &lt;NA&gt;   2.4            NULL
+25 2021    M10    October   &lt;NA&gt;   2.7            NULL
+26 2021    M09  September   &lt;NA&gt;   2.9            NULL
+27 2021    M08     August   &lt;NA&gt;   3.5            NULL
+28 2021    M07       July   &lt;NA&gt;   3.7            NULL
+29 2021    M06       June   &lt;NA&gt;   4.1            NULL
+30 2021    M05        May   &lt;NA&gt;   3.2            NULL
+31 2021    M04      April   &lt;NA&gt;   3.2            NULL
+32 2021    M03      March   &lt;NA&gt;   3.7            NULL
+33 2021    M02   February   &lt;NA&gt;   4.2            NULL
+34 2021    M01    January   &lt;NA&gt;   4.5            NULL
+35 2020    M12   December   &lt;NA&gt;   4.3            NULL
+36 2020    M11   November   &lt;NA&gt;   4.5            NULL
+37 2020    M10    October   &lt;NA&gt;   4.9            NULL
+38 2020    M09  September   &lt;NA&gt;   5.9            NULL
+39 2020    M08     August   &lt;NA&gt;   6.4            NULL
+40 2020    M07       July   &lt;NA&gt;   8.0            NULL
+41 2020    M06       June   &lt;NA&gt;   9.0            NULL
+42 2020    M05        May   &lt;NA&gt;  10.2            NULL
+43 2020    M04      April   &lt;NA&gt;  13.1            NULL
+44 2020    M03      March   &lt;NA&gt;   3.7            NULL
+45 2020    M02   February   &lt;NA&gt;   3.4            NULL
+46 2020    M01    January   &lt;NA&gt;   3.6            NULL</code></pre>
+</div>
+</div>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>current_df <span class="ot">&lt;-</span> list2[[<span class="dv">1</span>]]</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="do">## Pull the data via the API</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>payload <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">'seriesid'</span>  <span class="ot">=</span> current_df<span class="sc">$</span>series_id,</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">'startyear'</span> <span class="ot">=</span> <span class="dv">2020</span>,</span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">'endyear'</span>   <span class="ot">=</span> <span class="dv">2023</span>,</span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">'registrationKey'</span><span class="ot">=</span><span class="st">'38573dc63f3d4016a425126b9e52903e'</span>) <span class="co">#9e0f46de2cb9444b808f4b26131459ce </span></span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>response <span class="ot">&lt;-</span> <span class="fu">blsAPI</span>(payload, <span class="dv">2</span>)</span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>json     <span class="ot">&lt;-</span> jsonlite<span class="sc">::</span><span class="fu">fromJSON</span>(response)</span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(current_df)) {</span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>  single_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">year =</span> json<span class="sc">$</span>Results<span class="sc">$</span>series<span class="sc">$</span>data[[j]]<span class="sc">$</span>year,</span>
+<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">period =</span> json<span class="sc">$</span>Results<span class="sc">$</span>series<span class="sc">$</span>data[[j]]<span class="sc">$</span>period,</span>
+<span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">periodName =</span> json<span class="sc">$</span>Results<span class="sc">$</span>series<span class="sc">$</span>data[[j]]<span class="sc">$</span>periodName,</span>
+<span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">state =</span> current_df[j,]<span class="sc">$</span>state_name,</span>
+<span id="cb24-16"><a href="#cb24-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">value =</span> json<span class="sc">$</span>Results<span class="sc">$</span>series<span class="sc">$</span>data[[j]]<span class="sc">$</span>value,</span>
+<span id="cb24-17"><a href="#cb24-17" aria-hidden="true" tabindex="-1"></a>  <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span></span>
+<span id="cb24-18"><a href="#cb24-18" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb24-19"><a href="#cb24-19" aria-hidden="true" tabindex="-1"></a>data<span class="ot">&lt;-</span> <span class="fu">rbind</span>(data, single_data)</span>
+<span id="cb24-20"><a href="#cb24-20" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>state_UR <span class="ot">=</span> data <span class="sc">%&gt;%</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">month =</span> periodName) <span class="sc">%&gt;%</span></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(year, <span class="at">month =</span> periodName, state, value)</span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(state_UR, <span class="st">"data/state_UR.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(state_UR)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>  year     month   state value
+1 2023   October Alabama   2.4
+2 2023 September Alabama   2.4
+3 2023    August Alabama   2.4
+4 2023      July Alabama   2.3
+5 2023      June Alabama   2.7
+6 2023       May Alabama   2.1</code></pre>
+</div>
+</div>
+<p><strong>3. Monthly US National COVID-19 Death Rate Data</strong></p>
+<p><em>Data Source</em></p>
+<p>All of the monthly US National COVID-19 death rate data will be from <a href="https://covid.cdc.gov/covid-data-tracker/#datatracker-home">Centers for Disease Control and Prevention COVID Data Tracker</a>. <a href="https://data.cdc.gov/Public-Health-Surveillance/Monthly-COVID-19-Death-Rates-per-100-000-Populatio/89qs-mr7i/about_data">The data</a> is collected by CDC, who provides COVID-19 death rates per 100,000 population stratified by age group, race/ethnicity, sex, and region every month.</p>
+<p><em>Data Import</em></p>
+<p>We can directly download the CSV file <a href="https://data.cdc.gov/Public-Health-Surveillance/Monthly-COVID-19-Death-Rates-per-100-000-Populatio/89qs-mr7i/about_data">here</a>.</p>
+<p>The data set is in the following format:</p>
+<ul>
+<li><p>Time range: Jan 2020 - Oct 2023</p></li>
+<li><p>Frequency of update: monthly - latest update is for Oct 2023</p></li>
+<li><p>Dimensions: data_as_of, jurisdiction_residence, data_period_start, data_period_end, group, subgroup1, COVID_deaths, crude_rate, conf_int_95pct_lower_crude, conf_int_95pct_upper_crude</p>
+<ul>
+<li>data_as_of: Date of most recent data update</li>
+<li>jurisdiction_residence: Name of HHS Region or United States</li>
+<li>data_period_start: Data period start date</li>
+<li>data_period_end: Data period end date</li>
+<li>group: Demographic group (can take value “All”, “Age”, “Sex”, “Race”)</li>
+<li>subgroup1: Subgroups of Demographic group (for example, if group is Sex, subgroup could be “Female” or “Male”)</li>
+<li>COVID_deaths: Count of COVID-19 deaths</li>
+<li>crude_rate: Crude mortality rate per 100,000 population</li>
+<li>conf_int_95pct_lower_crude: 95% confidence interval of crude mortality rate (lower bound)</li>
+<li>conf_int_95pct_upper_crude: 95% confidence interval of crude mortality rate (upper bound)</li>
+</ul></li>
+</ul>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>COVID <span class="ot">=</span> <span class="fu">read_csv</span>(<span class="st">'data/Monthly_COVID-19_Death_Rates_per_100_000_Population_by_Age_Group__Race_and_Ethnicity__Sex__and_Region.csv'</span>, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(COVID)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 10
+  data_as_of jurisdiction_residence data_period_start data_period_end group
+  &lt;chr&gt;      &lt;chr&gt;                  &lt;chr&gt;             &lt;chr&gt;           &lt;chr&gt;
+1 11/16/2023 Region 1               01/01/2020        01/31/2020      Age  
+2 11/16/2023 Region 1               02/01/2020        02/29/2020      Age  
+3 11/16/2023 Region 1               03/01/2020        03/31/2020      Age  
+4 11/16/2023 Region 1               04/01/2020        04/30/2020      Age  
+5 11/16/2023 Region 1               05/01/2020        05/31/2020      Age  
+6 11/16/2023 Region 1               06/01/2020        06/30/2020      Age  
+# ℹ 5 more variables: subgroup1 &lt;chr&gt;, COVID_deaths &lt;dbl&gt;, crude_rate &lt;dbl&gt;,
+#   conf_int_95pct_lower_crude &lt;dbl&gt;, conf_int_95pct_upper_crude &lt;dbl&gt;</code></pre>
+</div>
+</div>
+<p><strong>4. Monthly US States COVID-19 Death Data</strong></p>
+<p><em>Data Source</em></p>
+<p>All of the monthly US states COVID-19 death data will be from <a href="https://covid.cdc.gov/covid-data-tracker/#datatracker-home">Centers for Disease Control and Prevention COVID Data Tracker</a>. <a href="https://data.cdc.gov/NCHS/Provisional-COVID-19-Deaths-by-Sex-and-Age/9bhg-hcku/about_data">The data</a> is provided by National Center for Health Statistics, who collects monthly, yearly, and overall deaths involving COVID-19, pneumonia, and influenza reported to NCHS by sex, age group, and jurisdiction of occurrence.</p>
+<p><em>Data Import</em></p>
+<p>We can directly download the CSV file <a href="https://data.cdc.gov/NCHS/Provisional-COVID-19-Deaths-by-Sex-and-Age/9bhg-hcku/about_data">here</a>.</p>
+<p>The data set is in the following format:</p>
+<ul>
+<li><p>Time range: Jan 2020 - Sep 2023</p></li>
+<li><p>Frequency of update: monthly - latest update is for Sep 2023</p></li>
+<li><p>Dimensions: data_as_of, jurisdiction_residence, data_period_start, data_period_end, group, subgroup1, COVID_deaths, crude_rate, conf_int_95pct_lower_crude, conf_int_95pct_upper_crude</p>
+<ul>
+<li>Data As Of: Date of analysis</li>
+<li>Start Date: First date of data period</li>
+<li>End Date: Last date of data period</li>
+<li>Group: Indicator of whether data measured by Month, by Year, or Total</li>
+<li>Year: Year in which death occurred</li>
+<li>Month: Month in which death occurred</li>
+<li>State: Jurisdiction of occurrence</li>
+<li>Sex</li>
+<li>Age Group</li>
+<li>COVID-19 Deaths: Deaths involving COVID-19 (ICD-code U07.1)</li>
+<li>Total Deaths: Deaths from all causes of death</li>
+<li>Pneumonia Deaths: Pneumonia Deaths (ICD-10 codes J12.0-J18.9)</li>
+<li>Pneumonia and COVID-19 Deaths</li>
+<li>Influenza Deaths: Influenza Deaths (ICD-10 codes J09-J11)</li>
+<li>Pneumonia, Influenza, or COVID-19 Deaths</li>
+<li>Footnote</li>
+</ul></li>
+</ul>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>state_COVID <span class="ot">=</span> <span class="fu">read_csv</span>(<span class="st">'data/Provisional_COVID-19_Deaths_by_Sex_and_Age.csv'</span>,<span class="at">show_col_types =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(state_COVID)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 16
+  `Data As Of` `Start Date` `End Date` Group  Year Month State Sex   `Age Group`
+  &lt;chr&gt;        &lt;chr&gt;        &lt;chr&gt;      &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;      
+1 09/27/2023   01/01/2020   09/23/2023 By T…    NA    NA Unit… All … All Ages   
+2 09/27/2023   01/01/2020   09/23/2023 By T…    NA    NA Unit… All … Under 1 ye…
+3 09/27/2023   01/01/2020   09/23/2023 By T…    NA    NA Unit… All … 0-17 years 
+4 09/27/2023   01/01/2020   09/23/2023 By T…    NA    NA Unit… All … 1-4 years  
+5 09/27/2023   01/01/2020   09/23/2023 By T…    NA    NA Unit… All … 5-14 years 
+6 09/27/2023   01/01/2020   09/23/2023 By T…    NA    NA Unit… All … 15-24 years
+# ℹ 7 more variables: `COVID-19 Deaths` &lt;dbl&gt;, `Total Deaths` &lt;dbl&gt;,
+#   `Pneumonia Deaths` &lt;dbl&gt;, `Pneumonia and COVID-19 Deaths` &lt;dbl&gt;,
+#   `Influenza Deaths` &lt;dbl&gt;, `Pneumonia, Influenza, or COVID-19 Deaths` &lt;dbl&gt;,
+#   Footnote &lt;chr&gt;</code></pre>
+</div>
+</div>
+<p><strong>5. S&amp;P 500 Data</strong></p>
+<p><em>Data Source</em></p>
+<p>Our source for S&amp;P 500 data is <a href="https://www.spglobal.com/spdji/en/">S&amp;P Dow Jones Indices</a>. <a href="https://www.spglobal.com/spdji/en/indices/equity/sp-500/#overview">The data</a> is calculated by taking a weighted average of the stock prices of 500 large-cap U.S. companies. The weight of each company is determined by its market capitalization. This index reflects the performance of these selected companies in the U.S. stock market.</p>
+<p><em>Data Import</em></p>
+<p>We can directly download the XLS file <a href="https://www.spglobal.com/spdji/en/indices/equity/sp-500/#overview">here</a>.</p>
+<p>The data set is in the following format:</p>
+<ul>
+<li><p>Time range: 12 Dec 2018 - 12 Dec 2023</p></li>
+<li><p>Frequency of update: daily - latest update is for 12 Dec 2023</p></li>
+<li><p>Dimensions: Effective date, S&amp;P 500</p>
+<ul>
+<li>Effective date: opening day</li>
+<li>S&amp;P 500: index</li>
+</ul></li>
+</ul>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>SP500 <span class="ot">=</span> <span class="fu">read_excel</span>(<span class="st">"data/PerformanceGraphExport.xls"</span>, <span class="at">skip=</span><span class="dv">6</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(SP500)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 2
+  `Effective date`    `S&amp;P 500`
+  &lt;dttm&gt;                  &lt;dbl&gt;
+1 2018-12-12 00:00:00     2651.
+2 2018-12-13 00:00:00     2651.
+3 2018-12-14 00:00:00     2600.
+4 2018-12-17 00:00:00     2546.
+5 2018-12-18 00:00:00     2546.
+6 2018-12-19 00:00:00     2507.</code></pre>
 </div>
 </div>
 </section>
-<section id="research-plan" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="research-plan"><span class="header-section-number">2.2</span> Research Plan</h2>
-<p>The dataset we constructed from the previous part contains monthly unemployment rates from 2018 to 2023 broken down by sex, race, age, and marital status. This will enable us to answer our research questions from the introduction.</p>
-<ol type="1">
-<li><p>What is the general US unemployment rate trend over recent years?<br>
-We can answer this by calculating the average unemployment rate of all the groups for each quarter and creating a line graph to see the quarterly trend over time. We can also calculate the average unemployment rate per month and per year to see if there are any monthly or yearly trends. We can use a smoother to observe the overall long-term trend.</p></li>
-<li><p>Were there any significant fluctuations in unemployment rate and what are possible explanations for those fluctuations?<br>
-To answer this question, we can use the same plots from question 1 and see if there are any noticeable dips or hikes in unemployment rate from month to month, quarter to quarter, and year to year.</p></li>
-<li><p>Are there any noticeable correlations between sex, race, age group, etc. with unemployment rate? To answer this question, we can calculate the average unemployment rate for each category of the categorical variables and see if there is a significant difference. For example, we can calculate the average unemployment rate for male and female and see if there is a significant difference between the two groups. To see whether there is a combined effect of two or more groups on unemployment rate (ex. is unemployment rate higher for white males than black females), we can use various visualization techniques for categorical variables from class such as mosaic plots.</p></li>
-<li><p>What is trend of the unemployment rate for different sex, race, age groups, etc. over recent years? We can answer this by creating separate time series plots for each group from 2018 to 2023 and observe if there are any monthly, quarterly, and yearly trends.</p></li>
-</ol>
+<section id="research-plan" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="research-plan"><span class="header-section-number">3.2</span> Research Plan</h2>
 </section>
-<section id="missing-value-analysis" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="missing-value-analysis"><span class="header-section-number">2.3</span> Missing value analysis</h2>
-<div class="cell">
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>data1 <span class="ot">=</span> data <span class="sc">%&gt;%</span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">time =</span> <span class="fu">str_c</span>(year, <span class="st">" "</span>,period)) <span class="sc">%&gt;%</span></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(time, title, value)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-</div>
-<div class="cell">
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(forcats)</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="co"># for a better visualization result, we give each group's tiltle a code to avoid printing out all 530 group titles on the x-axis</span></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>data2 <span class="ot">=</span> data1 <span class="sc">%&gt;%</span></span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">value =</span> <span class="fu">as.numeric</span>(value)) <span class="sc">%&gt;%</span></span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">missing=</span><span class="fu">ifelse</span>(<span class="fu">is.na</span>(value), <span class="st">"yes"</span>, <span class="st">"no"</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">case =</span> <span class="fu">as.numeric</span>(<span class="fu">factor</span>(title)))</span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data2, <span class="fu">aes</span>(<span class="at">x=</span>case, <span class="at">y=</span><span class="fu">fct_rev</span>(time), <span class="at">fill=</span>missing))<span class="sc">+</span></span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_tile</span>(<span class="at">color=</span><span class="st">"white"</span>)<span class="sc">+</span></span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_viridis_d</span>()<span class="sc">+</span></span>
-<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="fu">min</span>(data2<span class="sc">$</span>case), <span class="fu">max</span>(data2<span class="sc">$</span>case), <span class="at">by =</span> <span class="dv">10</span>))<span class="sc">+</span></span>
-<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()<span class="sc">+</span></span>
-<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.y =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="fu">rel</span>(<span class="fl">1.5</span>)),</span>
-<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">90</span>, <span class="at">vjust =</span> <span class="fl">0.5</span>, <span class="at">size =</span> <span class="fu">rel</span>(<span class="fl">1.5</span>))) <span class="sc">+</span></span>
-<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Group"</span>, <span class="at">y =</span> <span class="st">"Time"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output-display">
-<p><img src="data_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="1344"></p>
-</div>
-</div>
-<div class="cell">
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>data3 <span class="ot">=</span> data2 <span class="sc">%&gt;%</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">missingval=</span><span class="fu">ifelse</span>(missing<span class="sc">==</span><span class="st">"no"</span>,<span class="dv">0</span>,<span class="dv">1</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(title)<span class="sc">%&gt;%</span></span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">summissval=</span><span class="fu">sum</span>(missingval)) <span class="sc">%&gt;%</span></span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>data3 <span class="ot">=</span> data3 <span class="sc">%&gt;%</span></span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(summissval<span class="sc">&gt;</span><span class="dv">0</span>)</span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data3, <span class="fu">aes</span>(<span class="at">x=</span><span class="fu">substr</span>(title, <span class="dv">8</span>, <span class="fu">nchar</span>(title)), <span class="at">y=</span><span class="fu">fct_rev</span>(time), <span class="at">fill=</span>missing))<span class="sc">+</span></span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_tile</span>(<span class="at">color=</span><span class="st">"white"</span>)<span class="sc">+</span></span>
-<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_viridis_d</span>()<span class="sc">+</span></span>
-<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()<span class="sc">+</span></span>
-<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.y =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="fu">rel</span>(<span class="fl">1.5</span>)),</span>
-<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">90</span>, <span class="at">vjust =</span> <span class="fl">0.5</span>, <span class="at">size =</span> <span class="fu">rel</span>(<span class="fl">1.5</span>))) <span class="sc">+</span></span>
-<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>   <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Group Title"</span>, <span class="at">y =</span> <span class="st">"Time"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output-display">
-<p><img src="data_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="1344"></p>
-</div>
-</div>
-<p>We find no NAs in most cases. But in some cases, data is not recorded every month. For example, (Unadj) Unemployment Rate - 16-17 yrs., Asian is recorded approximately four times a year, but the months it is recorded seem randomly selected. Overall, we find no evidence that missing months of different unemployment rates are associated with each other.</p>
+<section id="missing-value-analysis" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="missing-value-analysis"><span class="header-section-number">3.3</span> Missing value analysis</h2>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -801,7 +1240,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
   <div class="nav-page nav-page-next">
       <a href="./results.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Results</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">results</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

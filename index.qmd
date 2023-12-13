@@ -1,10 +1,16 @@
 # Introduction
 
-The topic we chose to study is unemployment rate in the US. In particular, we are going to examine the trend of unemployment rate in recent years and characteristics of the unemployed (sex, race, age, marital status, etc.). We chose this topic because it is relevant to many of us who are currently working, applying to jobs, or soon entering the job market. Moreover, with inflation slowing down and recent rapid advancements in AI, we are interested in seeing how the job market is responding. Through our studies, we hope to answer the following questions:
+The topic we chose to study is unemployment rate in the US and the factors influencing it including the recent pandemic and the stock market. In particular, we are going to examine the trend of unemployment rate in recent years (2020 - 2023) along with different characteristics of the unemployed (sex, race, age, marital status, etc.). Furthermore, we will be using the S&P 500 index as our indicator for guaging the general performance of the stock market. We chose this topic because it is relevant to many of us who are currently working, applying to jobs, or soon entering the job market. Moreover, we are interested in seeing how the unemployment rate has changed since the initial onset of COVID-19 in 2020 and whether the impact of the pandemic on employment has been different for different sex, race, age, and marital status groups. In addition to national unemployment rate, we are interested in examining the unemployment rate for individual states in the US and whether there is a correlation between that and the severity of COVID-19's impact on the state. Through our studies, we hope to answer the following research questions:
 
-1. What is the general US unemployment rate trend over recent years?
-2. Were there any significant fluctuations in unemployment rate and what are possible explanations for those fluctuations?
-3. Are there any noticeable correlations between sex, race, age group, etc. with unemployment rate?
-4. What is trend of the unemployment rate for different sex, race, age groups, etc. over recent years?
+1. What are the similarities and differences in trends between COVID-19 death rates, the S&P 500 index, and the unemployment rates?
+2. How does the unemployment rate differ for different race, sex, age, and marital groups?
+3. What are the similarities and differences in trends between COVID-19 death rates and the unemployment rates across people of different sex or people with different ethnicity?
+4. What is the potential effects of race and age on the trend of unemployment rate during COVID-19 pandemic?
+5. What is the potential effects of marital status and sex on the trend of unemployment rate during COVID-19 pandemic?
+6. Which racial group has the most serious unemployment issue during the peak of the national unemployment rate (Apr 2020) vs April 2023 given age and sex?
+7. Which state faced the most severe unemployment issue during the peak of the national unemployment rate (April 2020)?
+8. Which state faced the most severe pandemic-related death issue during the peak of the national COVID death rate (January 2021)?
 
-For those unfamiliar with the topic, a country's unemployment rate is the percentage of the country's total labor force that is unemployed and actively seeking employment. The unemployment rate, along with many other indicators, can provide insight into how an economy is performing. In this study, we will also be examining the unemployment rate of particular groups to see if there is a significant difference in unemployment rate between different groups.
+A country's unemployment rate is the percentage of the country's total labor force that is unemployed and actively seeking employment. It is important to note that individuals not seeking employment will not be taken into consideration, so if a particular group of people have low job demand, the group will likely have a low unemployment rate. The unemployment rate, along with many other indicators, can provide insight into how an economy is performing.
+
+
