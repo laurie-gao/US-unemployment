@@ -10,7 +10,7 @@ Our project focuses on unemployment rates during COVID-19 pandemic. According to
 
 ```{r setup}
 knitr::opts_chunk$set(warning = FALSE)
-knitr::opts_chunk$set(fig.width=30, fig.height=30)
+knitr::opts_chunk$set(fig.width=20, fig.height=20)
 ```
 
 ```{r}
@@ -95,10 +95,10 @@ ggplot(trend_df, aes(time, value)) +
   scale_x_date(limits = c(as.Date("2020-01-01"), as.Date("2023-06-30")), date_breaks = "6 months", date_labels = "%b %Y") +
   facet_grid(type~ .,scales = "free_y") +  
   geom_smooth(method = "loess", span = .25, se = FALSE, formula = y ~ x) +
-  theme_grey(25) +
-  theme(strip.text = element_text(size = 16)) +
+  theme_grey(30) +
+  theme(strip.text = element_text(size = 20)) +
   labs(title = "Figure 1 Trends in COVID-19 Death Rate, Unemployment Rate, and S&P 500 Index") +
-  theme(plot.title = element_text(size = 22))
+  theme(plot.title = element_text(size = 30))
 ```
 
 Based on Figure 1, we can observe that the COVID-19 mortality rate experienced three distinct peaks, occurring around the middle of 2020, early 2021, and late 2021. In contrast, the unemployment rate surged in the middle of 2020, coinciding with the first peak in mortality rate, but then gradually declined and stabilized, showing no significant impact from the second and third waves of the pandemic. As for the S&P 500, it also experienced a sharp decline during the first peak in mortality rate but continued to grow afterward, with no apparent influence from the subsequent waves of the pandemic. It's worth noting that in 2022, following the easing of the pandemic, the S&P 500 actually went through a period of decline, possibly due to factors unrelated to the pandemic. In summary, the chart indicates a strong negative correlation between the unemployment rate and the S&P 500, with both being notably affected by the first wave of the pandemic. However, this impact did not persist into the second or third peak periods of the pandemic, as economic conditions gradually improved and stabilized after the initial shock of the first wave.
@@ -160,10 +160,10 @@ ggplot(trend_df, aes(time, value)) +
   scale_x_date(limits = c(as.Date("2020-01-01"), as.Date("2023-06-30")), date_breaks = "6 months", date_labels = "%b %Y") +
   facet_grid(type~ group*subgroup1, scales = "free_y") +  
   geom_smooth(method = "loess", span = .3, se = FALSE, formula = y ~ x) +
-  theme_grey(25) +
-  theme(strip.text = element_text(size = 20)) +
+  theme_grey(30) +
+  theme(strip.text = element_text(size = 24)) +
   labs(title = "Figure 2 Trends in COVID-19 Death Rate and Unemployment Rate across people with diferent sex or race") +
-  theme(plot.title = element_text(size = 18)) +
+  theme(plot.title = element_text(size = 25)) +
   theme(axis.text.x = element_text(angle = 90, hjust = 1))
 ```
 
@@ -182,10 +182,10 @@ ggplot(URtrend, aes(time, value)) +
   geom_line(size = 0.7) + 
   scale_x_date(limits = c(as.Date("2020-01-01"), as.Date("2023-06-30")), date_breaks = "6 months", date_labels = "%b %Y") +
   facet_wrap(~ race + age, ncol=7) +
-  theme_grey(20) +
-  theme(strip.text = element_text(size = 16)) +
+  theme_grey(30) +
+  theme(strip.text = element_text(size = 20)) +
   labs(title = "Figure 3 Trends of Unemployment Rate of people from different races and age") +
-  theme(plot.title = element_text(size = 22)) +
+  theme(plot.title = element_text(size = 30)) +
   labs(y = "Unemployment Rate (%)") +
   theme(axis.text.x = element_text(angle = 90, hjust = 1)) 
 ```
@@ -207,12 +207,13 @@ ggplot(URtrend, aes(time, value)) +
   geom_line(aes(linetype=sex),size = 0.7) + 
   scale_x_date(limits = c(as.Date("2020-01-01"), as.Date("2023-06-30")), date_breaks = "6 months", date_labels = "%b %Y") +
   facet_wrap(~ mari) +
-  theme_grey(25) +
-  theme(strip.text = element_text(size = 16)) +
+  theme_grey(30) +
+  theme(strip.text = element_text(size = 20)) +
   labs(title = "Figure 4 Trends of Unemployment Rate of people with different sex and marital status") +
-  theme(plot.title = element_text(size = 22)) +
+  theme(plot.title = element_text(size = 30)) +
   labs(y = "Unemployment Rate (%)") +
-  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))+
+  theme(legend.key.size = unit(3, "cm"))
 ```
 
 Figure 4 shows that regardless of gender or marital status, the unemployment rate sharply increased during the first wave of the pandemic and gradually declined to stabilize after this initial peak. Overall, married individuals experienced relatively less impact on their employment status during the first wave of the pandemic, with lower unemployment rates across the pandemic period. In terms of gender, married women had higher unemployment rates compared to men, while the opposite pattern was observed for the other two marital statuses. Moreover, in all three marital statuses, women suffer more from the negative impact of the first wave of the pandemic than men do.
@@ -271,7 +272,8 @@ state_choropleth(state_UR,
                  title = "Figure 6 unemployment severity by state (April 2020)",legend = "Unemployment Rate (%)")+
 theme(plot.title = element_text(size = 30))+
 theme(legend.text = element_text(size = 20))+
-theme(legend.title = element_text(size = 17))
+theme(legend.title = element_text(size = 25))+
+theme(legend.key.size = unit(2, "cm"))
 
 ```
 
@@ -310,7 +312,8 @@ state_choropleth(state_DR,
                  title = "Figure 7 COVID deaths severity by state (January 2021)",legend = "COVID Death Rate\n (per 100,000 population)")+
 theme(plot.title = element_text(size = 30))+
 theme(legend.text = element_text(size = 20))+
-theme(legend.title = element_text(size = 17))
+theme(legend.title = element_text(size = 20))+
+theme(legend.key.size = unit(2, "cm"))
 ```
 
 From Figure 7, we can observe that in January 2021, the states of Arizona, California, Oklahoma, Alabama, Mississippi, and West Virginia had the most severe COVID-19 situation in terms of deaths. Overall, the COVID-19 death situation in the southern states appeared to be more severe compared to the northern regions.
