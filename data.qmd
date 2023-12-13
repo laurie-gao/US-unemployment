@@ -1,30 +1,55 @@
+---
+title: "data"
+format: html
+editor: visual
+---
+
 # Data
 
-## Description
+## Technical description
 
-**Data Source** \
-All of the unemployment rate data will be from the US Bureau of Labor Statistics [website](https://www.bls.gov/cps/tables.htm). The data is collected through the Current Population Survey (CPS), which is a monthly survey of households conducted by the Bureau of Census for the Bureau of Labor Statistics. There are many CPS tables on the linked website - we want our data to be similar to the following table.
+**1. Monthly US National Unemployment Rate Data**
 
-* [A-10. Unemployment rates by age, sex, and marital status, seasonally adjusted](https://www.bls.gov/web/empsit/cpseea10.htm) (monthly, seasonally adjusted)
-  + Time range: Oct 2022 - Oct 2023
-  + Frequency of update: monthly - the most recent update was for Oct 2023
-  + Dimensions: month, age group, sex, marital status
-  
-* [A-29. Unemployed persons by marital status, race, Hispanic or Latino ethnicity, age, and sex](https://www.bls.gov/web/empsit/cpseea29.htm) (Month over month, not seasonally adjusted)
-  + Time range: Oct 2022 and Oct 2023
-  + Frequency of update: monthly - the most recent update was for Oct 2023
-  + Dimensions: month, sex, marital status, race, Hispanic or Latino ethnicity, age group
+*Data Source*
 
-**Data Import** \
-We can not directly download the table listed above (BLS doesn't provide CSV files of them. And they are also not API accessible). We need to reconstruct a data frame that has information similar to theirs. Therefore, we use BLS Api to extract unemployment rates of different demographic groups and merge all the data we get. When extracting data, we refer to [LN series id list – Labor force statistics including the national unemployment rate](https://www.bls.gov/cps/data.htm) and put the series_id of the information we need into the api query. (ie. we extract some of the data listed [here](https://beta.bls.gov/dataQuery/find?st=0&r=20&q=unemployment&more=0.%2C+hispanic+orange.%2C+Hispanic&fq=survey:[ln]) by API) Moreover, we extract data from 2018 to 2023 (longer than the time ranges of the above listed tables), so that if we want to do some analysis regarding COVID-19, we have data to do so.
+All of the national unemployment rate data will be from [US Bureau of Labor Statistics](https://www.bls.gov/). The data is collected through the [Current Population Survey (CPS)](https://www.bls.gov/cps/), which is a monthly survey of households conducted by the Bureau of Census for the Bureau of Labor Statistics. There are many CPS tables on the [website](https://www.bls.gov/cps/tables.htm) - we want our data to be similar to [A-10. Unemployment rates by age, sex, and marital status, seasonally adjusted](https://www.bls.gov/web/empsit/cpseea10.htm), which allows us to investigate potential influences of ethnicity, age, sex, and even marital status on unemployment rate.
+
+*Data Import*
+
+As BLS doesn't provide CSV files of such organized data like the [A-10 table](https://www.bls.gov/web/empsit/cpseea10.htm), we access the raw data by [The BLS Public Data Application Programming Interface (API)](https://www.bls.gov/bls/api_features.htm). Specifically, we use API to extract national unemployment rates of different demographic groups. When extracting data, we refer to [LN series id list -- Labor force statistics including the national unemployment rate](https://download.bls.gov/pub/time.series/ln/ln.series) (we save it as ln.series.txt in the data folder for further use) under [CPS Databases](https://www.bls.gov/cps/data.htm) and put the series_id of the information we need into the api query (ie. we extract some of the data listed [here](https://beta.bls.gov/dataQuery/find?st=0&r=20&q=unemployment&more=0.%2C+hispanic+orange.%2C+Hispanic&fq=survey:%5Bln%5D) by API). We then convert all the data from Json to CSV files, preprocess the data, and combine them into single data set.
+
+The data set is in the following format:
+
+-   Time range: Jan 2020 - Nov 2023
+
+-   Frequency of update: monthly - latest update is for Nov 2023
+
+-   Dimensions: year, month, value, adjusted, sex, race, age, mari
+
+    -   year: the year of the unemployment rate survey
+
+    -   month: the month of the unemployment rate survey
+
+    -   value: unemployment rate
+
+    -   adjusted: whether the unemployment rate is seasonally adjusted
+
+    -   sex: the sex surveyed for the unemployment rate (can take value "Both", "Men", or "Women")
+
+    -   race: the race surveyed for the unemployment rate (can take value "All", "Asian", "Black", "Latino", or "White")
+
+    -   age: the age surveyed for the unemployment rate (can take value "All", "16-19", "20-24", "25-34", "35-44", "45-54", "55-64", or "65-" for unadjusted data; "16-17", "16-19", "16-24", "18-19", "20-", "20-24", "25-", "25-34", "25-54", "35-44", "45-54", or "55-" for seasonally adjusted data)
+
+    -   mari: the marital status surveyed for the unemployment rate (can take value "All", "Never Married", "Married, spouse present", or "Widdowed, divorced, or seperated" for unadjusted data; "All" or "Married, spouse present" for seasonally adjusted data)
+
+    -   Note that BLS does not collect unemployment rate for all combinations of all demographic features! (For example, unadjusted unemployment rate data for 20-to-24-year-old asian men, whose marital status is "Widdowed, divorced, or seperated" doesn't exist.)
 
 ```{r setup}
 knitr::opts_chunk$set(warning = FALSE)
-knitr::opts_chunk$set(message = FALSE)
+knitr::opts_chunk$set(fig.width=14, fig.height=16)
 ```
 
 ```{r}
-knitr::opts_chunk$set(fig.width=14, fig.height=16)
 library(readr)
 library(dplyr)
 library(stringr)
@@ -61,7 +86,7 @@ all_df = all_df %>%
     disa_code == 0,
     orig_code %in%c(0,1)
   ) %>%
-  filter(str_detect(series_id, "LNS130|LNS140|LNU040")) %>%
+  filter(str_detect(series_id, "LNU040")) %>%
   mutate(race_code = if_else(orig_code == 1, 2, race_code)) %>%
   filter(race_code %in% c(0,1,2,3,4)) %>%
   filter(periodicity_code=="M") 
@@ -80,7 +105,6 @@ list1 <- split_dfs[1:4]
 list2 <- split_dfs[5:12]
 ```
 
-
 ```{r}
 #install.packages("devtools") 
 #devtools::install_github("mikeasilva/blsAPI") 
@@ -93,7 +117,7 @@ data <- data.frame(
   period = character(),
   periodName = character(),
   value = character(),
-  rate = logical(),
+  adjusted = logical(),
   sex = character(),
   race = character(),
   age = character(),
@@ -104,7 +128,7 @@ data <- data.frame(
 
 ```{r}
 ## Process results
-apiDF <- function(data,rate,series_title,sexs_code,race_code,ages_code,mari_code) {
+apiDF <- function(data,series_title,sexs_code,race_code,ages_code,mari_code) {
   sexs_value <- if (sexs_code == 1) {
     "Men"
   } else if (sexs_code == 2) {
@@ -201,13 +225,18 @@ apiDF <- function(data,rate,series_title,sexs_code,race_code,ages_code,mari_code
     "All"
   }
   
+  adjusted <- if (str_detect(series_title, '(Unadj)')) {
+    FALSE
+  } else {
+    TRUE
+  }
+  
   df  <- data %>%
           select(-footnotes,-latest) %>%
-          mutate(rate, title=series_title, sex=sexs_value, race=race_value, age=ages_value, mari=mari_value)
+          mutate(adjusted=adjusted, title=series_title, sex=sexs_value, race=race_value, age=ages_value, mari=mari_value)
   return(df)
 }
 ```
-
 
 ```{r}
 library(jsonlite)
@@ -216,13 +245,13 @@ for (i in 1:4) {
   ## Pull the data via the API
   payload <- list(
     'seriesid'  = current_df$series_id,
-    'startyear' = 2018,
+    'startyear' = 2020,
     'endyear'   = 2023,
     'registrationKey'='9e0f46de2cb9444b808f4b26131459ce') #38573dc63f3d4016a425126b9e52903e
   response <- blsAPI(payload, 2)
   json     <- jsonlite::fromJSON(response)
   for (j in 1:nrow(current_df)) {
-  single_data  <- apiDF(json$Results$series$data[[j]], series_title=current_df[j,]$series_title, rate=TRUE, sexs_code=current_df[j,]$sexs_code, race_code=current_df[j,]$race_code, ages_code=current_df[j,]$ages_code, mari_code =current_df[j,]$mari_code)
+  single_data  <- apiDF(json$Results$series$data[[j]], series_title=current_df[j,]$series_title, sexs_code=current_df[j,]$sexs_code, race_code=current_df[j,]$race_code, ages_code=current_df[j,]$ages_code, mari_code =current_df[j,]$mari_code)
   data<- rbind(data, single_data)
   }
 }
@@ -234,14 +263,14 @@ for (i in 1:8) {
   ## Pull the data via the API
   payload <- list(
     'seriesid'  = current_df$series_id,
-    'startyear' = 2018,
+    'startyear' = 2020,
     'endyear'   = 2023,
     'registrationKey'='38573dc63f3d4016a425126b9e52903e') 
   response <- blsAPI(payload, 2)
   json     <- jsonlite::fromJSON(response)
   
   for (j in 1:nrow(current_df)) {
-  single_data  <- apiDF(json$Results$series$data[[j]], series_title=current_df[j,]$series_title, rate=TRUE, sexs_code=current_df[j,]$sexs_code, race_code=current_df[j,]$race_code, ages_code=current_df[j,]$ages_code, mari_code =current_df[j,]$mari_code)
+  single_data  <- apiDF(json$Results$series$data[[j]], series_title=current_df[j,]$series_title, sexs_code=current_df[j,]$sexs_code, race_code=current_df[j,]$race_code, ages_code=current_df[j,]$ages_code, mari_code =current_df[j,]$mari_code)
   data<- rbind(data, single_data)
   }
 }
@@ -249,69 +278,389 @@ for (i in 1:8) {
 
 ```{r}
 library(readr)
-write_csv(data, "data/data.csv")
+
+unadj_UR = data %>%
+  mutate(month = periodName) %>%
+  filter(age=="All"|age=="16-19"|age=="20-24"|age=="25-34"|age=="35-44"|age=="45-54"|age=="55-64"|age=="65-") %>%
+  select(year, month = periodName, value, adjusted, sex, race, age, mari)
 ```
 
 ```{r}
-head(data)
+library(readr)
+library(dplyr)
+library(stringr)
+
+all_df = read.table("data/ln.series.txt", header = TRUE, sep = "\t", stringsAsFactors = FALSE)
+all_df = all_df %>%
+  filter(str_detect(series_title, "Unemployment"))%>%
+  filter(!str_detect(series_title, "Level"))%>%
+  filter(
+    absn_code == 0,
+    activity_code == 0,
+    cert_code == 0,
+    class_code == 0,
+    duration_code == 0,
+    education_code == 0,
+    entr_code == 0,
+    expr_code == 0,
+    hheader_code == 0,
+    hour_code == 0,
+    indy_code == 0,
+    jdes_code == 0,
+    look_code == 0,
+    mjhs_code == 0,
+    occupation_code == 0,
+    pcts_code == 0,
+    rjnw_code == 0,
+    rnlf_code == 0,
+    rwns_code == 0,
+    seek_code == 0,
+    vets_code == 0,
+    wkst_code == 0,
+    born_code == 0,
+    chld_code == 0,
+    disa_code == 0,
+    orig_code %in%c(0,1)
+  ) %>%
+  filter(str_detect(series_id, "LNS130|LNS140")) %>%
+  mutate(race_code = if_else(orig_code == 1, 2, race_code)) %>%
+  filter(race_code %in% c(0,1,2,3,4)) %>%
+  filter(periodicity_code=="M") 
+all_df$series_id <- trimws(all_df$series_id)
+```
+
+```{r}
+n <- nrow(all_df) 
+size <- ceiling(n / 12) 
+
+groups <- rep(1:12, each = size)
+groups <- groups[1:n] 
+
+split_dfs <- split(all_df, groups)
+list1 <- split_dfs[1:4]
+list2 <- split_dfs[5:12]
+```
+
+```{r}
+#install.packages("devtools") 
+#devtools::install_github("mikeasilva/blsAPI") 
+library(rjson)
+library(blsAPI)
+library(ggplot2)
+
+data <- data.frame(
+  year = character(),
+  period = character(),
+  periodName = character(),
+  value = character(),
+  adjusted = logical(),
+  sex = character(),
+  race = character(),
+  age = character(),
+  marital = character(),
+  stringsAsFactors = FALSE
+)
+```
+
+```{r}
+library(jsonlite)
+for (i in 1:4) {
+  current_df <- list1[[i]]
+  ## Pull the data via the API
+  payload <- list(
+    'seriesid'  = current_df$series_id,
+    'startyear' = 2020,
+    'endyear'   = 2023,
+    'registrationKey'='9e0f46de2cb9444b808f4b26131459ce') #38573dc63f3d4016a425126b9e52903e
+  response <- blsAPI(payload, 2)
+  json     <- jsonlite::fromJSON(response)
+  for (j in 1:nrow(current_df)) {
+  single_data  <- apiDF(json$Results$series$data[[j]], series_title=current_df[j,]$series_title,  sexs_code=current_df[j,]$sexs_code, race_code=current_df[j,]$race_code, ages_code=current_df[j,]$ages_code, mari_code =current_df[j,]$mari_code)
+  data<- rbind(data, single_data)
+  }
+}
+```
+
+```{r}
+for (i in 1:8) {
+  current_df <- list2[[i]]
+  ## Pull the data via the API
+  payload <- list(
+    'seriesid'  = current_df$series_id,
+    'startyear' = 2020,
+    'endyear'   = 2023,
+    'registrationKey'='38573dc63f3d4016a425126b9e52903e') 
+  response <- blsAPI(payload, 2)
+  json     <- jsonlite::fromJSON(response)
+  
+  for (j in 1:nrow(current_df)) {
+  single_data  <- apiDF(json$Results$series$data[[j]], series_title=current_df[j,]$series_title, sexs_code=current_df[j,]$sexs_code, race_code=current_df[j,]$race_code, ages_code=current_df[j,]$ages_code, mari_code =current_df[j,]$mari_code)
+  data<- rbind(data, single_data)
+  }
+}
+```
+
+```{r}
+library(readr)
+
+seas_UR = data %>%
+  mutate(month = periodName) %>% 
+  select(year, month, value, adjusted, sex, race, age, mari)
+```
+
+```{r}
+UR = bind_rows(unadj_UR, seas_UR)
+```
+
+```{r}
+write_csv(UR, "data/UR.csv")
+head(UR)
+```
+
+**2. Monthly US State Unemployment Rate Data**
+
+*Data Source*
+
+All of the state unemployment rate data will be from [US Bureau of Labor Statistics](https://www.bls.gov/). The data is collected through the [The Local Area Unemployment Statistics (LAUS) program](https://www.bls.gov/lau/), which produces monthly unemployment data for states.
+
+*Data Import*
+
+As BLS doesn't provide CSV files of such data, we access the raw data by [The BLS Public Data Application Programming Interface (API)](https://www.bls.gov/bls/api_features.htm). Specifically, we use API to extract unemployment rates of different states. By referring to series_id of the data listed [here](https://beta.bls.gov/dataQuery/find?st=0&r=20&s=popularity%3AD&fq=survey:%5Bla%5D&fq=mg:%5BMeasure+Attributes%5D&fq=mc:%5BSeasonality%5D&fq=mcd:%5BNot+seasonally+adjusted%5D&fq=mg:%5BMeasure+Category%5D&fq=mc:%5BUnemployed%5D&fq=mcd:%5BRate%5D&fq=mg:%5BMeasure+Published+By%5D&fq=cg:%5BGeography%5D&fq=cc:%5BStates+and+Territories%5D&more=0) and the [states code](https://download.bls.gov/pub/time.series/sm/sm.state) (we save it as sm.state.txt in the data folder for further use) under [Series ID Formats](https://www.bls.gov/help/hlpforma.htm), we put the series_id of the information we need into the api query. We then convert all the data from Json to CSV files, preprocess the data, and combine them into single data set.
+
+The data set is in the following format:
+
+-   Time range: Jan 2020 - Oct 2023
+
+-   Frequency of update: monthly - latest update is for Oct 2023
+
+-   Dimensions: year, month, state, value
+
+    -   year: the year of the unemployment rate survey
+
+    -   month: the month of the unemployment rate survey
+
+    -   state: the state surveyed for the unemployment rate (including 50 states, Puerto Rico, and District of Columbia)
+
+    -   value: not seasonally adjusted unemployment rate
+
+```{r}
+library(readr)
+library(dplyr)
+library(stringr)
+
+all_df = read.table("data/sm.state.txt", header = TRUE, sep = "\t", stringsAsFactors = FALSE)
+all_df = all_df[-1, ]
+all_df = head(all_df, -2)
+all_df = all_df %>%
+  mutate(state_code = as.character(state_code)) %>%
+  mutate(state_code = str_pad(state_code, width = 2, pad = "0"))%>%
+  mutate(series_id = paste('LAUST', state_code,'0000000000003', sep=''))
+```
+
+```{r}
+n <- nrow(all_df) 
+size <- ceiling(n / 2) 
+
+groups <- rep(1:2, each = size)
+groups <- groups[1:n] 
+
+split_dfs <- split(all_df, groups)
+list1 <- split_dfs[1]
+list2 <- split_dfs[2]
+```
+
+```{r}
+#install.packages("devtools") 
+#devtools::install_github("mikeasilva/blsAPI") 
+library(rjson)
+library(blsAPI)
+library(ggplot2)
+
+data <- data.frame(
+  year = character(),
+  period = character(),
+  periodName = character(),
+  state = character(),
+  value = character(),
+  stringsAsFactors = FALSE
+)
+```
+
+```{r}
+library(jsonlite)
+current_df <- list1[[1]]
+## Pull the data via the API
+payload <- list(
+  'seriesid'  = current_df$series_id,
+  'startyear' = 2020,
+  'endyear'   = 2023,
+  'registrationKey'='38573dc63f3d4016a425126b9e52903e') #9e0f46de2cb9444b808f4b26131459ce
+response <- blsAPI(payload, 2)
+json     <- jsonlite::fromJSON(response)
+for (j in 1:nrow(current_df)) {
+  single_data <- data.frame(
+  year = json$Results$series$data[[j]]$year,
+  period = json$Results$series$data[[j]]$period,
+  periodName = json$Results$series$data[[j]]$periodName,
+  state = current_df[j,]$state_name,
+  value = json$Results$series$data[[j]]$value,
+  stringsAsFactors = FALSE
+)
+data<- rbind(data, single_data)
+}
+```
+
+```{r}
+json$Results$series$data[[1]]
+```
+
+```{r}
+current_df <- list2[[1]]
+## Pull the data via the API
+payload <- list(
+  'seriesid'  = current_df$series_id,
+  'startyear' = 2020,
+  'endyear'   = 2023,
+  'registrationKey'='38573dc63f3d4016a425126b9e52903e') #9e0f46de2cb9444b808f4b26131459ce 
+response <- blsAPI(payload, 2)
+json     <- jsonlite::fromJSON(response)
+for (j in 1:nrow(current_df)) {
+  single_data <- data.frame(
+  year = json$Results$series$data[[j]]$year,
+  period = json$Results$series$data[[j]]$period,
+  periodName = json$Results$series$data[[j]]$periodName,
+  state = current_df[j,]$state_name,
+  value = json$Results$series$data[[j]]$value,
+  stringsAsFactors = FALSE
+)
+data<- rbind(data, single_data)
+}
+```
+
+```{r}
+library(readr)
+
+state_UR = data %>%
+  mutate(month = periodName) %>%
+  select(year, month = periodName, state, value)
+    
+write_csv(state_UR, "data/state_UR.csv")
+```
+
+```{r}
+head(state_UR)
+```
+
+**3. Monthly US National COVID-19 Death Rate Data**
+
+*Data Source*
+
+All of the monthly US National COVID-19 death rate data will be from [Centers for Disease Control and Prevention COVID Data Tracker](https://covid.cdc.gov/covid-data-tracker/#datatracker-home). [The data](https://data.cdc.gov/Public-Health-Surveillance/Monthly-COVID-19-Death-Rates-per-100-000-Populatio/89qs-mr7i/about_data) is collected by CDC, who provides COVID-19 death rates per 100,000 population stratified by age group, race/ethnicity, sex, and region every month.
+
+*Data Import*
+
+We can directly download the CSV file [here](https://data.cdc.gov/Public-Health-Surveillance/Monthly-COVID-19-Death-Rates-per-100-000-Populatio/89qs-mr7i/about_data).
+
+The data set is in the following format:
+
+-   Time range: Jan 2020 - Oct 2023
+
+-   Frequency of update: monthly - latest update is for Oct 2023
+
+-   Dimensions: data_as_of, jurisdiction_residence, data_period_start, data_period_end, group, subgroup1, COVID_deaths, crude_rate, conf_int_95pct_lower_crude, conf_int_95pct_upper_crude
+
+    -   data_as_of: Date of most recent data update
+    -   jurisdiction_residence: Name of HHS Region or United States
+    -   data_period_start: Data period start date
+    -   data_period_end: Data period end date
+    -   group: Demographic group (can take value "All", "Age", "Sex", "Race")
+    -   subgroup1: Subgroups of Demographic group (for example, if group is Sex, subgroup could be "Female" or "Male")
+    -   COVID_deaths: Count of COVID-19 deaths
+    -   crude_rate: Crude mortality rate per 100,000 population
+    -   conf_int_95pct_lower_crude: 95% confidence interval of crude mortality rate (lower bound)
+    -   conf_int_95pct_upper_crude: 95% confidence interval of crude mortality rate (upper bound)
+
+```{r}
+COVID = read_csv('data/Monthly_COVID-19_Death_Rates_per_100_000_Population_by_Age_Group__Race_and_Ethnicity__Sex__and_Region.csv', show_col_types = FALSE)
+```
+
+```{r}
+head(COVID)
+```
+
+**4. Monthly US States COVID-19 Death Data**
+
+*Data Source*
+
+All of the monthly US states COVID-19 death data will be from [Centers for Disease Control and Prevention COVID Data Tracker](https://covid.cdc.gov/covid-data-tracker/#datatracker-home). [The data](https://data.cdc.gov/NCHS/Provisional-COVID-19-Deaths-by-Sex-and-Age/9bhg-hcku/about_data) is provided by National Center for Health Statistics, who collects monthly, yearly, and overall deaths involving COVID-19, pneumonia, and influenza reported to NCHS by sex, age group, and jurisdiction of occurrence.
+
+*Data Import*
+
+We can directly download the CSV file [here](https://data.cdc.gov/NCHS/Provisional-COVID-19-Deaths-by-Sex-and-Age/9bhg-hcku/about_data).
+
+The data set is in the following format:
+
+-   Time range: Jan 2020 - Sep 2023
+
+-   Frequency of update: monthly - latest update is for Sep 2023
+
+-   Dimensions: data_as_of, jurisdiction_residence, data_period_start, data_period_end, group, subgroup1, COVID_deaths, crude_rate, conf_int_95pct_lower_crude, conf_int_95pct_upper_crude
+
+    -   Data As Of: Date of analysis
+    -   Start Date: First date of data period
+    -   End Date: Last date of data period
+    -   Group: Indicator of whether data measured by Month, by Year, or Total
+    -   Year: Year in which death occurred
+    -   Month: Month in which death occurred
+    -   State: Jurisdiction of occurrence
+    -   Sex
+    -   Age Group
+    -   COVID-19 Deaths: Deaths involving COVID-19 (ICD-code U07.1)
+    -   Total Deaths: Deaths from all causes of death
+    -   Pneumonia Deaths: Pneumonia Deaths (ICD-10 codes J12.0-J18.9)
+    -   Pneumonia and COVID-19 Deaths
+    -   Influenza Deaths: Influenza Deaths (ICD-10 codes J09-J11)
+    -   Pneumonia, Influenza, or COVID-19 Deaths
+    -   Footnote
+
+```{r}
+state_COVID = read_csv('data/Provisional_COVID-19_Deaths_by_Sex_and_Age.csv',show_col_types = FALSE)
+```
+
+```{r}
+head(state_COVID)
+```
+
+**5. S&P 500 Data**
+
+*Data Source*
+
+Our source for S&P 500 data is [S&P Dow Jones Indices](https://www.spglobal.com/spdji/en/). [The data](https://www.spglobal.com/spdji/en/indices/equity/sp-500/#overview) is calculated by taking a weighted average of the stock prices of 500 large-cap U.S. companies. The weight of each company is determined by its market capitalization. This index reflects the performance of these selected companies in the U.S. stock market.
+
+*Data Import*
+
+We can directly download the XLS file [here](https://www.spglobal.com/spdji/en/indices/equity/sp-500/#overview).
+
+The data set is in the following format:
+
+-   Time range: 12 Dec 2018 - 12 Dec 2023
+
+-   Frequency of update: daily - latest update is for 12 Dec 2023
+
+-   Dimensions: Effective date, S&P 500
+
+    -   Effective date: opening day
+    -   S&P 500: index
+
+```{r}
+library(readxl)
+SP500 = read_excel("data/PerformanceGraphExport.xls", skip=6)
+```
+
+```{r}
+head(SP500)
 ```
 
 ## Research Plan
-The dataset we constructed from the previous part contains monthly unemployment rates from 2018 to 2023 broken down by sex, race, age, and marital status. This will enable us to answer our research questions from the introduction.
-
-1. What is the general US unemployment rate trend over recent years? \
-We can answer this by calculating the average unemployment rate of all the groups for each quarter and creating a line graph to see the quarterly trend over time. We can also calculate the average unemployment rate per month and per year to see if there are any monthly or yearly trends. We can use a smoother to observe the overall long-term trend. 
-
-2. Were there any significant fluctuations in unemployment rate and what are possible explanations for those fluctuations? \
-To answer this question, we can use the same plots from question 1 and see if there are any noticeable dips or hikes in unemployment rate from month to month, quarter to quarter, and year to year.
-
-3. Are there any noticeable correlations between sex, race, age group, etc. with unemployment rate?
-To answer this question, we can calculate the average unemployment rate for each category of the categorical variables and see if there is a significant difference. For example, we can calculate the average unemployment rate for male and female and see if there is a significant difference between the two groups. To see whether there is a combined effect of two or more groups on unemployment rate (ex. is unemployment rate higher for white males than black females), we can use various visualization techniques for categorical variables from class such as mosaic plots. 
-
-4. What is trend of the unemployment rate for different sex, race, age groups, etc. over recent years?
-We can answer this by creating separate time series plots for each group from 2018 to 2023 and observe if there are any monthly, quarterly, and yearly trends. 
 
 ## Missing value analysis
-```{r}
-library(tidyr)
-data1 = data %>%
-  mutate(time = str_c(year, " ",period)) %>%
-  select(time, title, value)
-```
-
-```{r}
-library(forcats)
-# for a better visualization result, we give each group's title a code to avoid printing out all 530 group titles on the x-axis
-data2 = data1 %>%
-  mutate(value = as.numeric(value)) %>%
-  mutate(missing=ifelse(is.na(value), "yes", "no")) %>%
-  mutate(case = as.numeric(factor(title)))
-ggplot(data2, aes(x=case, y=fct_rev(time), fill=missing))+
-  geom_tile(color="white")+
-  scale_fill_viridis_d()+
-  scale_x_continuous(breaks = seq(min(data2$case), max(data2$case), by = 10))+
-  theme_bw()+
-  theme(axis.text.y = element_text(size = rel(1.5)),
-        axis.text.x = element_text(angle = 90, vjust = 0.5, size = rel(1.5))) +
-  labs(x = "Group", y = "Time")
-```
-
-```{r}
-data3 = data2 %>%
-  mutate(missingval=ifelse(missing=="no",0,1)) %>%
-  group_by(title)%>%
-  mutate(summissval=sum(missingval)) %>%
-  ungroup()
-
-data3 = data3 %>%
-  filter(summissval>0)
-ggplot(data3, aes(x=substr(title, 8, nchar(title)), y=fct_rev(time), fill=missing))+
-  geom_tile(color="white")+
-  scale_fill_viridis_d()+
-  theme_bw()+
-  theme(axis.text.y = element_text(size = rel(1.5)),
-        axis.text.x = element_text(angle = 90, vjust = 0.5, size = rel(1.5))) +
-   labs(x = "Group Title", y = "Time")
-```
-
-We find no NAs in most cases. But in some cases, data is not recorded every month. For example, (Unadj) Unemployment Rate - 16-17 yrs., Asian is recorded approximately four times a year, but the months it is recorded seem randomly selected. Overall, we find no evidence that missing months of different unemployment rates are associated with each other. 
