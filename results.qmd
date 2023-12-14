@@ -298,7 +298,7 @@ URtrend = UR %>%
 
 URtrend4 <- URtrend |> group_by(sex, age) |> 
   mutate(TotalUR = sum(UR)) |> ungroup()
-ggplot(URtrend3, aes(x = age, y = race)) +
+ggplot(URtrend4, aes(x = age, y = race)) +
   geom_tile(aes(fill = (UR/TotalUR)), color = "white") +
   coord_fixed() + 
   scale_fill_gradient2(low = "black", mid = "white",

@@ -164,9 +164,39 @@ ul.task-list li input[type="checkbox"] {
   * {
     font-family: sans-serif;
   }
-</style>
-<div id="plot">
+   body {
+      background-color: #f4f4f4;
+    }
 
+    #chart-container {
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+    }
+
+    button {
+      margin: 5px;
+      padding: 10px;
+      font-size: 14px;
+      background-color: #3498db;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #2980b9;
+    }
+}
+</style>
+<div id="chart-container">
+
+</div>
+<div>
+<p><button onclick="updateChart(2020)">2020</button> <button onclick="updateChart(2021)">2021</button> <button onclick="updateChart(2022)">2022</button> <button onclick="updateChart(2023)">2023</button></p>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
 <script src="scripts/myscript.js"></script>
