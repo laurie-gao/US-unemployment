@@ -1,1 +1,11 @@
 # Conclusion
+In conclusion, we were able to derive insights from a combination of US unemployment rate data, COVID-19 death rate data, and the S&P 500 stock data to answer our research questions. Below is a summary of our key findings:
+
+1. COVID-19 death rate in the US had three distinct spikes, occurring around mid 2020, early 2021, and late 2021. The first spike coincided with the spike in national unemployment rate, which has been decreasing ever since. The first spike also coincided with a dip in the S&P 500 stock index, but the stock market quickly recovered. 
+2. In general, unemployment rate is lower for Asian and White racial groups compared to Black and Latino racial groups. Women tend to have a lower unemployment rate than men, and youth and young adults have a high unemployment rate which decreases as age increases. 
+3. All race, age, and sex groups displayed the same trend when it comes to the spike in unemployment rate and COVID-19 death rate. There were three spikes in death rate with and the first spike coincided with the spike in unemployment rate. 
+4. Although the unemployment rate has decreased significantly since its spike in 2020, data shows that that the rate has decreased more for Asian and White racial groups than for Black and Latino racial groups. There is a now a greater disparity in unemployment rate between the racial groups compared to 2020.
+5. The US states that faced the most severe unemployment rate issues during the spike in April 2020 were Nevada, Illinois, Michigan, Indiana, Hawaii, and Rhode Island.
+6. The US states that had the highest COVID-19 death rates during the peak in January 2021 where Arizona, California, Oklahoma, Alabama, Mississippi, and West Virginia.
+
+Overall, we observed that the unemployment rate has been recovering since its spike in 2020 and is decreasing for all age, sex, race, and marital status groups. As expected, COVID-19 had a significant impact on the US market and we are still feeling its effects to this day. 
