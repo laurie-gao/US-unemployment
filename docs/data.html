@@ -1066,7 +1066,9 @@ Attaching package: 'jsonlite'</code></pre>
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_missing</span>(COVID, <span class="at">percent =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>COVID <span class="ot">=</span> COVID<span class="sc">%&gt;%</span></span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">updateD=</span><span class="st">"data_as_of"</span>,<span class="at">region=</span><span class="st">"jurisdiction_residence"</span>,<span class="at">start=</span><span class="st">"data_period_start"</span>,<span class="at">end=</span><span class="st">"data_period_end"</span>,<span class="at">g=</span><span class="st">"group"</span>,<span class="at">sg=</span><span class="st">"subgroup1"</span>,<span class="at">death=</span><span class="st">"COVID_deaths"</span>,<span class="at">rate=</span><span class="st">"crude_rate"</span>,<span class="at">CI_low=</span><span class="st">"conf_int_95pct_lower_crude"</span>,<span class="at">CI_up=</span><span class="st">"conf_int_95pct_upper_crude"</span>)</span>
+<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_missing</span>(COVID, <span class="at">percent =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <p><img src="data_files/figure-html/unnamed-chunk-33-1.png" class="img-fluid" width="1344"></p>
