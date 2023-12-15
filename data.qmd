@@ -699,10 +699,10 @@ As we will not use "Total Deaths", "Pneumonia Deaths", "Pneumonia and COVID-19 D
 plot_missing(SP500, percent = FALSE)
 ```
 
-Some rows of NA in all columns exist. Simply removing them can solve the problem without harming our analysis.
+Some rows have NA in all columns. Simply removing them can solve the problem without harming our analysis.
 
 ```{r}
 plot_missing(popu, percent = FALSE)
 ```
 
-One row of NA in all columns exists. The other row contains only footnote. Simply removing them can solve the problem without harming our analysis.
+One row has NA in all columns. The other row contains only footnote. Simply removing them can solve the problem without harming our analysis.
