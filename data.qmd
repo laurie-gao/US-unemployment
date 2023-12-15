@@ -8,7 +8,7 @@ editor: visual
 
 ## Technical description
 
-**1. Monthly US National Unemployment Rate Data**
+### **1. Monthly US National Unemployment Rate Data**
 
 *Data Source*
 
@@ -16,7 +16,7 @@ All of the national unemployment rate data will be from [US Bureau of Labor Stat
 
 *Data Import*
 
-As BLS doesn't provide CSV files of such organized data like the [A-10 table](https://www.bls.gov/web/empsit/cpseea10.htm), we access the raw data by [The BLS Public Data Application Programming Interface (API)](https://www.bls.gov/bls/api_features.htm). Specifically, we use API to extract national unemployment rates of different demographic groups. When extracting data, we refer to [LN series id list -- Labor force statistics including the national unemployment rate](https://download.bls.gov/pub/time.series/ln/ln.series) (we save it as ln.series.txt in the data folder for further use) under [CPS Databases](https://www.bls.gov/cps/data.htm) and put the series_id of the information we need into the API query (ie. we extract some of the data listed [here](https://beta.bls.gov/dataQuery/find?st=0&r=20&q=unemployment&more=0.%2C+hispanic+orange.%2C+Hispanic&fq=survey:%5Bln%5D) by API). We then convert all the data from Json to CSV files, preprocess the data, and combine them into single data set.
+As BLS doesn't provide CSV files of such organized data like the [A-10 table](https://www.bls.gov/web/empsit/cpseea10.htm), we access the raw data by [The BLS Public Data Application Programming Interface (API)](https://www.bls.gov/bls/api_features.htm). Specifically, we use API to extract national unemployment rates of different demographic groups. When extracting data, we refer to [LN series id list -- Labor force statistics including the national unemployment rate](https://download.bls.gov/pub/time.series/ln/ln.series) (we save it as ln.series.txt in the data folder for further use) under [CPS Databases](https://www.bls.gov/cps/data.htm) and put the series_id of the information we need into the api query (ie. we extract some of the data listed [here](https://beta.bls.gov/dataQuery/find?st=0&r=20&q=unemployment&more=0.%2C+hispanic+orange.%2C+Hispanic&fq=survey:%5Bln%5D) by API). We then convert all the data from Json to CSV files, preprocess the data, and combine them into single data set.
 
 The data set is in the following format:
 
@@ -45,7 +45,7 @@ The data set is in the following format:
     -   Note that BLS does not collect unemployment rate for all combinations of all demographic features! (For example, unadjusted unemployment rate data for 20-to-24-year-old asian men, whose marital status is "Widdowed, divorced, or seperated" doesn't exist.)
 
 ```{r setup}
-knitr::opts_chunk$set(warning = FALSE, message = FALSE)
+knitr::opts_chunk$set(warning = FALSE)
 knitr::opts_chunk$set(fig.width=14, fig.height=16)
 ```
 
@@ -417,7 +417,7 @@ write_csv(UR, "data/UR.csv")
 head(UR)
 ```
 
-**2. Monthly US State Unemployment Rate Data**
+### **2. Monthly US State Unemployment Rate Data**
 
 *Data Source*
 
@@ -511,10 +511,6 @@ data<- rbind(data, single_data)
 ```
 
 ```{r}
-json$Results$series$data[[1]]
-```
-
-```{r}
 current_df <- list2[[1]]
 ## Pull the data via the API
 payload <- list(
@@ -551,7 +547,7 @@ write_csv(state_UR, "data/state_UR.csv")
 head(state_UR)
 ```
 
-**3. Monthly US National COVID-19 Death Rate Data**
+### **3. Monthly US National COVID-19 Death Rate Data**
 
 *Data Source*
 
@@ -588,7 +584,7 @@ COVID = read_csv('data/Monthly_COVID-19_Death_Rates_per_100_000_Population_by_Ag
 head(COVID)
 ```
 
-**4. Monthly US States COVID-19 Death Data**
+### **4. Monthly US States COVID-19 Death Data**
 
 *Data Source*
 
@@ -631,7 +627,7 @@ state_COVID = read_csv('data/Provisional_COVID-19_Deaths_by_Sex_and_Age.csv',sho
 head(state_COVID)
 ```
 
-**5. S&P 500 Data**
+### **5. S&P 500 Data**
 
 *Data Source*
 
@@ -661,6 +657,113 @@ SP500 = read_excel("data/PerformanceGraphExport.xls", skip=6)
 head(SP500)
 ```
 
+### **6. State Population Data**
+
+*Data Source*
+
+Our source for state population is [Economic Research Service U.S. DEPARTMENT OF AGRICULTURE](https://www.ers.usda.gov). [The data](https://data.ers.usda.gov/reports.aspx?ID=17827) contains population of states across different periods.
+
+*Data Import*
+
+We can directly download the XLS file [here](https://data.ers.usda.gov/reports.aspx?ID=17827).
+
+The data set is in the following format:
+
+-   Frequency of update: yearly - last updated on June 16, 2023
+
+-   Dimensions: Name, Pop. 1990, Pop. 2000, Pop. 2010, Pop. 2020, Pop. 2022, Change 2020-22
+
+    -   Name: state
+    -   Pop. (year): population of certain year
+    -   Change 2020-22: percentage change of population
+
+```{r}
+library(readxl)
+popu = read_excel("data/PopulationReport.xlsx")
+```
+
+```{r}
+head(popu)
+```
+
 ## Research Plan
 
+Here are problems of our specific interest and our plan to investigate each:
+
+1.  What are the similarities and differences in trends between COVID-19 death rates, the S&P 500 index, and the unemployment rates?
+
+    Plot line plots for Monthly US National Unemployment Rate Data, Monthly US National COVID-19 Death Rate Data, and S&P 500 Data.
+
+2.  How does the unemployment rate differ for different race, sex, age, and marital groups in 2020 and 2023?
+
+    Use Monthly US National Unemployment Rate Data. Plot grouped bar chart of different races across sex with facets on marital status and year. Also create a grouped bar chart of different age groups across sex with a facet on year.
+
+3.  What are the similarities and differences in trends between COVID-19 death rates and the unemployment rates across people of different sex or people with different ethnicity?
+
+    Create line plots for Monthly US National Unemployment Rate Data and Monthly US National COVID-19 Death Rate Data with facets on different demographic groups (e.g. black, women, and etc.) and types of rate (unemployment rate or COVID-19 death rate).
+
+4.  What is the potential effects of race and age on the trend of unemployment rate during COVID-19 pandemic?
+
+    Create line plots for Monthly US National Unemployment Rate Data with a facet on combinations of races and age groups.
+
+5.  What is the potential effects of marital status and sex on the trend of unemployment rate during COVID-19 pandemic?
+
+    Create line plots for Monthly US National Unemployment Rate Data across sex with a facet on marital statuses.
+
+6.  Which racial group has the most serious unemployment issue during the peak of the national unemployment rate (Apr 2020) vs April 2023 given age and sex?
+
+    Create two heat maps (one for Apr 2020, and the other for April 2023). Each uses the age group as the x-axis and race as the y-axis. It is filled with "the unemployment rate of people who belong to a specific age group and race" divided by "the sum of unemployment rates of people of all the races in the same age group."
+
+7.  Which state faced the most severe unemployment issue during the peak of the national unemployment rate (April 2020) and how does it compare to the state's COVID deaths severity at the same time?
+
+    Plot state choropleth using Monthly US State Unemployment Rate Data, Monthly US States COVID-19 Death Data, and State Population Data. Use Monthly US State Unemployment Rate Data to show unemployment severity of states in April 2020. Use Monthly US States COVID-19 Death Data and State Population Data to calculate monthly US states COVID-19 death rates and show that of states in April 2020.
+
+8.  Which state faced the most severe pandemic-related death issue during the peak of the national COVID death rate (January 2021) and how does it compare to the state's unemployment severity at the same time?
+
+    Plot state choropleth using Monthly US State Unemployment Rate Data, Monthly US States COVID-19 Death Data, and State Population Data. Use Monthly US States COVID-19 Death Data and State Population Data to calculate monthly US states COVID-19 death rates and show that of states in January 2021. Use Monthly US State Unemployment Rate Data to show unemployment severity of states in January 2021.
+
 ## Missing value analysis
+
+```{r}
+#remotes::install_github("jtr13/redav")
+library(redav)
+plot_missing(UR, percent = FALSE)
+```
+
+No missing data in Monthly US National Unemployment Rate Data.
+
+```{r}
+plot_missing(state_UR, percent = FALSE)
+```
+
+No missing data in Monthly US State Unemployment Rate Data.
+
+```{r}
+plot_missing(COVID, percent = FALSE)
+```
+
+No missing data in Monthly US National COVID-19 Death Rate Data.
+
+```{r}
+colnames(state_COVID)
+```
+
+```{r}
+state_COVID = state_COVID %>%
+  rename(updateD="Data As Of", Start="Start Date", End="End Date", Age="Age Group", COVID="COVID-19 Deaths", Total="Total Deaths", Pneu="Pneumonia Deaths", PneuCOVID="Pneumonia and COVID-19 Deaths", Infl="Influenza Deaths", All="Pneumonia, Influenza, or COVID-19 Deaths")
+plot_missing(state_COVID, percent = FALSE)
+```
+
+As we will not use "Total Deaths", "Pneumonia Deaths", "Pneumonia and COVID-19 Deaths", "Influenza Deaths", "Pneumonia, Influenza, or COVID-19 Deaths", "Footnote", NAs in these columns have no influence on our analysis. Lack of "Year" and "Month" is normal when "Group" is By Total or By Year, but we focus on By Month, so this would not influence our analysis either. But still some data points of our interest have no "COVID-19 Deaths". It makes some, though not obvious, impact on our analysis. For example, in Figure 10 of the next chapter, Wyoming and Alaska have no data to show.
+
+```{r}
+plot_missing(SP500, percent = FALSE)
+```
+
+Some rows of NA in all columns exist. Simply removing them can solve the problem without harming our analysis.
+
+```{r}
+plot_missing(popu, percent = FALSE)
+```
+
+One row of NA in all columns exists. The other row contains only footnote. Simply removing them can solve the problem without harming our analysis.
