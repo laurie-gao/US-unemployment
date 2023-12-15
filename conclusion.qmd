@@ -6,6 +6,6 @@ In conclusion, we were able to derive insights from a combination of US unemploy
 3. All race, age, and sex groups displayed the same trend when it comes to the spike in unemployment rate and COVID-19 death rate. There were three spikes in death rate with and the first spike coincided with the spike in unemployment rate. 
 4. Although the unemployment rate has decreased significantly since its spike in 2020, data shows that that the rate has decreased more for Asian and White racial groups than for Black and Latino racial groups. There is a now a greater disparity in unemployment rate between the racial groups compared to 2020.
 5. The US states that faced the most severe unemployment rate issues during the spike in April 2020 were Nevada, Illinois, Michigan, Indiana, Hawaii, and Rhode Island.
-6. The US states that had the highest COVID-19 death rates during the peak in January 2021 where Arizona, California, Oklahoma, Alabama, Mississippi, and West Virginia.
+6. The US states that had the highest COVID-19 death rates during the peak in January 2021 were Arizona, California, Oklahoma, Alabama, Mississippi, and West Virginia.
 
 Overall, we observed that the unemployment rate has been recovering since its spike in 2020 and is decreasing for all age, sex, race, and marital status groups. As expected, COVID-19 had a significant impact on the US market and we are still feeling its effects to this day. 
