@@ -733,10 +733,13 @@ plot_missing(state_UR, percent = FALSE)
 No missing data in Monthly US State Unemployment Rate Data.
 
 ```{r}
+COVID = COVID%>%
+  rename(updateD="data_as_of",region="jurisdiction_residence",start="data_period_start",end="data_period_end",g="group",sg="subgroup1",death="COVID_deaths",rate="crude_rate",CI_low="conf_int_95pct_lower_crude",CI_up="conf_int_95pct_upper_crude")
 plot_missing(COVID, percent = FALSE)
 ```
 
 No missing data in Monthly US National COVID-19 Death Rate Data.
+
 
 ```{r}
 state_COVID = state_COVID %>%
