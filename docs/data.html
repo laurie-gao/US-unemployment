@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>data</title>
+<title>US Unemployment - 2&nbsp; Data</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -57,34 +57,163 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="data_files/libs/clipboard/clipboard.min.js"></script>
-<script src="data_files/libs/quarto-html/quarto.js"></script>
-<script src="data_files/libs/quarto-html/popper.min.js"></script>
-<script src="data_files/libs/quarto-html/tippy.umd.min.js"></script>
-<script src="data_files/libs/quarto-html/anchor.min.js"></script>
-<link href="data_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="data_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="data_files/libs/bootstrap/bootstrap.min.js"></script>
-<link href="data_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="data_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./results.html" rel="next">
+<link href="./index.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
 
 
 </head>
 
-<body class="fullcontent">
+<body class="nav-sidebar floating">
 
-<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
-
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./data.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Data</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">US Unemployment</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/laurie-gao/US-unemployment" rel="" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./data.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Data</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./results.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Results</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./d3graph.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Interactive graph</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./conclusion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Conclusion</span></span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#technical-description" id="toc-technical-description" class="nav-link active" data-scroll-target="#technical-description"><span class="header-section-number">2.1</span> Technical description</a>
+  <ul class="collapse">
+  <li><a href="#monthly-us-national-unemployment-rate-data" id="toc-monthly-us-national-unemployment-rate-data" class="nav-link" data-scroll-target="#monthly-us-national-unemployment-rate-data"><span class="header-section-number">2.1.1</span> <strong>1. Monthly US National Unemployment Rate Data</strong></a></li>
+  <li><a href="#monthly-us-state-unemployment-rate-data" id="toc-monthly-us-state-unemployment-rate-data" class="nav-link" data-scroll-target="#monthly-us-state-unemployment-rate-data"><span class="header-section-number">2.1.2</span> <strong>2. Monthly US State Unemployment Rate Data</strong></a></li>
+  <li><a href="#monthly-us-national-covid-19-death-rate-data" id="toc-monthly-us-national-covid-19-death-rate-data" class="nav-link" data-scroll-target="#monthly-us-national-covid-19-death-rate-data"><span class="header-section-number">2.1.3</span> <strong>3. Monthly US National COVID-19 Death Rate Data</strong></a></li>
+  <li><a href="#monthly-us-states-covid-19-death-data" id="toc-monthly-us-states-covid-19-death-data" class="nav-link" data-scroll-target="#monthly-us-states-covid-19-death-data"><span class="header-section-number">2.1.4</span> <strong>4. Monthly US States COVID-19 Death Data</strong></a></li>
+  <li><a href="#sp-500-data" id="toc-sp-500-data" class="nav-link" data-scroll-target="#sp-500-data"><span class="header-section-number">2.1.5</span> <strong>5. S&amp;P 500 Data</strong></a></li>
+  <li><a href="#state-population-data" id="toc-state-population-data" class="nav-link" data-scroll-target="#state-population-data"><span class="header-section-number">2.1.6</span> <strong>6. State Population Data</strong></a></li>
+  </ul></li>
+  <li><a href="#research-plan" id="toc-research-plan" class="nav-link" data-scroll-target="#research-plan"><span class="header-section-number">2.2</span> Research Plan</a></li>
+  <li><a href="#missing-value-analysis" id="toc-missing-value-analysis" class="nav-link" data-scroll-target="#missing-value-analysis"><span class="header-section-number">2.3</span> Missing value analysis</a></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/laurie-gao/US-unemployment/edit/main/data.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/laurie-gao/US-unemployment/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+    </div>
+<!-- main -->
 <main class="content" id="quarto-document-content">
 
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Data</span></h1>
+</div>
 
 
-<section id="data" class="level1">
-<h1>Data</h1>
-<section id="technical-description" class="level2">
-<h2 class="anchored" data-anchor-id="technical-description">Technical description</h2>
-<section id="monthly-us-national-unemployment-rate-data" class="level3">
-<h3 class="anchored" data-anchor-id="monthly-us-national-unemployment-rate-data"><strong>1. Monthly US National Unemployment Rate Data</strong></h3>
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="technical-description" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="technical-description"><span class="header-section-number">2.1</span> Technical description</h2>
+<section id="monthly-us-national-unemployment-rate-data" class="level3" data-number="2.1.1">
+<h3 data-number="2.1.1" class="anchored" data-anchor-id="monthly-us-national-unemployment-rate-data"><span class="header-section-number">2.1.1</span> <strong>1. Monthly US National Unemployment Rate Data</strong></h3>
 <p><em>Data Source</em></p>
 <p>All of the national unemployment rate data will be from <a href="https://www.bls.gov/">US Bureau of Labor Statistics</a>. The data is collected through the <a href="https://www.bls.gov/cps/">Current Population Survey (CPS)</a>, which is a monthly survey of households conducted by the Bureau of Census for the Bureau of Labor Statistics. There are many CPS tables on the <a href="https://www.bls.gov/cps/tables.htm">website</a> - we want our data to be similar to <a href="https://www.bls.gov/web/empsit/cpseea10.htm">A-10. Unemployment rates by age, sex, and marital status, seasonally adjusted</a>, which allows us to investigate potential influences of ethnicity, age, sex, and even marital status on unemployment rate.</p>
 <p><em>Data Import</em></p>
@@ -107,12 +236,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul></li>
 </ul>
 <div class="cell">
+<details>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span>opts_chunk<span class="sc">$</span><span class="fu">set</span>(<span class="at">warning =</span> <span class="cn">FALSE</span>)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span>opts_chunk<span class="sc">$</span><span class="fu">set</span>(<span class="at">fig.width=</span><span class="dv">14</span>, <span class="at">fig.height=</span><span class="dv">16</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <div class="cell">
+<details>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stderr">
 <pre><code>
 Attaching package: 'dplyr'</code></pre>
@@ -127,6 +262,8 @@ Attaching package: 'dplyr'</code></pre>
 
     intersect, setdiff, setequal, union</code></pre>
 </div>
+<details>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>all_df <span class="ot">=</span> <span class="fu">read.table</span>(<span class="st">"data/ln.series.txt"</span>, <span class="at">header =</span> <span class="cn">TRUE</span>, <span class="at">sep =</span> <span class="st">"</span><span class="sc">\t</span><span class="st">"</span>, <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span>
@@ -166,8 +303,11 @@ Attaching package: 'dplyr'</code></pre>
 <span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(race_code <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>)) <span class="sc">%&gt;%</span></span>
 <span id="cb6-38"><a href="#cb6-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(periodicity_code<span class="sc">==</span><span class="st">"M"</span>) </span>
 <span id="cb6-39"><a href="#cb6-39" aria-hidden="true" tabindex="-1"></a>all_df<span class="sc">$</span>series_id <span class="ot">&lt;-</span> <span class="fu">trimws</span>(all_df<span class="sc">$</span>series_id)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <div class="cell">
+<details>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="fu">nrow</span>(all_df) </span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>size <span class="ot">&lt;-</span> <span class="fu">ceiling</span>(n <span class="sc">/</span> <span class="dv">12</span>) </span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -177,8 +317,11 @@ Attaching package: 'dplyr'</code></pre>
 <span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>split_dfs <span class="ot">&lt;-</span> <span class="fu">split</span>(all_df, groups)</span>
 <span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>list1 <span class="ot">&lt;-</span> split_dfs[<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>]</span>
 <span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>list2 <span class="ot">&lt;-</span> split_dfs[<span class="dv">5</span><span class="sc">:</span><span class="dv">12</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <div class="cell">
+<details>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages("devtools") </span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co">#devtools::install_github("mikeasilva/blsAPI") </span></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rjson)</span>
@@ -197,8 +340,11 @@ Attaching package: 'dplyr'</code></pre>
 <span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">marital =</span> <span class="fu">character</span>(),</span>
 <span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>  <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span></span>
 <span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <div class="cell">
+<details>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Process results</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>apiDF <span class="ot">&lt;-</span> <span class="cf">function</span>(data,series_title,sexs_code,race_code,ages_code,mari_code) {</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  sexs_value <span class="ot">&lt;-</span> <span class="cf">if</span> (sexs_code <span class="sc">==</span> <span class="dv">1</span>) {</span>
@@ -308,9 +454,13 @@ Attaching package: 'dplyr'</code></pre>
 <span id="cb9-107"><a href="#cb9-107" aria-hidden="true" tabindex="-1"></a>          <span class="fu">mutate</span>(<span class="at">adjusted=</span>adjusted, <span class="at">title=</span>series_title, <span class="at">sex=</span>sexs_value, <span class="at">race=</span>race_value, <span class="at">age=</span>ages_value, <span class="at">mari=</span>mari_value)</span>
 <span id="cb9-108"><a href="#cb9-108" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(df)</span>
 <span id="cb9-109"><a href="#cb9-109" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <div class="cell">
+<details>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(jsonlite)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stderr">
 <pre><code>
 Attaching package: 'jsonlite'</code></pre>
@@ -320,6 +470,8 @@ Attaching package: 'jsonlite'</code></pre>
 
     fromJSON, toJSON</code></pre>
 </div>
+<details>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>) {</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  current_df <span class="ot">&lt;-</span> list1[[i]]</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="do">## Pull the data via the API</span></span>
@@ -335,8 +487,11 @@ Attaching package: 'jsonlite'</code></pre>
 <span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>  data<span class="ot">&lt;-</span> <span class="fu">rbind</span>(data, single_data)</span>
 <span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>  }</span>
 <span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <div class="cell">
+<details>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">8</span>) {</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  current_df <span class="ot">&lt;-</span> list2[[i]]</span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="do">## Pull the data via the API</span></span>
@@ -353,16 +508,22 @@ Attaching package: 'jsonlite'</code></pre>
 <span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>  data<span class="ot">&lt;-</span> <span class="fu">rbind</span>(data, single_data)</span>
 <span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>  }</span>
 <span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <div class="cell">
+<details>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>unadj_UR <span class="ot">=</span> data <span class="sc">%&gt;%</span></span>
 <span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">month =</span> periodName) <span class="sc">%&gt;%</span></span>
 <span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(age<span class="sc">==</span><span class="st">"All"</span><span class="sc">|</span>age<span class="sc">==</span><span class="st">"16-19"</span><span class="sc">|</span>age<span class="sc">==</span><span class="st">"20-24"</span><span class="sc">|</span>age<span class="sc">==</span><span class="st">"25-34"</span><span class="sc">|</span>age<span class="sc">==</span><span class="st">"35-44"</span><span class="sc">|</span>age<span class="sc">==</span><span class="st">"45-54"</span><span class="sc">|</span>age<span class="sc">==</span><span class="st">"55-64"</span><span class="sc">|</span>age<span class="sc">==</span><span class="st">"65-"</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(year, <span class="at">month =</span> periodName, value, adjusted, sex, race, age, mari)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <div class="cell">
+<details>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
@@ -404,8 +565,11 @@ Attaching package: 'jsonlite'</code></pre>
 <span id="cb16-39"><a href="#cb16-39" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(race_code <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>)) <span class="sc">%&gt;%</span></span>
 <span id="cb16-40"><a href="#cb16-40" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(periodicity_code<span class="sc">==</span><span class="st">"M"</span>) </span>
 <span id="cb16-41"><a href="#cb16-41" aria-hidden="true" tabindex="-1"></a>all_df<span class="sc">$</span>series_id <span class="ot">&lt;-</span> <span class="fu">trimws</span>(all_df<span class="sc">$</span>series_id)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <div class="cell">
+<details>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="fu">nrow</span>(all_df) </span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>size <span class="ot">&lt;-</span> <span class="fu">ceiling</span>(n <span class="sc">/</span> <span class="dv">12</span>) </span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -415,8 +579,11 @@ Attaching package: 'jsonlite'</code></pre>
 <span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>split_dfs <span class="ot">&lt;-</span> <span class="fu">split</span>(all_df, groups)</span>
 <span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>list1 <span class="ot">&lt;-</span> split_dfs[<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>]</span>
 <span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>list2 <span class="ot">&lt;-</span> split_dfs[<span class="dv">5</span><span class="sc">:</span><span class="dv">12</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <div class="cell">
+<details>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages("devtools") </span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="co">#devtools::install_github("mikeasilva/blsAPI") </span></span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rjson)</span>
@@ -435,8 +602,11 @@ Attaching package: 'jsonlite'</code></pre>
 <span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">marital =</span> <span class="fu">character</span>(),</span>
 <span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a>  <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span></span>
 <span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <div class="cell">
+<details>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(jsonlite)</span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>) {</span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  current_df <span class="ot">&lt;-</span> list1[[i]]</span>
@@ -453,8 +623,11 @@ Attaching package: 'jsonlite'</code></pre>
 <span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a>  data<span class="ot">&lt;-</span> <span class="fu">rbind</span>(data, single_data)</span>
 <span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a>  }</span>
 <span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <div class="cell">
+<details>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">8</span>) {</span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  current_df <span class="ot">&lt;-</span> list2[[i]]</span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="do">## Pull the data via the API</span></span>
@@ -471,20 +644,30 @@ Attaching package: 'jsonlite'</code></pre>
 <span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a>  data<span class="ot">&lt;-</span> <span class="fu">rbind</span>(data, single_data)</span>
 <span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a>  }</span>
 <span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <div class="cell">
+<details>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>seas_UR <span class="ot">=</span> data <span class="sc">%&gt;%</span></span>
 <span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">month =</span> periodName) <span class="sc">%&gt;%</span> </span>
 <span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(year, month, value, adjusted, sex, race, age, mari)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <div class="cell">
+<details>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>UR <span class="ot">=</span> <span class="fu">bind_rows</span>(unadj_UR, seas_UR)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <div class="cell">
+<details>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(UR, <span class="st">"data/UR.csv"</span>)</span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(UR)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>  year     month value adjusted  sex race age mari
 1 2023  November   3.5    FALSE Both  All All  All
@@ -496,8 +679,8 @@ Attaching package: 'jsonlite'</code></pre>
 </div>
 </div>
 </section>
-<section id="monthly-us-state-unemployment-rate-data" class="level3">
-<h3 class="anchored" data-anchor-id="monthly-us-state-unemployment-rate-data"><strong>2. Monthly US State Unemployment Rate Data</strong></h3>
+<section id="monthly-us-state-unemployment-rate-data" class="level3" data-number="2.1.2">
+<h3 data-number="2.1.2" class="anchored" data-anchor-id="monthly-us-state-unemployment-rate-data"><span class="header-section-number">2.1.2</span> <strong>2. Monthly US State Unemployment Rate Data</strong></h3>
 <p><em>Data Source</em></p>
 <p>All of the state unemployment rate data will be from <a href="https://www.bls.gov/">US Bureau of Labor Statistics</a>. The data is collected through the <a href="https://www.bls.gov/lau/">The Local Area Unemployment Statistics (LAUS) program</a>, which produces monthly unemployment data for states.</p>
 <p><em>Data Import</em></p>
@@ -515,6 +698,8 @@ Attaching package: 'jsonlite'</code></pre>
 </ul></li>
 </ul>
 <div class="cell">
+<details>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
@@ -526,8 +711,11 @@ Attaching package: 'jsonlite'</code></pre>
 <span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">state_code =</span> <span class="fu">as.character</span>(state_code)) <span class="sc">%&gt;%</span></span>
 <span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">state_code =</span> <span class="fu">str_pad</span>(state_code, <span class="at">width =</span> <span class="dv">2</span>, <span class="at">pad =</span> <span class="st">"0"</span>))<span class="sc">%&gt;%</span></span>
 <span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">series_id =</span> <span class="fu">paste</span>(<span class="st">'LAUST'</span>, state_code,<span class="st">'0000000000003'</span>, <span class="at">sep=</span><span class="st">''</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <div class="cell">
+<details>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="fu">nrow</span>(all_df) </span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>size <span class="ot">&lt;-</span> <span class="fu">ceiling</span>(n <span class="sc">/</span> <span class="dv">2</span>) </span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -537,8 +725,11 @@ Attaching package: 'jsonlite'</code></pre>
 <span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>split_dfs <span class="ot">&lt;-</span> <span class="fu">split</span>(all_df, groups)</span>
 <span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>list1 <span class="ot">&lt;-</span> split_dfs[<span class="dv">1</span>]</span>
 <span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>list2 <span class="ot">&lt;-</span> split_dfs[<span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <div class="cell">
+<details>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages("devtools") </span></span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="co">#devtools::install_github("mikeasilva/blsAPI") </span></span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rjson)</span>
@@ -553,8 +744,11 @@ Attaching package: 'jsonlite'</code></pre>
 <span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">value =</span> <span class="fu">character</span>(),</span>
 <span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span></span>
 <span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <div class="cell">
+<details>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(jsonlite)</span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>current_df <span class="ot">&lt;-</span> list1[[<span class="dv">1</span>]]</span>
 <span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="do">## Pull the data via the API</span></span>
@@ -576,8 +770,11 @@ Attaching package: 'jsonlite'</code></pre>
 <span id="cb28-19"><a href="#cb28-19" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb28-20"><a href="#cb28-20" aria-hidden="true" tabindex="-1"></a>data<span class="ot">&lt;-</span> <span class="fu">rbind</span>(data, single_data)</span>
 <span id="cb28-21"><a href="#cb28-21" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <div class="cell">
+<details>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>current_df <span class="ot">&lt;-</span> list2[[<span class="dv">1</span>]]</span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="do">## Pull the data via the API</span></span>
 <span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>payload <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
@@ -598,8 +795,11 @@ Attaching package: 'jsonlite'</code></pre>
 <span id="cb29-18"><a href="#cb29-18" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb29-19"><a href="#cb29-19" aria-hidden="true" tabindex="-1"></a>data<span class="ot">&lt;-</span> <span class="fu">rbind</span>(data, single_data)</span>
 <span id="cb29-20"><a href="#cb29-20" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <div class="cell">
+<details>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>state_UR <span class="ot">=</span> data <span class="sc">%&gt;%</span></span>
@@ -607,9 +807,13 @@ Attaching package: 'jsonlite'</code></pre>
 <span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(year, <span class="at">month =</span> periodName, state, value)</span>
 <span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>    </span>
 <span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(state_UR, <span class="st">"data/state_UR.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <div class="cell">
+<details>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(state_UR)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>  year     month   state value
 1 2023   October Alabama   2.4
@@ -621,8 +825,8 @@ Attaching package: 'jsonlite'</code></pre>
 </div>
 </div>
 </section>
-<section id="monthly-us-national-covid-19-death-rate-data" class="level3">
-<h3 class="anchored" data-anchor-id="monthly-us-national-covid-19-death-rate-data"><strong>3. Monthly US National COVID-19 Death Rate Data</strong></h3>
+<section id="monthly-us-national-covid-19-death-rate-data" class="level3" data-number="2.1.3">
+<h3 data-number="2.1.3" class="anchored" data-anchor-id="monthly-us-national-covid-19-death-rate-data"><span class="header-section-number">2.1.3</span> <strong>3. Monthly US National COVID-19 Death Rate Data</strong></h3>
 <p><em>Data Source</em></p>
 <p>All of the monthly US National COVID-19 death rate data will be from <a href="https://covid.cdc.gov/covid-data-tracker/#datatracker-home">Centers for Disease Control and Prevention COVID Data Tracker</a>. <a href="https://data.cdc.gov/Public-Health-Surveillance/Monthly-COVID-19-Death-Rates-per-100-000-Populatio/89qs-mr7i/about_data">The data</a> is collected by CDC, who provides COVID-19 death rates per 100,000 population stratified by age group, race/ethnicity, sex, and region every month.</p>
 <p><em>Data Import</em></p>
@@ -646,10 +850,16 @@ Attaching package: 'jsonlite'</code></pre>
 </ul></li>
 </ul>
 <div class="cell">
+<details>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>COVID <span class="ot">=</span> <span class="fu">read_csv</span>(<span class="st">'data/Monthly_COVID-19_Death_Rates_per_100_000_Population_by_Age_Group__Race_and_Ethnicity__Sex__and_Region.csv'</span>, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <div class="cell">
+<details>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(COVID)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 10
   data_as_of jurisdiction_residence data_period_start data_period_end group
@@ -665,8 +875,8 @@ Attaching package: 'jsonlite'</code></pre>
 </div>
 </div>
 </section>
-<section id="monthly-us-states-covid-19-death-data" class="level3">
-<h3 class="anchored" data-anchor-id="monthly-us-states-covid-19-death-data"><strong>4. Monthly US States COVID-19 Death Data</strong></h3>
+<section id="monthly-us-states-covid-19-death-data" class="level3" data-number="2.1.4">
+<h3 data-number="2.1.4" class="anchored" data-anchor-id="monthly-us-states-covid-19-death-data"><span class="header-section-number">2.1.4</span> <strong>4. Monthly US States COVID-19 Death Data</strong></h3>
 <p><em>Data Source</em></p>
 <p>All of the monthly US states COVID-19 death data will be from <a href="https://covid.cdc.gov/covid-data-tracker/#datatracker-home">Centers for Disease Control and Prevention COVID Data Tracker</a>. <a href="https://data.cdc.gov/NCHS/Provisional-COVID-19-Deaths-by-Sex-and-Age/9bhg-hcku/about_data">The data</a> is provided by National Center for Health Statistics, who collects monthly, yearly, and overall deaths involving COVID-19, pneumonia, and influenza reported to NCHS by sex, age group, and jurisdiction of occurrence.</p>
 <p><em>Data Import</em></p>
@@ -696,10 +906,16 @@ Attaching package: 'jsonlite'</code></pre>
 </ul></li>
 </ul>
 <div class="cell">
+<details>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>state_COVID <span class="ot">=</span> <span class="fu">read_csv</span>(<span class="st">'data/Provisional_COVID-19_Deaths_by_Sex_and_Age.csv'</span>,<span class="at">show_col_types =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <div class="cell">
+<details>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(state_COVID)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 16
   `Data As Of` `Start Date` `End Date` Group  Year Month State Sex   `Age Group`
@@ -717,8 +933,8 @@ Attaching package: 'jsonlite'</code></pre>
 </div>
 </div>
 </section>
-<section id="sp-500-data" class="level3">
-<h3 class="anchored" data-anchor-id="sp-500-data"><strong>5. S&amp;P 500 Data</strong></h3>
+<section id="sp-500-data" class="level3" data-number="2.1.5">
+<h3 data-number="2.1.5" class="anchored" data-anchor-id="sp-500-data"><span class="header-section-number">2.1.5</span> <strong>5. S&amp;P 500 Data</strong></h3>
 <p><em>Data Source</em></p>
 <p>Our source for S&amp;P 500 data is <a href="https://www.spglobal.com/spdji/en/">S&amp;P Dow Jones Indices</a>. <a href="https://www.spglobal.com/spdji/en/indices/equity/sp-500/#overview">The data</a> is calculated by taking a weighted average of the stock prices of 500 large-cap U.S. companies. The weight of each company is determined by its market capitalization. This index reflects the performance of these selected companies in the U.S. stock market.</p>
 <p><em>Data Import</em></p>
@@ -734,11 +950,17 @@ Attaching package: 'jsonlite'</code></pre>
 </ul></li>
 </ul>
 <div class="cell">
+<details>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
 <span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>SP500 <span class="ot">=</span> <span class="fu">read_excel</span>(<span class="st">"data/PerformanceGraphExport.xls"</span>, <span class="at">skip=</span><span class="dv">6</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <div class="cell">
+<details>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(SP500)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 2
   `Effective date`    `S&amp;P 500`
@@ -752,8 +974,8 @@ Attaching package: 'jsonlite'</code></pre>
 </div>
 </div>
 </section>
-<section id="state-population-data" class="level3">
-<h3 class="anchored" data-anchor-id="state-population-data"><strong>6. State Population Data</strong></h3>
+<section id="state-population-data" class="level3" data-number="2.1.6">
+<h3 data-number="2.1.6" class="anchored" data-anchor-id="state-population-data"><span class="header-section-number">2.1.6</span> <strong>6. State Population Data</strong></h3>
 <p><em>Data Source</em></p>
 <p>Our source for state population is <a href="https://www.ers.usda.gov">Economic Research Service U.S. DEPARTMENT OF AGRICULTURE</a>. <a href="https://data.ers.usda.gov/reports.aspx?ID=17827">The data</a> contains population of states across different periods.</p>
 <p><em>Data Import</em></p>
@@ -769,11 +991,17 @@ Attaching package: 'jsonlite'</code></pre>
 </ul></li>
 </ul>
 <div class="cell">
+<details>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
 <span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>popu <span class="ot">=</span> <span class="fu">read_excel</span>(<span class="st">"data/PopulationReport.xlsx"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <div class="cell">
+<details>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(popu)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 7
   Name          `Pop. 1990` `Pop. 2000` `Pop. 2010` `Pop. 2020` `Pop. 2022`
@@ -789,8 +1017,8 @@ Attaching package: 'jsonlite'</code></pre>
 </div>
 </section>
 </section>
-<section id="research-plan" class="level2">
-<h2 class="anchored" data-anchor-id="research-plan">Research Plan</h2>
+<section id="research-plan" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="research-plan"><span class="header-section-number">2.2</span> Research Plan</h2>
 <p>Here are problems of our specific interest and our plan to investigate each:</p>
 <ol type="1">
 <li><p>What are the similarities and differences in trends between COVID-19 death rates, the S&amp;P 500 index, and the unemployment rates?</p>
@@ -811,33 +1039,45 @@ Attaching package: 'jsonlite'</code></pre>
 <p>Plot state choropleth using Monthly US State Unemployment Rate Data, Monthly US States COVID-19 Death Data, and State Population Data. Use Monthly US States COVID-19 Death Data and State Population Data to calculate monthly US states COVID-19 death rates and show that of states in January 2021. Use Monthly US State Unemployment Rate Data to show unemployment severity of states in January 2021.</p></li>
 </ol>
 </section>
-<section id="missing-value-analysis" class="level2">
-<h2 class="anchored" data-anchor-id="missing-value-analysis">Missing value analysis</h2>
+<section id="missing-value-analysis" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="missing-value-analysis"><span class="header-section-number">2.3</span> Missing value analysis</h2>
 <div class="cell">
+<details>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="co">#remotes::install_github("jtr13/redav")</span></span>
 <span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(redav)</span>
 <span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_missing</span>(UR, <span class="at">percent =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <p><img src="data_files/figure-html/unnamed-chunk-31-1.png" class="img-fluid" width="1344"></p>
 </div>
 </div>
 <p>No missing data in Monthly US National Unemployment Rate Data.</p>
 <div class="cell">
+<details>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_missing</span>(state_UR, <span class="at">percent =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <p><img src="data_files/figure-html/unnamed-chunk-32-1.png" class="img-fluid" width="1344"></p>
 </div>
 </div>
 <p>No missing data in Monthly US State Unemployment Rate Data.</p>
 <div class="cell">
+<details>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_missing</span>(COVID, <span class="at">percent =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <p><img src="data_files/figure-html/unnamed-chunk-33-1.png" class="img-fluid" width="1344"></p>
 </div>
 </div>
 <p>No missing data in Monthly US National COVID-19 Death Rate Data.</p>
 <div class="cell">
+<details>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(state_COVID)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] "Data As Of"                              
  [2] "Start Date"                              
@@ -858,33 +1098,42 @@ Attaching package: 'jsonlite'</code></pre>
 </div>
 </div>
 <div class="cell">
+<details>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>state_COVID <span class="ot">=</span> state_COVID <span class="sc">%&gt;%</span></span>
 <span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">updateD=</span><span class="st">"Data As Of"</span>, <span class="at">Start=</span><span class="st">"Start Date"</span>, <span class="at">End=</span><span class="st">"End Date"</span>, <span class="at">Age=</span><span class="st">"Age Group"</span>, <span class="at">COVID=</span><span class="st">"COVID-19 Deaths"</span>, <span class="at">Total=</span><span class="st">"Total Deaths"</span>, <span class="at">Pneu=</span><span class="st">"Pneumonia Deaths"</span>, <span class="at">PneuCOVID=</span><span class="st">"Pneumonia and COVID-19 Deaths"</span>, <span class="at">Infl=</span><span class="st">"Influenza Deaths"</span>, <span class="at">All=</span><span class="st">"Pneumonia, Influenza, or COVID-19 Deaths"</span>)</span>
 <span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_missing</span>(state_COVID, <span class="at">percent =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <p><img src="data_files/figure-html/unnamed-chunk-35-1.png" class="img-fluid" width="1344"></p>
 </div>
 </div>
 <p>As we will not use “Total Deaths”, “Pneumonia Deaths”, “Pneumonia and COVID-19 Deaths”, “Influenza Deaths”, “Pneumonia, Influenza, or COVID-19 Deaths”, “Footnote”, NAs in these columns have no influence on our analysis. Lack of “Year” and “Month” is normal when “Group” is By Total or By Year, but we focus on By Month, so this would not influence our analysis either. But still some data points of our interest have no “COVID-19 Deaths”. It makes some, though not obvious, impact on our analysis. For example, in Figure 10 of the next chapter, Wyoming and Alaska have no data to show.</p>
 <div class="cell">
+<details>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_missing</span>(SP500, <span class="at">percent =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <p><img src="data_files/figure-html/unnamed-chunk-36-1.png" class="img-fluid" width="1344"></p>
 </div>
 </div>
 <p>Some rows of NA in all columns exist. Simply removing them can solve the problem without harming our analysis.</p>
 <div class="cell">
+<details>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_missing</span>(popu, <span class="at">percent =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <p><img src="data_files/figure-html/unnamed-chunk-37-1.png" class="img-fluid" width="1344"></p>
 </div>
 </div>
 <p>One row of NA in all columns exists. The other row contains only footnote. Simply removing them can solve the problem without harming our analysis.</p>
-</section>
+
+
 </section>
 
-</main>
-<!-- /main column -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -1118,7 +1367,30 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./index.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./results.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Results</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">This book was built with <a href="https://quarto.org/">Quarto</a>.</div>
+  </div>
+</footer>
 
 
 
