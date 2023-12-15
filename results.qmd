@@ -104,39 +104,49 @@ ggplot(trend_df, aes(time, value)) +
 
 Based on Figure 1, we can observe that the COVID-19 mortality rate experienced three distinct peaks, occurring around the middle of 2020, early 2021, and late 2021. In contrast, the unemployment rate surged in the middle of 2020, coinciding with the first peak in mortality rate, but then gradually declined and stabilized, showing no significant impact from the second and third waves of the pandemic. As for the S&P 500, it also experienced a sharp decline during the first peak in mortality rate but continued to grow afterward, with no apparent influence from the subsequent waves of the pandemic. It's worth noting that in 2022, following the easing of the pandemic, the S&P 500 actually went through a period of decline, possibly due to factors unrelated to the pandemic. In summary, the chart indicates a strong negative correlation between the unemployment rate and the S&P 500, with both being notably affected by the first wave of the pandemic. However, this impact did not persist into the second or third peak periods of the pandemic, as economic conditions gradually improved and stabilized after the initial shock of the first wave.
 
-## How does the unemployment rate differ for different race, sex, age, and marital groups?
+## How does the unemployment rate differ for different race, sex, age, and marital groups in 2020 and 2023?
 
 ```{r, fig.width = 8, fig.height=5}
-UR_2023_sex_race = UR %>% filter(year == 2023) %>% 
+UR_202320_sex_race = UR %>% 
+  filter(year == 2023 | year == 2020 ) %>% 
   filter(adjusted==FALSE, sex != "Both", race != "All", age == "All") %>%
   mutate(value = as.numeric(value)) %>%
-  group_by(sex, race, mari) %>% 
+  mutate(mari=case_when(
+    mari == "Widdowed, divorced, or seperated" ~ "Widdowed,\n divorced,\n or seperated", TRUE ~ mari))%>%
+  group_by(sex, race, mari, year) %>% 
   summarise(avg = mean(value)) %>%
   rename(unemployment_rate=avg)
-
-ggplot(UR_2023_sex_race, aes(x=race, y=unemployment_rate, fill=sex)) + 
+  
+ggplot(UR_202320_sex_race, aes(x=race, y=unemployment_rate, fill=sex)) + 
   geom_bar(stat = "identity", position = "dodge") + 
-  labs(title = "Figure 2 Unemployment Rate by Race, Sex, and Marital Status in 2023") +
+  labs(title = "Figure 2 Unemployment Rate by Race, Sex, and Marital Status in 2020 and 2023") +
   ylab("Unemployment Rate (%)") + 
-  facet_wrap(~mari)
+  facet_grid(year~mari)
 ```
-From figure 2, we see that the average unemployment rate across the months in 2023 is generally lower for the Asians and Whites compared to Blacks and Latinos. For single Blacks, Latinos, and Whites, the unemployment rate for women is slightly lower than for the men. Interestingly, for single Asians, the unemployment rate for women is significantly lower than for men. However, the opposite is true for divorced Asians; the unemployment rate for divorced Asian women is more than twice as high as the unemployment rate for divorced Asian men. Meanwhile, for the other races in the same category, the disparity between men and women is much smaller. Furthermore, we can observe that the unemployment rate for married individuals in general is noticeably lower compared to to the other marital statuses. 
+
+From figure 2, we see that the average unemployment rate across the months in 2023 is generally lower for the Asians and Whites compared to Blacks and Latinos. For single Blacks, Latinos, and Whites, the unemployment rate for women is slightly lower than for the men. Interestingly, for single Asians, the unemployment rate for women is significantly lower than for men. However, the opposite is true for divorced Asians; the unemployment rate for divorced Asian women is more than twice as high as the unemployment rate for divorced Asian men. Meanwhile, for the other races in the same category, the disparity between men and women is much smaller. Furthermore, we can observe that the unemployment rate for married individuals in general is noticeably lower compared to to the other marital statuses.
+
+Compared to the year 2020, which was the year with the most severe unemployment situation, it can be observed that in 2023, regardless of marital status, male unemployment rates are worse than those of females, irrespective of the race. However, in 2020, this was the case only for Black individuals, as other races generally had higher female unemployment rates. Particularly, for married women, the difference in unemployment rates between females and males was much more unfavorable in 2020 compared to 2023. For individuals who have never been married, in 2023, male unemployment rates are worse than those of females across all races, while in 2020, this pattern was significant only among Black individuals. For individuals who are widowed, divorced, or separated, Asian males had significantly better unemployment rates than Asian females in 2023, whereas in 2020, both genders had similar rates.
 
 ```{r, fig.width = 8, fig.height=4}
-UR_2023_sex_age = UR %>% filter(year == 2023) %>% 
+UR_202023_sex_age = UR %>% filter(year == 2023|year == 2020) %>% 
   filter(adjusted==FALSE, sex != "Both", age != "All", race == "All", mari == "All") %>%
   mutate(value = as.numeric(value)) %>%
-  group_by(sex, age) %>% 
+  group_by(sex, age, year) %>% 
   mutate(age = paste(age, "yo"))%>%
   summarise(avg = mean(value)) %>%
   rename(unemployment_rate=avg)
 
-ggplot(UR_2023_sex_age, aes(x=age, y=unemployment_rate, fill=sex)) + 
+ggplot(UR_202023_sex_age, aes(x=age, y=unemployment_rate, fill=sex)) + 
   geom_bar(stat = "identity", position = "dodge") + 
-  labs(title = "Figure 3 Unemployment Rate by Age and Sex in 2023") +
-  ylab("Unemployment Rate (%)")
+  labs(title = "Figure 3 Unemployment Rate by Age and Sex in 2020 and 2023") +
+  ylab("Unemployment Rate (%)")+
+  facet_grid(year~.)
 ```
-Figure 3 examines on the average unemployment rate in 2023 for different age groups and sex. As expected, the unemployment rate is highest for youths in the 16-19 year old group and gradually decreases as age increases. The 35-44 year old age groups and older age groups have around the same unemployment rate of under 3%. In general, women have a lower unemployment rate than men and the difference is greater for the younger age groups. 
+
+Figure 3 examines on the average unemployment rate in 2023 for different age groups and sex. As expected, the unemployment rate is highest for youths in the 16-19 year old group and gradually decreases as age increases. The 35-44 year old age groups and older age groups have around the same unemployment rate of under 3%. In general, women have a lower unemployment rate than men and the difference is greater for the younger age groups.
+
+Compared to the situation in 2023, it can be observed that in 2020, there was no scenario where 'male unemployment rates, regardless of age group, were worse than females.' Specifically, in 2020, except for the 16-19 age group, female unemployment rates were worse than those of males. This trend was particularly pronounced among older age groups.
 
 ## What are the similarities and differences in trends between COVID-19 death rates and the unemployment rates across people of different sex or people with different ethnicity?
 
@@ -312,11 +322,12 @@ ggplot(URtrend4, aes(x = age, y = race)) +
   theme(legend.text = element_text(size = 25))+
   theme(legend.key.size = unit(2, "cm"))
 ```
-Compared to the peak of unemployment rate in April 2020, there has been some changes in the patterns observed for April 2023. Among 20-24-year-old males, Asians now have the lowest unemployment rate compared to other racial groups and Black people have the most severe unemployment issues. The same can be said for the 25-34 and 35-44 age groups. Among 45-54-year-old males, Latinos face the most severe unemployment issues. Among 55-64-year-old males, Asians face the most severe unemployment issues, and among males aged 65 and older, Asians also face the most severe unemployment issues. For females, we observe a similar pattern in unemployment by age and race, expect a few notable differences and a greater disparity in the unemployment rates between different groups. For example, there now appears to be a greater disparity between the Asian and White and the Black and Latino racial groups particularly in the 20-24, 25-34, and 35-44 age groups; the unemployment rate for the Asian and White groups are lower than the rate for Black and Latino groups and the difference is greater comapred to April 2020. Another notable change is in the unemployment rate of Asian females in the 45-54 and 55-64 age groups which declined significantly compared to April 2020, while the unemployment rate for Blacks in the same group increased. Latino females aged 65+ continues to face the most severe unemployment issues.  
+
+Compared to the peak of unemployment rate in April 2020, there has been some changes in the patterns observed for April 2023. Among 20-24-year-old males, Asians now have the lowest unemployment rate compared to other racial groups and Black people have the most severe unemployment issues. The same can be said for the 25-34 and 35-44 age groups. Among 45-54-year-old males, Latinos face the most severe unemployment issues. Among 55-64-year-old males, Asians face the most severe unemployment issues, and among males aged 65 and older, Asians also face the most severe unemployment issues. For females, we observe a similar pattern in unemployment by age and race, expect a few notable differences and a greater disparity in the unemployment rates between different groups. For example, there now appears to be a greater disparity between the Asian and White and the Black and Latino racial groups particularly in the 20-24, 25-34, and 35-44 age groups; the unemployment rate for the Asian and White groups are lower than the rate for Black and Latino groups and the difference is greater comapred to April 2020. Another notable change is in the unemployment rate of Asian females in the 45-54 and 55-64 age groups which declined significantly compared to April 2020, while the unemployment rate for Blacks in the same group increased. Latino females aged 65+ continues to face the most severe unemployment issues.
 
 Overall, there has been an increase in the disparity of unemployment rates across all age, sex, and racial groups in April 2023 compared to April 2020. In general, Whites and Asians tend to have the least severe unemployment issues among all racial groups.
 
-## Which state faced the most severe unemployment issue during the peak of the national unemployment rate (April 2020)?
+## Which state faced the most severe unemployment issue during the peak of the national unemployment rate (April 2020) and how does it compare to the state's COVID deaths severity at the same time?
 
 ```{r}
 state_UR = read_csv("data/state_UR.csv", show_col_types = FALSE) %>%
@@ -328,24 +339,11 @@ state_UR = read_csv("data/state_UR.csv", show_col_types = FALSE) %>%
   rename(region=state)
 ```
 
-```{r, fig.width=18, fig.height=15}
-state_choropleth(state_UR,
-                 title = "Figure 9 unemployment severity by state (April 2020)",legend = "Unemployment Rate (%)") +
-theme(plot.title = element_text(size = 30))+
-theme(legend.text = element_text(size = 20))+
-theme(legend.title = element_text(size = 20)) + 
-theme(legend.key.size = unit(1, "cm"))
-```
-
-From Figure 9, we can observe that in April 2020, the states of Nevada, Illinois, Michigan, Indiana, Hawaii, and Rhode Island had the most severe unemployment issues. Overall, the unemployment situation on the East and West coasts appeared to be more severe compared to the central inland regions.
-
-## Which state faced the most severe pandemic-related death issue during the peak of the national COVID death rate (January 2021)?
-
 ```{r}
 state_COVID = read_csv('data/Provisional_COVID-19_Deaths_by_Sex_and_Age.csv',show_col_types = FALSE) %>%
   filter(Group=="By Month", State!="United States", State!="District of Columbia", State!="Puerto Rico", State!="New York City", Sex=="All Sexes", `Age Group`=="All Ages")%>%
   mutate(time = mdy(`Start Date`)) %>%
-  filter(time == ymd('2021-01-01')) %>%
+  filter(time == ymd('2020-04-01')) %>%
   mutate(State = tolower(State))%>%
   select(State, 'COVID-19 Deaths')%>%
   rename(region = State, value='COVID-19 Deaths')
@@ -353,8 +351,8 @@ state_COVID = read_csv('data/Provisional_COVID-19_Deaths_by_Sex_and_Age.csv',sho
 
 ```{r}
 popu = read_excel("data/PopulationReport.xlsx") %>% 
-  select(Name, `Pop. 2022`) %>%
-  rename(region=Name, population=`Pop. 2022`)%>%
+  select(Name, `Pop. 2020`) %>%
+  rename(region=Name, population=`Pop. 2020`)%>%
   filter(region!="United States", region!="Puerto Rico", region!="District of Columbia")%>%
   mutate(region = tolower(region))
 popu = popu %>% slice(1:(n() - 1))
@@ -368,12 +366,83 @@ state_DR = state_COVID %>%
 ```
 
 ```{r, fig.width=18, fig.height=15}
-state_choropleth(state_DR,
-                 title = "Figure 10 COVID deaths severity by state (January 2021)",legend = "COVID Death Rate (per 100,000)") +
+state_choropleth(state_UR,
+                 title = "Figure 9 unemployment severity by state (April 2020)",legend = "Unemployment Rate (%)") +
 theme(plot.title = element_text(size = 30))+
 theme(legend.text = element_text(size = 20))+
 theme(legend.title = element_text(size = 20)) + 
 theme(legend.key.size = unit(1, "cm"))
 ```
 
-From Figure 10, we can observe that in January 2021, the states of Arizona, California, Oklahoma, Alabama, Mississippi, and West Virginia had the most severe COVID-19 situation in terms of deaths. Overall, the COVID-19 death situation in the southern states appeared to be more severe compared to the northern regions.
+```{r, fig.width=18, fig.height=15}
+state_choropleth(state_DR,
+                 title = "Figure 10 COVID deaths severity by state (April 2020)",legend = "COVID Death Rate (per 100,000)") +
+theme(plot.title = element_text(size = 30))+
+theme(legend.text = element_text(size = 20))+
+theme(legend.title = element_text(size = 20)) + 
+theme(legend.key.size = unit(1, "cm"))
+```
+
+From Figure 9, we can observe that in April 2020, the states of Nevada, Illinois, Michigan, Indiana, Hawaii, and Rhode Island had the most severe unemployment issues. Overall, the unemployment situation on the East and West coasts appeared to be more severe compared to the central inland regions.
+
+When compared to Figure 10, it becomes evident that the majority of states with the most severe unemployment situations also exhibit a relatively severe COVID deaths severity. Hawaii is an exception in this regard, as it experiences significant unemployment, but its COVID deaths severity is quite mild. This aligns with our intuition, as Hawaii heavily relies on the tourism industry. With the global border closures due to the pandemic, the tourism sector has suffered a severe blow, leading to a high unemployment rate in Hawaii. However, this situation is not directly related to the local severity of the pandemic but rather connected to global border policies adopted by various countries.
+
+## Which state faced the most severe pandemic-related death issue during the peak of the national COVID death rate (January 2021) and how does it compare to the state's unemployment severity at the same time?
+
+```{r}
+state_COVID = read_csv('data/Provisional_COVID-19_Deaths_by_Sex_and_Age.csv',show_col_types = FALSE) %>%
+  filter(Group=="By Month", State!="United States", State!="District of Columbia", State!="Puerto Rico", State!="New York City", Sex=="All Sexes", `Age Group`=="All Ages")%>%
+  mutate(time = mdy(`Start Date`)) %>%
+  filter(time == ymd('2021-01-01')) %>%
+  mutate(State = tolower(State))%>%
+  select(State, 'COVID-19 Deaths')%>%
+  rename(region = State, value='COVID-19 Deaths')
+```
+
+```{r}
+popu = read_excel("data/PopulationReport.xlsx") %>% 
+  select(Name, `Pop. 2020`) %>%
+  rename(region=Name, population=`Pop. 2020`)%>%
+  filter(region!="United States", region!="Puerto Rico", region!="District of Columbia")%>%
+  mutate(region = tolower(region))
+popu = popu %>% slice(1:(n() - 1))
+```
+
+```{r}
+state_DR = state_COVID %>%
+  left_join(popu, by = "region") %>%
+  mutate(value = (value/population)*100000)%>%
+  select(region, value)
+```
+
+```{r}
+state_UR = read_csv("data/state_UR.csv", show_col_types = FALSE) %>%
+  mutate(time = ym(paste(year, month, sep = "-"))) %>%
+  filter(time == ymd('2021-01-01')) %>%
+  select(state, value) %>%
+  mutate(state = tolower(state))%>%
+  filter(state!="district of columbia", state!="puerto rico")%>%
+  rename(region=state)
+```
+
+```{r, fig.width=18, fig.height=15}
+state_choropleth(state_DR,
+                 title = "Figure 11 COVID deaths severity by state (January 2021)",legend = "COVID Death Rate (per 100,000)") +
+theme(plot.title = element_text(size = 30))+
+theme(legend.text = element_text(size = 20))+
+theme(legend.title = element_text(size = 20)) + 
+theme(legend.key.size = unit(1, "cm"))
+```
+
+```{r, fig.width=18, fig.height=15}
+state_choropleth(state_UR,
+                 title = "Figure 12 unemployment severity by state (January 2021)",legend = "Unemployment Rate (%)") +
+theme(plot.title = element_text(size = 30))+
+theme(legend.text = element_text(size = 20))+
+theme(legend.title = element_text(size = 20)) + 
+theme(legend.key.size = unit(1, "cm"))
+```
+
+From Figure 11, we can observe that in January 2021, the states of Arizona, California, Oklahoma, Alabama, Mississippi, Tennessee, and South Carolina had the most severe COVID-19 situation in terms of deaths. Overall, the COVID-19 death situation in the southern states appeared to be more severe compared to the northern regions.
+
+When compared to Figure 12, we can observe that in those Southeastern states where the COVID-19 pandemic is more severe, the unemployment situation is relatively less severe. Conversely, in states like Washington and Oregon, where the pandemic is less severe, the unemployment situation appears to be notably more severe.
