@@ -754,7 +754,7 @@ state_COVID = state_COVID %>%
 plot_missing(state_COVID, percent = FALSE)
 ```
 
-As we will not use "Total Deaths", "Pneumonia Deaths", "Pneumonia and COVID-19 Deaths", "Influenza Deaths", "Pneumonia, Influenza, or COVID-19 Deaths", "Footnote", NAs in these columns have no influence on our analysis. Lack of "Year" and "Month" is normal when "Group" is By Total or By Year, but we focus on By Month, so this would not influence our analysis either. But still some data points of our interest have no "COVID-19 Deaths". It makes some, though not obvious, impact on our analysis. For example, in Figure 12(?) of the next chapter, Wyoming and Alaska have no data to show.
+As we will not use "Total Deaths", "Pneumonia Deaths", "Pneumonia and COVID-19 Deaths", "Influenza Deaths", "Pneumonia, Influenza, or COVID-19 Deaths", "Footnote", NAs in these columns have no influence on our analysis. Lack of "Year" and "Month" is normal when "Group" is By Total or By Year, but we focus on By Month, so this would not influence our analysis either. But still some data points of our interest have no "COVID-19 Deaths". It makes some, though not obvious, impact on our analysis. For example, in Figure 10 of the next chapter, Wyoming and Alaska have no data to show.
 
 ```{r}
 plot_missing(SP500, percent = FALSE)
