@@ -739,10 +739,6 @@ plot_missing(COVID, percent = FALSE)
 No missing data in Monthly US National COVID-19 Death Rate Data.
 
 ```{r}
-colnames(state_COVID)
-```
-
-```{r}
 state_COVID = state_COVID %>%
   rename(updateD="Data As Of", Start="Start Date", End="End Date", Age="Age Group", COVID="COVID-19 Deaths", Total="Total Deaths", Pneu="Pneumonia Deaths", PneuCOVID="Pneumonia and COVID-19 Deaths", Infl="Influenza Deaths", All="Pneumonia, Influenza, or COVID-19 Deaths")
 plot_missing(state_COVID, percent = FALSE)
