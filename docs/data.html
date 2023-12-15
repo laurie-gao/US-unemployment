@@ -1076,56 +1076,32 @@ Attaching package: 'jsonlite'</code></pre>
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(state_COVID)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre><code> [1] "Data As Of"                              
- [2] "Start Date"                              
- [3] "End Date"                                
- [4] "Group"                                   
- [5] "Year"                                    
- [6] "Month"                                   
- [7] "State"                                   
- [8] "Sex"                                     
- [9] "Age Group"                               
-[10] "COVID-19 Deaths"                         
-[11] "Total Deaths"                            
-[12] "Pneumonia Deaths"                        
-[13] "Pneumonia and COVID-19 Deaths"           
-[14] "Influenza Deaths"                        
-[15] "Pneumonia, Influenza, or COVID-19 Deaths"
-[16] "Footnote"                                </code></pre>
-</div>
-</div>
-<div class="cell">
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>state_COVID <span class="ot">=</span> state_COVID <span class="sc">%&gt;%</span></span>
-<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">updateD=</span><span class="st">"Data As Of"</span>, <span class="at">Start=</span><span class="st">"Start Date"</span>, <span class="at">End=</span><span class="st">"End Date"</span>, <span class="at">Age=</span><span class="st">"Age Group"</span>, <span class="at">COVID=</span><span class="st">"COVID-19 Deaths"</span>, <span class="at">Total=</span><span class="st">"Total Deaths"</span>, <span class="at">Pneu=</span><span class="st">"Pneumonia Deaths"</span>, <span class="at">PneuCOVID=</span><span class="st">"Pneumonia and COVID-19 Deaths"</span>, <span class="at">Infl=</span><span class="st">"Influenza Deaths"</span>, <span class="at">All=</span><span class="st">"Pneumonia, Influenza, or COVID-19 Deaths"</span>)</span>
-<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_missing</span>(state_COVID, <span class="at">percent =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>state_COVID <span class="ot">=</span> state_COVID <span class="sc">%&gt;%</span></span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">updateD=</span><span class="st">"Data As Of"</span>, <span class="at">Start=</span><span class="st">"Start Date"</span>, <span class="at">End=</span><span class="st">"End Date"</span>, <span class="at">Age=</span><span class="st">"Age Group"</span>, <span class="at">COVID=</span><span class="st">"COVID-19 Deaths"</span>, <span class="at">Total=</span><span class="st">"Total Deaths"</span>, <span class="at">Pneu=</span><span class="st">"Pneumonia Deaths"</span>, <span class="at">PneuCOVID=</span><span class="st">"Pneumonia and COVID-19 Deaths"</span>, <span class="at">Infl=</span><span class="st">"Influenza Deaths"</span>, <span class="at">All=</span><span class="st">"Pneumonia, Influenza, or COVID-19 Deaths"</span>)</span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_missing</span>(state_COVID, <span class="at">percent =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<p><img src="data_files/figure-html/unnamed-chunk-35-1.png" class="img-fluid" width="1344"></p>
+<p><img src="data_files/figure-html/unnamed-chunk-34-1.png" class="img-fluid" width="1344"></p>
 </div>
 </div>
 <p>As we will not use “Total Deaths”, “Pneumonia Deaths”, “Pneumonia and COVID-19 Deaths”, “Influenza Deaths”, “Pneumonia, Influenza, or COVID-19 Deaths”, “Footnote”, NAs in these columns have no influence on our analysis. Lack of “Year” and “Month” is normal when “Group” is By Total or By Year, but we focus on By Month, so this would not influence our analysis either. But still some data points of our interest have no “COVID-19 Deaths”. It makes some, though not obvious, impact on our analysis. For example, in Figure 10 of the next chapter, Wyoming and Alaska have no data to show.</p>
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_missing</span>(SP500, <span class="at">percent =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_missing</span>(SP500, <span class="at">percent =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<p><img src="data_files/figure-html/unnamed-chunk-36-1.png" class="img-fluid" width="1344"></p>
+<p><img src="data_files/figure-html/unnamed-chunk-35-1.png" class="img-fluid" width="1344"></p>
 </div>
 </div>
 <p>Some rows of NA in all columns exist. Simply removing them can solve the problem without harming our analysis.</p>
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_missing</span>(popu, <span class="at">percent =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_missing</span>(popu, <span class="at">percent =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<p><img src="data_files/figure-html/unnamed-chunk-37-1.png" class="img-fluid" width="1344"></p>
+<p><img src="data_files/figure-html/unnamed-chunk-36-1.png" class="img-fluid" width="1344"></p>
 </div>
 </div>
 <p>One row of NA in all columns exists. The other row contains only footnote. Simply removing them can solve the problem without harming our analysis.</p>
