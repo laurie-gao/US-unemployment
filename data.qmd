@@ -1,9 +1,3 @@
----
-title: "data"
-format: html
-editor: visual
----
-
 # Data
 
 ## Technical description
