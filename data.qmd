@@ -39,7 +39,7 @@ The data set is in the following format:
     -   Note that BLS does not collect unemployment rate for all combinations of all demographic features! (For example, unadjusted unemployment rate data for 20-to-24-year-old asian men, whose marital status is "Widdowed, divorced, or seperated" doesn't exist.)
 
 ```{r setup}
-knitr::opts_chunk$set(warning = FALSE)
+knitr::opts_chunk$set(warning = FALSE, message = FALSE)
 knitr::opts_chunk$set(fig.width=14, fig.height=16)
 ```
 
@@ -85,9 +85,7 @@ all_df = all_df %>%
   filter(race_code %in% c(0,1,2,3,4)) %>%
   filter(periodicity_code=="M") 
 all_df$series_id <- trimws(all_df$series_id)
-```
 
-```{r}
 n <- nrow(all_df) 
 size <- ceiling(n / 12) 
 
@@ -97,9 +95,7 @@ groups <- groups[1:n]
 split_dfs <- split(all_df, groups)
 list1 <- split_dfs[1:4]
 list2 <- split_dfs[5:12]
-```
 
-```{r}
 #install.packages("devtools") 
 #devtools::install_github("mikeasilva/blsAPI") 
 library(rjson)
@@ -118,9 +114,7 @@ data <- data.frame(
   marital = character(),
   stringsAsFactors = FALSE
 )
-```
 
-```{r}
 ## Process results
 apiDF <- function(data,series_title,sexs_code,race_code,ages_code,mari_code) {
   sexs_value <- if (sexs_code == 1) {
@@ -230,9 +224,7 @@ apiDF <- function(data,series_title,sexs_code,race_code,ages_code,mari_code) {
           mutate(adjusted=adjusted, title=series_title, sex=sexs_value, race=race_value, age=ages_value, mari=mari_value)
   return(df)
 }
-```
 
-```{r}
 library(jsonlite)
 for (i in 1:4) {
   current_df <- list1[[i]]
@@ -249,9 +241,7 @@ for (i in 1:4) {
   data<- rbind(data, single_data)
   }
 }
-```
 
-```{r}
 for (i in 1:8) {
   current_df <- list2[[i]]
   ## Pull the data via the API
@@ -268,18 +258,14 @@ for (i in 1:8) {
   data<- rbind(data, single_data)
   }
 }
-```
 
-```{r}
 library(readr)
 
 unadj_UR = data %>%
   mutate(month = periodName) %>%
   filter(age=="All"|age=="16-19"|age=="20-24"|age=="25-34"|age=="35-44"|age=="45-54"|age=="55-64"|age=="65-") %>%
   select(year, month = periodName, value, adjusted, sex, race, age, mari)
-```
 
-```{r}
 library(readr)
 library(dplyr)
 library(stringr)
@@ -321,9 +307,7 @@ all_df = all_df %>%
   filter(race_code %in% c(0,1,2,3,4)) %>%
   filter(periodicity_code=="M") 
 all_df$series_id <- trimws(all_df$series_id)
-```
 
-```{r}
 n <- nrow(all_df) 
 size <- ceiling(n / 12) 
 
@@ -333,9 +317,7 @@ groups <- groups[1:n]
 split_dfs <- split(all_df, groups)
 list1 <- split_dfs[1:4]
 list2 <- split_dfs[5:12]
-```
 
-```{r}
 #install.packages("devtools") 
 #devtools::install_github("mikeasilva/blsAPI") 
 library(rjson)
@@ -354,9 +336,7 @@ data <- data.frame(
   marital = character(),
   stringsAsFactors = FALSE
 )
-```
 
-```{r}
 library(jsonlite)
 for (i in 1:4) {
   current_df <- list1[[i]]
@@ -373,9 +353,7 @@ for (i in 1:4) {
   data<- rbind(data, single_data)
   }
 }
-```
 
-```{r}
 for (i in 1:8) {
   current_df <- list2[[i]]
   ## Pull the data via the API
@@ -392,21 +370,15 @@ for (i in 1:8) {
   data<- rbind(data, single_data)
   }
 }
-```
 
-```{r}
 library(readr)
 
 seas_UR = data %>%
   mutate(month = periodName) %>% 
   select(year, month, value, adjusted, sex, race, age, mari)
-```
 
-```{r}
 UR = bind_rows(unadj_UR, seas_UR)
-```
 
-```{r}
 write_csv(UR, "data/UR.csv")
 head(UR)
 ```
@@ -449,9 +421,7 @@ all_df = all_df %>%
   mutate(state_code = as.character(state_code)) %>%
   mutate(state_code = str_pad(state_code, width = 2, pad = "0"))%>%
   mutate(series_id = paste('LAUST', state_code,'0000000000003', sep=''))
-```
 
-```{r}
 n <- nrow(all_df) 
 size <- ceiling(n / 2) 
 
@@ -461,9 +431,7 @@ groups <- groups[1:n]
 split_dfs <- split(all_df, groups)
 list1 <- split_dfs[1]
 list2 <- split_dfs[2]
-```
 
-```{r}
 #install.packages("devtools") 
 #devtools::install_github("mikeasilva/blsAPI") 
 library(rjson)
@@ -478,9 +446,7 @@ data <- data.frame(
   value = character(),
   stringsAsFactors = FALSE
 )
-```
 
-```{r}
 library(jsonlite)
 current_df <- list1[[1]]
 ## Pull the data via the API
@@ -502,9 +468,7 @@ for (j in 1:nrow(current_df)) {
 )
 data<- rbind(data, single_data)
 }
-```
 
-```{r}
 current_df <- list2[[1]]
 ## Pull the data via the API
 payload <- list(
@@ -525,9 +489,7 @@ for (j in 1:nrow(current_df)) {
 )
 data<- rbind(data, single_data)
 }
-```
 
-```{r}
 library(readr)
 
 state_UR = data %>%
@@ -535,9 +497,6 @@ state_UR = data %>%
   select(year, month = periodName, state, value)
     
 write_csv(state_UR, "data/state_UR.csv")
-```
-
-```{r}
 head(state_UR)
 ```
 
@@ -572,9 +531,6 @@ The data set is in the following format:
 
 ```{r}
 COVID = read_csv('data/Monthly_COVID-19_Death_Rates_per_100_000_Population_by_Age_Group__Race_and_Ethnicity__Sex__and_Region.csv', show_col_types = FALSE)
-```
-
-```{r}
 head(COVID)
 ```
 
@@ -615,9 +571,6 @@ The data set is in the following format:
 
 ```{r}
 state_COVID = read_csv('data/Provisional_COVID-19_Deaths_by_Sex_and_Age.csv',show_col_types = FALSE)
-```
-
-```{r}
 head(state_COVID)
 ```
 
@@ -645,9 +598,6 @@ The data set is in the following format:
 ```{r}
 library(readxl)
 SP500 = read_excel("data/PerformanceGraphExport.xls", skip=6)
-```
-
-```{r}
 head(SP500)
 ```
 
@@ -674,9 +624,6 @@ The data set is in the following format:
 ```{r}
 library(readxl)
 popu = read_excel("data/PopulationReport.xlsx")
-```
-
-```{r}
 head(popu)
 ```
 
@@ -739,7 +686,6 @@ plot_missing(COVID, percent = FALSE)
 ```
 
 No missing data in Monthly US National COVID-19 Death Rate Data.
-
 
 ```{r}
 state_COVID = state_COVID %>%
