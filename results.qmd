@@ -1,9 +1,3 @@
----
-title: "results"
-format: html
-editor: visual
----
-
 # Results
 
 Our project focuses on unemployment rates during COVID-19 pandemic. According to [WHO](https://www.who.int/europe/emergencies/situations/covid-19), COVID-19 was declared a Public Health Emergency of International Concern (PHEIC) on 30 January 2020 and the Public Health Emergency of International Concern (PHEIC) was lifted on 5 May 2023. Therefore, this project will use data from January 2020 to May 2023 to explore the potential impact of the pandemic on unemployment rates.
