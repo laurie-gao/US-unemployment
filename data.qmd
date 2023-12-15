@@ -2,7 +2,7 @@
 
 ## Technical description
 
-### **1. Monthly US National Unemployment Rate Data**
+### **Monthly US National Unemployment Rate Data**
 
 *Data Source*
 
@@ -383,7 +383,7 @@ write_csv(UR, "data/UR.csv")
 head(UR)
 ```
 
-### **2. Monthly US State Unemployment Rate Data**
+### **Monthly US State Unemployment Rate Data**
 
 *Data Source*
 
@@ -500,7 +500,7 @@ write_csv(state_UR, "data/state_UR.csv")
 head(state_UR)
 ```
 
-### **3. Monthly US National COVID-19 Death Rate Data**
+### **Monthly US National COVID-19 Death Rate Data**
 
 *Data Source*
 
@@ -534,7 +534,7 @@ COVID = read_csv('data/Monthly_COVID-19_Death_Rates_per_100_000_Population_by_Ag
 head(COVID)
 ```
 
-### **4. Monthly US States COVID-19 Death Data**
+### **Monthly US States COVID-19 Death Data**
 
 *Data Source*
 
@@ -574,7 +574,7 @@ state_COVID = read_csv('data/Provisional_COVID-19_Deaths_by_Sex_and_Age.csv',sho
 head(state_COVID)
 ```
 
-### **5. S&P 500 Data**
+### **S&P 500 Data**
 
 *Data Source*
 
@@ -601,7 +601,7 @@ SP500 = read_excel("data/PerformanceGraphExport.xls", skip=6)
 head(SP500)
 ```
 
-### **6. State Population Data**
+### **State Population Data**
 
 *Data Source*
 
